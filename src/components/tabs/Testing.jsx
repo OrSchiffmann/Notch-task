@@ -1,5 +1,14 @@
 import { Summary, SectionHeader, P, H2, H3, NumberedItem, WarnCard, Table } from '../Shared'
 
+const font = "'Calibri', 'Trebuchet MS', Arial, sans-serif"
+
+const Yes = () => <span style={{ color: '#F06A22', fontWeight: 700, fontSize: 15 }}>✓</span>
+
+function Tag({ children, tone = 'gray' }) {
+  const c = tone === 'amber' ? '#B45309' : '#9CA3AF'
+  return <span style={{ fontSize: 12, color: c, fontStyle: tone === 'amber' ? 'normal' : 'italic', fontWeight: tone === 'amber' ? 600 : 400, fontFamily: font }}>{children}</span>
+}
+
 export default function Testing() {
   return (
     <div>
@@ -55,11 +64,11 @@ export default function Testing() {
       <Table
         headers={['Channel', 'Stage testing', 'Bullet UAT', 'Pentest + load', 'Prod validation', 'PVT', 'Go-live']}
         rows={[
-          ['WhatsApp V0',   '✓', '✓', 'Light', '✓', 'Recommended', '✓'],
-          ['WhatsApp Full', '✓', '✓', '✓',     '✓', 'Recommended', '✓'],
-          ['App',           '✓', '✓', '✓',     '✓', 'Open question', '✓'],
-          ['Voice',         '✓', '✓', '✓',     '✓', 'Open question', '✓'],
-          ['Web',           '✓', '✓', 'Light', '✓', 'Optional',     '✓'],
+          ['WhatsApp V0',   <Yes />, <Yes />, <Tag>Light</Tag>, <Yes />, <Tag>Recommended</Tag>, <Yes />],
+          ['WhatsApp Full', <Yes />, <Yes />, <Yes />,          <Yes />, <Tag>Recommended</Tag>, <Yes />],
+          ['App',           <Yes />, <Yes />, <Yes />,          <Yes />, <Tag tone="amber">Open question</Tag>, <Yes />],
+          ['Voice',         <Yes />, <Yes />, <Yes />,          <Yes />, <Tag tone="amber">Open question</Tag>, <Yes />],
+          ['Web',           <Yes />, <Yes />, <Tag>Light</Tag>, <Yes />, <Tag>Optional</Tag>, <Yes />],
         ]}
       />
 

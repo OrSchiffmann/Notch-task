@@ -1,5 +1,32 @@
 import { Summary, SectionHeader, P, H2, Card, WarnCard, Table } from '../Shared'
 
+const font = "'Calibri', 'Trebuchet MS', Arial, sans-serif"
+
+function FlowNode({ children, tone }) {
+  const map = {
+    orange: { bg: '#FFF4EE', border: '#FAD2BD', color: '#C2410C' },
+    amber:  { bg: '#FFFBEB', border: '#FCE3B0', color: '#B45309' },
+    blue:   { bg: '#EFF4FE', border: '#C7D7F5', color: '#1D4ED8' },
+  }
+  const c = map[tone] || map.blue
+  return (
+    <div style={{
+      background: c.bg, border: `1px solid ${c.border}`, color: c.color,
+      borderRadius: 8, padding: '9px 14px', fontSize: 13, fontWeight: 700,
+      fontFamily: font, whiteSpace: 'nowrap',
+    }}>{children}</div>
+  )
+}
+
+function FlowArrow({ label, dir = 'right' }) {
+  return (
+    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 2, padding: '0 2px' }}>
+      <span style={{ fontSize: 10, color: '#9CA3AF', fontFamily: font, whiteSpace: 'nowrap' }}>{label}</span>
+      <span style={{ fontSize: 15, color: '#C0C4CC', lineHeight: 1 }}>{dir === 'left' ? '←' : '→'}</span>
+    </div>
+  )
+}
+
 export default function OnPrem() {
   return (
     <div>
@@ -46,15 +73,22 @@ export default function OnPrem() {
         Notch packages a binary and uploads it to a secure intermediate artifact store. Bullet's pipeline <strong style={{ color: 'var(--color-text)' }}>pulls</strong> from there, runs its security scans, and deploys. Notch never holds push access into Bullet's environment. This is a smaller attack surface and it leaves Bullet in full control of what enters and when - which is the only model an insurer's security team will sign off on.
       </P>
 
-      <div className="flex items-center flex-wrap justify-center gap-2 mb-6 p-4 rounded-lg" style={{ background: 'var(--color-surface)', fontSize: 13, color: 'var(--color-text-dim)' }}>
-        <span style={{ color: 'var(--color-accent)', fontWeight: 700 }}>Notch</span>
-        <span>— push →</span>
-        <span style={{ color: 'var(--color-warn)', padding: '2px 8px', background: 'var(--color-warn-soft)', borderRadius: 4, fontWeight: 600 }}>artifact store</span>
-        <span>← pull —</span>
-        <span style={{ color: 'var(--color-track1)', fontWeight: 700 }}>Bullet pipeline</span>
-        <span>— scan + deploy →</span>
-        <span style={{ color: 'var(--color-track1)', fontWeight: 700 }}>environments</span>
+      <div style={{
+        display: 'flex', alignItems: 'center', flexWrap: 'wrap', justifyContent: 'center',
+        gap: 8, marginBottom: 12, padding: '20px 16px',
+        background: '#FBFBFC', border: '1px solid #ECEEF2', borderRadius: 12,
+      }}>
+        <FlowNode tone="orange">Notch</FlowNode>
+        <FlowArrow label="push" dir="right" />
+        <FlowNode tone="amber">Artifact store</FlowNode>
+        <FlowArrow label="Bullet pulls" dir="left" />
+        <FlowNode tone="blue">Bullet pipeline</FlowNode>
+        <FlowArrow label="scan + deploy" dir="right" />
+        <FlowNode tone="blue">Environments</FlowNode>
       </div>
+      <p style={{ fontSize: 12.5, color: '#9CA3AF', textAlign: 'center', marginBottom: 28, fontFamily: font }}>
+        The only arrow reaching Bullet's side is the pull they initiate. Notch never pushes in.
+      </p>
 
       <H2>Self-hosted LLM</H2>
       <P>

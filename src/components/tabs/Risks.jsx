@@ -1,5 +1,23 @@
 import { Summary, SectionHeader, P, H2, H3, Table, NumberedItem, WarnCard, Card } from '../Shared'
 
+const font = "'Calibri', 'Trebuchet MS', Arial, sans-serif"
+
+function Sev({ level }) {
+  const map = {
+    Critical: { bg: '#FEF2F2', border: '#FECACA', color: '#B91C1C' },
+    High:     { bg: '#FFF7ED', border: '#FED7AA', color: '#C2410C' },
+    Medium:   { bg: '#F3F4F6', border: '#E5E7EB', color: '#6B7280' },
+  }
+  const c = map[level]
+  return (
+    <span style={{
+      display: 'inline-block', background: c.bg, border: `1px solid ${c.border}`, color: c.color,
+      borderRadius: 999, padding: '2px 10px', fontSize: 11, fontWeight: 700,
+      letterSpacing: '0.04em', textTransform: 'uppercase', fontFamily: font, whiteSpace: 'nowrap',
+    }}>{level}</span>
+  )
+}
+
 export default function Risks() {
   return (
     <div>
@@ -39,16 +57,16 @@ export default function Risks() {
       <Table
         headers={['Dependency', 'Needed by', 'Impact if missed', 'Risk level if missed']}
         rows={[
-          ['DevOps pipeline access', 'Before Week 1', 'Workshop 1 cannot start. First gate in the entire project.', '⭐⭐⭐ Critical'],
-          ['Swagger specs - all internal APIs', 'Before Week 2', 'Mock-first development blocked. Developers idle.', '⭐⭐⭐ Critical'],
-          ['Network reachability confirmation per API', 'Before Week 3', 'Integration phase blocked. Discovered late = rework.', '⭐⭐⭐ Critical'],
-          ['Existing flow and intent inventory', 'Before Week 2', 'Cannot define V0 scope (top intents for FAQ).', '⭐⭐ High'],
-          ['Swagger specs - 3rd-party integrations (Glassix, auth)', 'Before Week 3', 'Flow A (Glassix) and Flow C (auth) blocked.', '⭐⭐ High'],
-          ['Named Bullet Implementation Engineer', 'At kickoff', 'No single coordination point. Access requests have no owner.', '⭐⭐ High'],
-          ['Security toolchain list', 'Before Week 1', 'Cannot pre-scan binaries. First handoff may fail.', '⭐⭐ High'],
-          ['GPU / infra capacity confirmed for LLM', 'Before Week 2', 'LLM deployment spec cannot be finalized. Procurement blocker.', '⭐ Medium'],
-          ['Policy and claims data structures', 'Before Week 4', 'Flow C connector design blocked.', '⭐ Medium'],
-          ['Developer access to Bullet dev environment', 'Before Week 6', 'Real integration phase blocked. Only impacts if mock dev is done.', '⭐ Medium'],
+          ['DevOps pipeline access', 'Before Week 1', 'Workshop 1 cannot start. First gate in the entire project.', <Sev level="Critical" />],
+          ['Swagger specs - all internal APIs', 'Before Week 2', 'Mock-first development blocked. Developers idle.', <Sev level="Critical" />],
+          ['Network reachability confirmation per API', 'Before Week 3', 'Integration phase blocked. Discovered late = rework.', <Sev level="Critical" />],
+          ['Existing flow and intent inventory', 'Before Week 2', 'Cannot define V0 scope (top intents for FAQ).', <Sev level="High" />],
+          ['Swagger specs - 3rd-party integrations (Glassix, auth)', 'Before Week 3', 'Flow A (Glassix) and Flow C (auth) blocked.', <Sev level="High" />],
+          ['Named Bullet Implementation Engineer', 'At kickoff', 'No single coordination point. Access requests have no owner.', <Sev level="High" />],
+          ['Security toolchain list', 'Before Week 1', 'Cannot pre-scan binaries. First handoff may fail.', <Sev level="High" />],
+          ['GPU / infra capacity confirmed for LLM', 'Before Week 2', 'LLM deployment spec cannot be finalized. Procurement blocker.', <Sev level="Medium" />],
+          ['Policy and claims data structures', 'Before Week 4', 'Flow C connector design blocked.', <Sev level="Medium" />],
+          ['Developer access to Bullet dev environment', 'Before Week 6', 'Real integration phase blocked. Only impacts if mock dev is done.', <Sev level="Medium" />],
         ]}
       />
 
