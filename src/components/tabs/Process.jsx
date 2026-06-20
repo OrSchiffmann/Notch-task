@@ -9,12 +9,12 @@ function CadenceDiagram() {
     <div className="mb-8 p-5 rounded-lg border" style={{ background: 'var(--color-surface-2)', borderColor: 'var(--color-border)' }}>
       <div className="grid grid-cols-2 gap-4 mb-4">
         <div style={box({ borderColor: 'var(--color-track1)' })}>
-          <p style={{ fontFamily: 'var(--font-mono)', fontSize: 10, color: 'var(--color-track1)', marginBottom: 4 }}>WEEKLY</p>
-          DevOps track sync
+          <p style={{ fontSize: 10, fontWeight: 700, letterSpacing: '0.08em', color: 'var(--color-track1)', marginBottom: 4 }}>WEEKLY · INTERNAL</p>
+          DevOps project sync
         </div>
         <div style={box({ borderColor: 'var(--color-track2)' })}>
-          <p style={{ fontFamily: 'var(--font-mono)', fontSize: 10, color: 'var(--color-track2)', marginBottom: 4 }}>WEEKLY</p>
-          Development track sync
+          <p style={{ fontSize: 10, fontWeight: 700, letterSpacing: '0.08em', color: 'var(--color-track2)', marginBottom: 4 }}>WEEKLY · INTERNAL</p>
+          Product project sync
         </div>
       </div>
 

@@ -37,6 +37,12 @@ h1, h2, h3, h4, h5, p, li, td, th, span, button, div, a, em, strong {
   font-family: var(--font-main) !important;
 }
 
+@media (max-width: 1023px) {
+  .main-pad {
+    padding: 72px 20px 64px !important;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
