@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(Expand-Archive -Path \"files.zip\" -DestinationPath \".\" -Force)",
+      "PowerShell(Expand-Archive -Path \"C:\\\\Users\\\\Dvirs\\\\Notch\\\\files.zip\" -DestinationPath \"C:\\\\Users\\\\Dvirs\\\\Notch\" -Force)",
+      "Bash(tar -xzf \"C:/Users/Dvirs/Notch/notch-site.tar.gz\" -C \"C:/Users/Dvirs/Notch/\")"
+    ]
+  }
+}
