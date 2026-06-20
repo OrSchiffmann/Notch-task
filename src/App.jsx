@@ -9,6 +9,7 @@ import MvpDod from './components/tabs/MvpDod'
 import Risks from './components/tabs/Risks'
 import Kickoff from './components/tabs/Kickoff'
 import Process from './components/tabs/Process'
+import LaunchBeyond from './components/tabs/LaunchBeyond'
 
 const TABS = [
   { id: 'cover',       label: 'Cover',            component: Cover },
@@ -21,6 +22,7 @@ const TABS = [
   { id: 'risks',       label: 'Risks',             component: Risks },
   { id: 'kickoff',     label: 'Kickoff',           component: Kickoff },
   { id: 'process',     label: 'Process',           component: Process },
+  { id: 'launch',      label: 'Launch & Beyond',   component: LaunchBeyond },
 ]
 
 const font = "'Calibri', 'Trebuchet MS', Arial, sans-serif"
@@ -66,10 +68,15 @@ export default function App() {
           padding: '16px 40px 0',
           display: 'flex', alignItems: 'baseline', gap: 12,
         }}>
-          <span style={{ fontSize: 18, fontWeight: 700, color: '#111827', letterSpacing: '-0.3px' }}>
-            notch <span style={{ color: '#0D9488' }}>×</span> Bullet
+          <img
+            src="https://cdn.prod.website-files.com/68cac6933ac8c19f61664f9e/69ce6e302aef1dd8db97038d_new%20notch%20logo.svg"
+            alt="Notch"
+            style={{ height: 24, display: 'inline-block' }}
+          />
+          <span style={{ fontSize: 18, fontWeight: 700, color: '#9CA3AF', letterSpacing: '-0.3px', marginLeft: 4 }}>
+            <span style={{ color: '#0D9488' }}>×</span> Bullet
           </span>
-          <span style={{ fontSize: 13, color: '#9CA3AF', fontWeight: 400 }}>
+          <span style={{ fontSize: 13, color: '#9CA3AF', fontWeight: 400, marginLeft: 8 }}>
             Project Kickoff Plan
           </span>
         </div>

@@ -5,14 +5,14 @@ export default function Cover() {
     <div>
       <SectionHeader eyebrow="NOTCH × BULLET" title="The deployment that opens regulated markets" />
       <Summary>
-        Bullet is notch's first on-prem insurance deployment, and also a notch investor. Delivering here isn't just one customer win - it's the proof point that unlocks banking, healthcare, and government.
+        Bullet is Notch's first on-prem insurance deployment, and also a Notch investor. Delivering here isn't just one customer win - it's the proof point that unlocks banking, healthcare, and government.
       </Summary>
 
       <Card title="Customer snapshot">
         <ul style={{ listStyle: 'none', padding: 0 }}>
-          <li className="mb-1.5">Bullet - large US insurance carrier, notch's first on-prem deployment in insurance.</li>
+          <li className="mb-1.5">Bullet - large US insurance carrier, Notch's first on-prem deployment in insurance.</li>
           <li className="mb-1.5">Backed by Lightspeed, Jibe, Munich Re Ventures, and <strong style={{ color: 'var(--color-text)' }}>Bullet itself</strong> - customer and investor in one.</li>
-          <li>notch benchmark: 70-73% automation, ~50% CS headcount reduction, 200% ROI within a year.</li>
+          <li>Notch benchmark: 70-73% automation, ~50% CS headcount reduction, 200% ROI within a year.</li>
         </ul>
       </Card>
 

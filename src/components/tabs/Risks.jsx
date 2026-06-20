@@ -22,7 +22,7 @@ export default function Risks() {
 
       <NumberedItem n="3" title="Third-party tooling - hosting, billing & ownership unresolved">
         <p>The self-hosted LLM and bought tools (auth/OTP, website search) raise infra provisioning, ongoing consumption cost, and ownership questions.</p>
-        <p className="mt-2"><strong style={{ color: 'var(--color-accent)' }}>Mitigation:</strong> Structured open decision at kickoff: build/buy boundary, who brings each vendor, subscription ownership (recommend Bullet owns). notch prepares the LLM deployment spec.</p>
+        <p className="mt-2"><strong style={{ color: 'var(--color-accent)' }}>Mitigation:</strong> Structured open decision at kickoff: build/buy boundary, who brings each vendor, subscription ownership (recommend Bullet owns). Notch prepares the LLM deployment spec.</p>
       </NumberedItem>
 
       <NumberedItem n="4" title="Production access refused (insurance/regulatory)">
@@ -61,7 +61,7 @@ export default function Risks() {
       </div>
 
       <WarnCard title="Scope ownership - 3rd-party integrations">
-        Some integrations (authentication is the clearest case) are existing systems at Bullet and should not be rebuilt by notch. For each, Bullet confirms the integration is possible from their side and supplies the 3rd-party Swagger. Every Bullet-owned integration is risk removed from notch.
+        Some integrations (authentication is the clearest case) are existing systems at Bullet and should not be rebuilt by Notch. For each, Bullet confirms the integration is possible from their side and supplies the 3rd-party Swagger. Every Bullet-owned integration is risk removed from Notch.
       </WarnCard>
     </div>
   )

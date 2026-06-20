@@ -11,7 +11,7 @@ export default function Development() {
       <H2>Known vs unknown</H2>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
         <Card title="Known (our platform)">
-          <p>notch core capabilities, 9 features as primitives, 4 flow patterns, deployment model, LLM integration approach, single-tenant test methodology.</p>
+          <p>Notch core capabilities, 9 features as primitives, 4 flow patterns, deployment model, LLM integration approach, single-tenant test methodology.</p>
         </Card>
         <Card title="Unknown (Bullet-specific)">
           <p>Existing WhatsApp flows/intents, what the IVR handles, which internal APIs exist, their contracts and data shapes, reachability from our pipeline, policy/claim data structures, volume and priority of top intents.</p>

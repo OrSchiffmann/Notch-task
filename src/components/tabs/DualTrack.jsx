@@ -26,7 +26,7 @@ function DualTrackDiagram() {
         <div>
           <p style={label('gray')} className="mb-3">TRACK 2 - DEVELOPMENT</p>
           <div className="space-y-2">
-            <div style={boxStyle('gray')}>Build on notch platform</div>
+            <div style={boxStyle('gray')}>Build on Notch platform</div>
             <div style={boxStyle('gray')}>4 flows + guardrails</div>
             <div style={boxStyle('gray')}>Ship as binaries</div>
           </div>

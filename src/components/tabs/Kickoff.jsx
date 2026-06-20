@@ -64,8 +64,8 @@ export default function Kickoff() {
       <div className="space-y-3 mb-6">
         {[
           { title: 'Timeline', desc: 'Is Q1 2026 a hard commitment, or do we plan to end-of-Q3 2026?' },
-          { title: 'Build/buy boundary & vendors', desc: 'Confirm the split. Per bought tool, who brings the vendor - notch or Bullet?' },
-          { title: 'Subscription ownership (all tools)', desc: 'Recommendation: Bullet owns. AI pricing is volatile and shouldn\'t be hedged by notch.' },
+          { title: 'Build/buy boundary & vendors', desc: 'Confirm the split. Per bought tool, who brings the vendor - Notch or Bullet?' },
+          { title: 'Subscription ownership (all tools)', desc: 'Recommendation: Bullet owns. AI pricing is volatile and shouldn\'t be hedged by Notch.' },
           { title: 'Production access model', desc: 'Is time-boxed, audited, test-user access acceptable?' },
           { title: 'Access matrix sign-off', desc: 'Which asks are approved, which need escalation.' },
         ].map((d, i) => (
@@ -77,7 +77,7 @@ export default function Kickoff() {
 
       <H2>Week 1–3 action items</H2>
       <Table
-        headers={['Week', 'notch', 'Bullet']}
+        headers={['Week', 'Notch', 'Bullet']}
         rows={[
           [
             'Week 1',
@@ -98,7 +98,7 @@ export default function Kickoff() {
       />
 
       <Card accent title="Team coordination approach">
-        <p>Weekly sync between notch IM and Bullet counterpart. Shared tracker for access requests and discovery artifacts with clear owners and due dates. Async updates via shared channel; escalation path for blockers defined at kickoff.</p>
+        <p>Weekly sync between Notch IM and Bullet counterpart. Shared tracker for access requests and discovery artifacts with clear owners and due dates. Async updates via shared channel; escalation path for blockers defined at kickoff.</p>
       </Card>
     </div>
   )

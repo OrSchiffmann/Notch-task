@@ -9,7 +9,7 @@ export default function Overview() {
       </Summary>
 
       <P>
-        notch is standing up its first insurance deployment with Bullet. The work splits into two projects that run in parallel because they need different people and carry different risks: a <strong style={{ color: 'var(--color-text)' }}>DevOps / Infrastructure track</strong> that proves the on-prem deployment, and a <strong style={{ color: 'var(--color-text)' }}>Development track</strong> that builds the AI support flows on notch's own platform. They meet at one place - a single-tenant environment that mirrors Bullet - and converge again at deployment.
+        Notch is standing up its first insurance deployment with Bullet. The work splits into two projects that run in parallel because they need different people and carry different risks: a <strong style={{ color: 'var(--color-text)' }}>DevOps / Infrastructure track</strong> that proves the on-prem deployment, and a <strong style={{ color: 'var(--color-text)' }}>Development track</strong> that builds the AI support flows on Notch's own platform. They meet at one place - a single-tenant environment that mirrors Bullet - and converge again at deployment.
       </P>
 
       <H2>Channel sequencing</H2>
@@ -39,17 +39,17 @@ export default function Overview() {
       </WarnCard>
 
       <Card title="Build where we add value, buy where we don't">
-        <p>notch builds only its core differentiator - AI agents, flows, orchestration, guardrails. Everything commodity (auth/OTP, LLM, website search like Firecrawl) uses existing market tools. Per tool, one open question: who brings the vendor - notch or Bullet?</p>
+        <p>Notch builds only its core differentiator - AI agents, flows, orchestration, guardrails. Everything commodity (auth/OTP, LLM, website search like Firecrawl) uses existing market tools. Per tool, one open question: who brings the vendor - Notch or Bullet?</p>
       </Card>
 
       <Card title="Subscription ownership → Bullet owns">
-        <p>For every third-party tool, Bullet holds the subscription. AI pricing is unsettled and consumption-based; notch sells value, not infrastructure markup. Keeps pricing clean and insulated from third-party volatility.</p>
+        <p>For every third-party tool, Bullet holds the subscription. AI pricing is unsettled and consumption-based; Notch sells value, not infrastructure markup. Keeps pricing clean and insulated from third-party volatility.</p>
       </Card>
 
       <Table
         headers={['Assumption', 'Detail']}
         rows={[
-          ['Deployment', 'Binary-only - Bullet never sees notch source. IP protected.'],
+          ['Deployment', 'Binary-only - Bullet never sees Notch source. IP protected.'],
           ['LLM', 'Self-hosted inside Bullet\u2019s cloud. Data never leaves their environment.'],
           ['3rd-party tools', 'Bullet likely already has some (auth, monitoring). Use theirs before introducing vendors.'],
         ]}

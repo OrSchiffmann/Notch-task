@@ -17,7 +17,7 @@ export default function OnPrem() {
         <Card title="Workshop 1 - Hello World">
           <p>A minimal binary deploys, runs, and reports back. Proves the <em>plumbing</em>: pipeline, permissions, networking, observability. Proves nothing about product - that's the point.</p>
           <p className="mt-2" style={{ fontFamily: 'var(--font-mono)', fontSize: 11, color: 'var(--color-accent)' }}>
-            Exit: a log from the binary reaches notch's Monitor Service.
+            Exit: a log from the binary reaches Notch's Monitor Service.
           </p>
         </Card>
         <Card title="Workshop 2 - Base Binary">
@@ -30,11 +30,11 @@ export default function OnPrem() {
 
       <H2>Pull-based deployment</H2>
       <P>
-        notch packages a binary and uploads it to a <strong style={{ color: 'var(--color-text)' }}>secure intermediate artifact storage</strong>. Bullet's pipeline pulls from there, runs their security scans, and deploys. notch never gets push access into Bullet's environment - smaller attack surface, and Bullet controls what enters and when.
+        Notch packages a binary and uploads it to a <strong style={{ color: 'var(--color-text)' }}>secure intermediate artifact storage</strong>. Bullet's pipeline pulls from there, runs their security scans, and deploys. Notch never gets push access into Bullet's environment - smaller attack surface, and Bullet controls what enters and when.
       </P>
 
       <div className="flex items-center justify-center gap-2 mb-6 p-4 rounded-lg" style={{ background: 'var(--color-surface)', fontSize: 12, fontFamily: 'var(--font-mono)', color: 'var(--color-text-dim)' }}>
-        <span style={{ color: 'var(--color-accent)' }}>notch</span>
+        <span style={{ color: 'var(--color-accent)' }}>Notch</span>
         <span>→ push →</span>
         <span style={{ color: 'var(--color-warn)', padding: '2px 8px', background: 'var(--color-warn-soft)', borderRadius: 4 }}>artifact storage</span>
         <span>← pull ←</span>
@@ -45,7 +45,7 @@ export default function OnPrem() {
 
       <H2>LLM Model - self-hosted</H2>
       <P>
-        Bullet went on-prem specifically so customer data doesn't leave their environment. The LLM runs inside their cloud. notch delivers two things: an <strong style={{ color: 'var(--color-text)' }}>LLM deployment spec</strong> (what Bullet installs - model, version, infra requirements) and <strong style={{ color: 'var(--color-text)' }}>verification access</strong> to confirm the installed model is correct.
+        Bullet went on-prem specifically so customer data doesn't leave their environment. The LLM runs inside their cloud. Notch delivers two things: an <strong style={{ color: 'var(--color-text)' }}>LLM deployment spec</strong> (what Bullet installs - model, version, infra requirements) and <strong style={{ color: 'var(--color-text)' }}>verification access</strong> to confirm the installed model is correct.
       </P>
 
       <H2>Track 1 work items</H2>
