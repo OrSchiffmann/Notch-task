@@ -10,9 +10,11 @@ import Risks from './components/tabs/Risks'
 import Kickoff from './components/tabs/Kickoff'
 import Process from './components/tabs/Process'
 import LaunchBeyond from './components/tabs/LaunchBeyond'
+import PreRequisites from './components/tabs/PreRequisites'
 
 const TABS = [
   { id: 'cover',       label: 'Cover',            component: Cover },
+  { id: 'prereqs',     label: 'Pre-Requisites',   component: PreRequisites },
   { id: 'overview',    label: 'Overview',          component: Overview },
   { id: 'roadmap',     label: 'Roadmap',           component: Roadmap },
   { id: 'dual-track',  label: 'Dual-Track',        component: DualTrack },
@@ -68,13 +70,9 @@ export default function App() {
           padding: '16px 40px 0',
           display: 'flex', alignItems: 'baseline', gap: 12,
         }}>
-          <img
-            src="https://cdn.prod.website-files.com/68cac6933ac8c19f61664f9e/69ce6e302aef1dd8db97038d_new%20notch%20logo.svg"
-            alt="Notch"
-            style={{ height: 24, display: 'inline-block' }}
-          />
-          <span style={{ fontSize: 18, fontWeight: 700, color: '#9CA3AF', letterSpacing: '-0.3px', marginLeft: 4 }}>
-            <span style={{ color: '#0D9488' }}>×</span> Bullet
+          <img src="/notch-icon.svg" alt="Notch" style={{ height: 26, display: 'inline-block' }} />
+          <span style={{ fontSize: 17, fontWeight: 700, color: '#111827', letterSpacing: '-0.3px', marginLeft: 6 }}>
+            Notch <span style={{ color: '#F06A22' }}>×</span> Bullet
           </span>
           <span style={{ fontSize: 13, color: '#9CA3AF', fontWeight: 400, marginLeft: 8 }}>
             Project Kickoff Plan
@@ -92,10 +90,10 @@ export default function App() {
                 fontFamily: font,
                 fontSize: 13,
                 fontWeight: activeTab === tab.id ? 600 : 400,
-                color: activeTab === tab.id ? '#0D9488' : '#6B7280',
+                color: activeTab === tab.id ? '#F06A22' : '#6B7280',
                 background: 'none', border: 'none', cursor: 'pointer',
                 padding: '10px 14px',
-                borderBottom: activeTab === tab.id ? '2px solid #0D9488' : '2px solid transparent',
+                borderBottom: activeTab === tab.id ? '2px solid #F06A22' : '2px solid transparent',
                 marginBottom: -1,
                 transition: 'color 0.15s, border-color 0.15s',
                 whiteSpace: 'nowrap',
@@ -123,7 +121,7 @@ export default function App() {
                   padding: '12px 40px',
                   fontFamily: font, fontSize: 14,
                   fontWeight: activeTab === tab.id ? 600 : 400,
-                  color: activeTab === tab.id ? '#0D9488' : '#374151',
+                  color: activeTab === tab.id ? '#F06A22' : '#374151',
                   background: activeTab === tab.id ? '#F0FDF9' : 'none',
                   border: 'none', cursor: 'pointer',
                 }}>

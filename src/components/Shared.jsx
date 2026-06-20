@@ -3,12 +3,12 @@ const font = "'Calibri', 'Trebuchet MS', Arial, sans-serif"
 export function Summary({ children }) {
   return (
     <div style={{
-      background: '#F0FDF9',
+      background: '#FFF4EE',
       borderRadius: 8,
       padding: '20px 24px',
       marginBottom: 40,
     }}>
-      <p style={{ fontSize: 11, letterSpacing: '0.14em', color: '#0D9488', marginBottom: 8, fontWeight: 700, textTransform: 'uppercase', fontFamily: font }}>
+      <p style={{ fontSize: 11, letterSpacing: '0.14em', color: '#F06A22', marginBottom: 8, fontWeight: 700, textTransform: 'uppercase', fontFamily: font }}>
         Executive Summary
       </p>
       <p style={{ fontSize: 16, lineHeight: 1.85, color: '#374151', fontFamily: font }}>{children}</p>
@@ -19,7 +19,7 @@ export function Summary({ children }) {
 export function SectionHeader({ eyebrow, title }) {
   return (
     <div style={{ marginBottom: 40, paddingBottom: 24, borderBottom: '1px solid #E4E7EC' }}>
-      <p style={{ fontSize: 11, letterSpacing: '0.16em', color: '#0D9488', marginBottom: 12, fontWeight: 700, textTransform: 'uppercase', fontFamily: font }}>
+      <p style={{ fontSize: 11, letterSpacing: '0.16em', color: '#F06A22', marginBottom: 12, fontWeight: 700, textTransform: 'uppercase', fontFamily: font }}>
         {eyebrow}
       </p>
       <h1 style={{ fontSize: 36, fontWeight: 700, lineHeight: 1.15, color: '#111827', fontFamily: font, letterSpacing: '-0.5px' }}>
@@ -86,7 +86,7 @@ export function Card({ title, children, accent = false }) {
   return (
     <div style={{ marginBottom: 28, paddingBottom: 28, borderBottom: '1px solid #F3F4F6' }}>
       {title && (
-        <p style={{ fontSize: 16, fontWeight: 700, color: accent ? '#0D9488' : '#111827', marginBottom: 8, fontFamily: font }}>
+        <p style={{ fontSize: 16, fontWeight: 700, color: accent ? '#F06A22' : '#111827', marginBottom: 8, fontFamily: font }}>
           {title}
         </p>
       )}
@@ -120,7 +120,7 @@ export function NumberedItem({ n, title, children }) {
       <span style={{
         flexShrink: 0, width: 28, height: 28, borderRadius: '50%',
         display: 'flex', alignItems: 'center', justifyContent: 'center',
-        background: '#F0FDF9', fontSize: 13, color: '#0D9488', fontWeight: 700, marginTop: 2, fontFamily: font,
+        background: '#FFF4EE', fontSize: 13, color: '#F06A22', fontWeight: 700, marginTop: 2, fontFamily: font,
       }}>
         {n}
       </span>
@@ -133,5 +133,5 @@ export function NumberedItem({ n, title, children }) {
 }
 
 export function Mono({ children }) {
-  return <span style={{ fontSize: 13, color: '#0D9488', fontWeight: 600, fontFamily: font }}>{children}</span>
+  return <span style={{ fontSize: 13, color: '#F06A22', fontWeight: 600, fontFamily: font }}>{children}</span>
 }
