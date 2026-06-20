@@ -1,32 +1,39 @@
-﻿import { Summary, SectionHeader, P, H2, Card } from '../Shared'
+import { Summary, SectionHeader, P, H2, Card } from '../Shared'
 import GanttChart from '../GanttChart'
 
 export default function Roadmap() {
   return (
     <div>
-      <SectionHeader eyebrow="TIMELINE" title="Thirteen weeks, three parallel tracks" />
+      <SectionHeader eyebrow="TIMELINE" title="Five milestones, twelve months" />
       <Summary>
-        From kickoff to App go-live in thirteen weeks, three tracks running concurrently. The MVP window closes at week 7 with WhatsApp Phase 1 live. The DevOps track rolls out per environment (Dev → Staging → Production).
+        Five channel go-lives over twelve months. Each milestone follows the same pattern: DevOps connectivity for that channel's integrations, Development building against mocks and then real APIs, and a testing funnel before production. The DevOps track foundation runs in the first three months and enables everything after.
       </Summary>
-
-      <P>
-        This timeline is achievable only with the mid-size team (3–4 devs + IM) running three parallel streams. With fewer people the tracks collapse into sequence and the deadline extends.
-      </P>
 
       <GanttChart />
 
-      <H2>Key dependencies visible in the chart</H2>
+      <H2>Pattern repeated for each channel</H2>
+      <P>
+        Every channel follows the same sequence of work. The only thing that changes is the specific integrations and flows involved.
+      </P>
 
-      <Card title="Phase 0 is a gate">
-        <p>WhatsApp development starts at W2–3, but nothing can <em>deploy</em> to Bullet until the Gate Pass at W4. Development proceeds on the single-tenant; deployment waits for the plumbing.</p>
+      <Card title="1. DevOps connectivity">
+        <p>Before Development can integrate, DevOps establishes connectivity to the channel's relevant third-party and internal systems - Glassix for WhatsApp, mobile SDK for App, telephony system for Voice. This is a gate: integration cannot be validated without the pipeline.</p>
       </Card>
 
-      <Card title="App build starts before WhatsApp closes">
-        <p>App build (W9) overlaps with WhatsApp Phase 2 completion (W9) - deliberate, only possible with parallel capacity. The proven core transfers directly.</p>
+      <Card title="2. Discovery + mocks">
+        <p>Swagger specs received from Bullet. API comprehension Q&A to understand semantics. Mocks built from the understood contracts. Development starts immediately against mocks - no Bullet environment access needed at this stage.</p>
       </Card>
 
-      <Card title="Production stands up mid-project">
-        <p>Production environment is established at W8–9, after Staging is validated. WhatsApp Phase 1 MVP targets production by W7 - sequence may need adjustment based on Bullet's environment provisioning speed.</p>
+      <Card title="3. Build">
+        <p>Flows built on Notch's platform against the internal environment. Real API integration replaces mocks once the logic is mature. This is the longest phase for each channel.</p>
+      </Card>
+
+      <Card title="4. Testing funnel">
+        <p>Notch Stage testing, then Bullet UAT, then pentest and load (required from WhatsApp Full onward), then production validation. PVT (friends and family) is a decision per channel. Full detail in the Testing Strategy tab.</p>
+      </Card>
+
+      <Card title="5. Go-live">
+        <p>Production launch. Glassix fallback active for the first week regardless of containment rate. Both Notch and Bullet on standby for the first 48 hours.</p>
       </Card>
     </div>
   )

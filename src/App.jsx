@@ -11,6 +11,7 @@ import Kickoff from './components/tabs/Kickoff'
 import Process from './components/tabs/Process'
 import LaunchBeyond from './components/tabs/LaunchBeyond'
 import PreRequisites from './components/tabs/PreRequisites'
+import Testing from './components/tabs/Testing'
 
 const TABS = [
   { id: 'cover',       label: 'Cover',            component: Cover },
@@ -18,6 +19,7 @@ const TABS = [
   { id: 'prereqs',     label: 'Pre-Requisites',   component: PreRequisites },
   { id: 'dual-track',  label: 'Dual-Track',        component: DualTrack },
   { id: 'roadmap',     label: 'Roadmap',           component: Roadmap },
+  { id: 'testing',     label: 'Testing Strategy',  component: Testing },
   { id: 'on-prem',     label: 'On-Prem',           component: OnPrem },
   { id: 'development', label: 'Development',       component: Development },
   { id: 'mvp',         label: 'V0 & DOD',          component: MvpDod },
