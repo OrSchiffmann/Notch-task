@@ -1,67 +1,59 @@
-﻿import { Summary, SectionHeader, P, H2, Table, NumberedItem, WarnCard, Card } from '../Shared'
+import { Summary, SectionHeader, P, H2, H3, Table, NumberedItem, WarnCard, Card } from '../Shared'
 
 export default function Risks() {
   return (
     <div>
-      <SectionHeader eyebrow="RISK" title="What blocks us, and what we do about it" />
+      <SectionHeader eyebrow="RISKS & DEPENDENCIES" title="What we own, what we need" />
       <Summary>
-        Six risks, led by access delays and undocumented APIs. The single-tenant mitigates most of them by decoupling development from Bullet dependencies.
+        Dependencies are things Bullet needs to deliver - they are not risks until a deadline is missed. Risks are uncertainties that threaten the project regardless of Bullet's cooperation. Both are tracked separately and managed differently.
       </Summary>
 
-      <H2>Top 6 risks</H2>
+      <H2>Risks - Notch's exposure</H2>
+      <P>These are uncertainties we own mitigation for, regardless of what Bullet does.</P>
 
-      <NumberedItem n="1" title="On-prem access not granted in time (HIGHEST)">
-        <p>Phase 0 is gated on Bullet provisioning access (pipeline, logs, DBs, VPN, LLM verification). If it slips, everything slips.</p>
-        <p className="mt-2"><strong style={{ color: 'var(--color-accent)' }}>Mitigation:</strong> Turn the access matrix into a pre-kickoff ask sent before the meeting. Workshop 1 doesn't start until access is confirmed. Track 3 (single-tenant) runs in parallel so developers aren't idle while waiting.</p>
+      <NumberedItem n="1" title="Resource contention collapses the parallel tracks">
+        <p>The 13-week plan assumes DevOps and Development run concurrently. If either track is understaffed, they serialize and the timeline extends.</p>
+        <p className="mt-2"><strong style={{ color: 'var(--color-accent)' }}>Mitigation:</strong> Explicit resourcing commitment before kickoff. If constrained, the internal dev environment gets the dedicated resource first - it unblocks all development testing.</p>
       </NumberedItem>
 
-      <NumberedItem n="2" title="Internal APIs undocumented or unreachable">
-        <p>Flow C is blocked without Swagger + network reachability.</p>
-        <p className="mt-2"><strong style={{ color: 'var(--color-accent)' }}>Mitigation:</strong> Swagger + reachability confirmation as pre-kickoff asks. API comprehension Q&A scheduled early. Mock-first development so platform-side work proceeds regardless.</p>
+      <NumberedItem n="2" title="Binary fails Bullet's security scanning">
+        <p>Bullet's pipeline runs security scans on every binary before deployment. If we don't know their toolchain, our binaries may fail on first submission - causing delays and re-work cycles.</p>
+        <p className="mt-2"><strong style={{ color: 'var(--color-accent)' }}>Mitigation:</strong> Obtain Bullet's security toolchain list as a pre-requisite. Install the same tools in our internal environment and pre-scan before every handoff. Failures are caught on our side, not theirs.</p>
       </NumberedItem>
 
-      <NumberedItem n="3" title="Third-party tooling - hosting, billing & ownership unresolved">
-        <p>The self-hosted LLM and bought tools (auth/OTP, website search) raise infra provisioning, ongoing consumption cost, and ownership questions.</p>
-        <p className="mt-2"><strong style={{ color: 'var(--color-accent)' }}>Mitigation:</strong> Structured open decision at kickoff: build/buy boundary, who brings each vendor, subscription ownership (recommend Bullet owns). Notch prepares the LLM deployment spec.</p>
+      <NumberedItem n="3" title="Production support access refused (regulatory)">
+        <p>A vendor with VPN access to an insurer's production environment is a regulatory red flag. This may not be grantable under any conditions.</p>
+        <p className="mt-2"><strong style={{ color: 'var(--color-accent)' }}>Mitigation:</strong> Request with controls built in - test user only, time-boxed, audited, break-glass model. Define fallback early: staging with production-like data, or Bullet reproduces issues on our behalf.</p>
       </NumberedItem>
 
-      <NumberedItem n="4" title="Production access refused (insurance/regulatory)">
-        <p>A vendor with VPN to an insurer's production is a regulatory red flag.</p>
-        <p className="mt-2"><strong style={{ color: 'var(--color-accent)' }}>Mitigation:</strong> Request with controls built in: test user only, time-boxed, audited, break-glass model. Fallback: staging with production-like data, or reproduction-as-a-service by Bullet.</p>
+      <NumberedItem n="4" title="Third-party tooling ownership unresolved at go-live">
+        <p>If subscription ownership (LLM, auth provider, website search) is not decided before go-live, consumption costs land in the wrong place and become a billing dispute post-launch.</p>
+        <p className="mt-2"><strong style={{ color: 'var(--color-accent)' }}>Mitigation:</strong> Lock build/buy boundary and subscription owner per tool at kickoff - not left open. Notch recommendation: Bullet owns all third-party subscriptions.</p>
       </NumberedItem>
 
-      <NumberedItem n="5" title="Resource contention collapses parallel tracks">
-        <p>The 13-week plan assumes 3 concurrent tracks; with too few people they serialize and the deadline slips.</p>
-        <p className="mt-2"><strong style={{ color: 'var(--color-accent)' }}>Mitigation:</strong> Explicit resourcing recommendation (mid-size team). If constrained, single-tenant build gets the dedicated resource since it unblocks all testing.</p>
-      </NumberedItem>
+      <H2>Dependencies - what we need from Bullet</H2>
+      <P>
+        These are deliverables Bullet owes us. They are not risks today - they become risks the moment a deadline is missed with no escalation path. Each dependency has a due date and an owner; if it slips, it immediately elevates to a tracked risk.
+      </P>
 
-      <NumberedItem n="6" title="Security scanning tools - unknown toolchain">
-        <p>Bullet's pipeline runs security scans on every binary. Unknown tools = binaries fail on first submission, causing delays.</p>
-        <p className="mt-2"><strong style={{ color: 'var(--color-accent)' }}>Mitigation:</strong> Obtain Bullet's security toolchain list early. Get a subscription and install on our single-tenant - pre-scan internally before shipping. Failures caught on our side, not theirs.</p>
-      </NumberedItem>
-
-      <H2>Access categories (timed by need)</H2>
       <Table
-        headers={['Category', 'Who', 'Why', 'When']}
+        headers={['Dependency', 'Needed by', 'Impact if missed', 'Risk level if missed']}
         rows={[
-          ['DevOps access', 'DevOps/Infra', 'Pipeline, deploy, artifact storage', 'Phase 0 - immediately'],
-          ['Support access', 'Support team', 'Logs, VPN, reproduction with test user', 'Toward go-live'],
-          ['Developer access', 'Developers', 'Bullet dev-env for real integration', 'After mock dev'],
+          ['DevOps pipeline access', 'Before Week 1', 'Workshop 1 cannot start. First gate in the entire project.', '⭐⭐⭐ Critical'],
+          ['Swagger specs - all internal APIs', 'Before Week 2', 'Mock-first development blocked. Developers idle.', '⭐⭐⭐ Critical'],
+          ['Network reachability confirmation per API', 'Before Week 3', 'Integration phase blocked. Discovered late = rework.', '⭐⭐⭐ Critical'],
+          ['Existing flow and intent inventory', 'Before Week 2', 'Cannot define V0 scope (top intents for FAQ).', '⭐⭐ High'],
+          ['Swagger specs - 3rd-party integrations (Glassix, auth)', 'Before Week 3', 'Category C and B flows blocked.', '⭐⭐ High'],
+          ['Named Bullet Implementation Engineer', 'At kickoff', 'No single coordination point. Access requests have no owner.', '⭐⭐ High'],
+          ['Security toolchain list', 'Before Week 1', 'Cannot pre-scan binaries. First handoff may fail.', '⭐⭐ High'],
+          ['GPU / infra capacity confirmed for LLM', 'Before Week 2', 'LLM deployment spec cannot be finalized. Procurement blocker.', '⭐ Medium'],
+          ['Policy and claims data structures', 'Before Week 4', 'Category B connector design blocked.', '⭐ Medium'],
+          ['Developer access to Bullet dev environment', 'Before Week 6', 'Real integration phase blocked. Only impacts if mock dev is done.', '⭐ Medium'],
         ]}
       />
 
-      <H2>Two categories of ask</H2>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
-        <Card title="Access asks (permissions)">
-          <p>Pipeline, logs, DBs, VPN, LLM verification, dev-env access.</p>
-        </Card>
-        <Card title="Knowledge asks (artifacts)">
-          <p>Flow/intent inventory, internal API list, Swagger per API (internal + 3rd-party), pipeline-reachability confirmation.</p>
-        </Card>
-      </div>
-
-      <WarnCard title="Scope ownership - 3rd-party integrations">
-        Some integrations (authentication is the clearest case) are existing systems at Bullet and should not be rebuilt by Notch. For each, Bullet confirms the integration is possible from their side and supplies the 3rd-party Swagger. Every Bullet-owned integration is risk removed from Notch.
+      <WarnCard title="Escalation rule">
+        Any dependency not delivered by its due date is immediately raised in the weekly external sync as a tracked risk with a revised date and a named Bullet owner. Dependencies with no owner at kickoff default to the Bullet Implementation Engineer.
       </WarnCard>
     </div>
   )
