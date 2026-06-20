@@ -2,27 +2,27 @@ const font = "'Calibri', 'Trebuchet MS', Arial, sans-serif"
 
 export function Summary({ children }) {
   return (
-    <div className="mb-10" style={{
-      borderLeft: '3px solid var(--color-accent)',
-      paddingLeft: 20,
-      paddingTop: 4,
-      paddingBottom: 4,
+    <div style={{
+      background: '#F0FDF9',
+      borderRadius: 8,
+      padding: '20px 24px',
+      marginBottom: 40,
     }}>
-      <p style={{ fontSize: 11, letterSpacing: '0.12em', color: 'var(--color-accent)', marginBottom: 8, fontWeight: 600, textTransform: 'uppercase' }}>
+      <p style={{ fontSize: 11, letterSpacing: '0.14em', color: '#0D9488', marginBottom: 8, fontWeight: 700, textTransform: 'uppercase', fontFamily: font }}>
         Executive Summary
       </p>
-      <p style={{ fontSize: 16, lineHeight: 1.8, color: 'var(--color-text-dim)' }}>{children}</p>
+      <p style={{ fontSize: 16, lineHeight: 1.85, color: '#374151', fontFamily: font }}>{children}</p>
     </div>
   )
 }
 
 export function SectionHeader({ eyebrow, title }) {
   return (
-    <div className="mb-10">
-      <p style={{ fontSize: 11, letterSpacing: '0.14em', color: 'var(--color-accent)', marginBottom: 10, fontWeight: 600, textTransform: 'uppercase' }}>
+    <div style={{ marginBottom: 40, paddingBottom: 24, borderBottom: '1px solid #E4E7EC' }}>
+      <p style={{ fontSize: 11, letterSpacing: '0.16em', color: '#0D9488', marginBottom: 12, fontWeight: 700, textTransform: 'uppercase', fontFamily: font }}>
         {eyebrow}
       </p>
-      <h1 style={{ fontSize: 34, fontWeight: 700, lineHeight: 1.2, color: 'var(--color-text)' }}>
+      <h1 style={{ fontSize: 36, fontWeight: 700, lineHeight: 1.15, color: '#111827', fontFamily: font, letterSpacing: '-0.5px' }}>
         {title}
       </h1>
     </div>
@@ -30,12 +30,12 @@ export function SectionHeader({ eyebrow, title }) {
 }
 
 export function P({ children }) {
-  return <p className="mb-5" style={{ fontSize: 16, color: 'var(--color-text-dim)', lineHeight: 1.8 }}>{children}</p>
+  return <p style={{ fontSize: 16, color: '#4B5563', lineHeight: 1.85, marginBottom: 20, fontFamily: font }}>{children}</p>
 }
 
 export function H2({ children, className = '' }) {
   return (
-    <h2 className={`mb-4 ${className}`} style={{ fontSize: 20, fontWeight: 700, color: 'var(--color-text)', marginTop: 40 }}>
+    <h2 style={{ fontSize: 22, fontWeight: 700, color: '#111827', marginTop: 48, marginBottom: 16, fontFamily: font, paddingBottom: 10, borderBottom: '1px solid #E4E7EC' }}>
       {children}
     </h2>
   )
@@ -43,7 +43,7 @@ export function H2({ children, className = '' }) {
 
 export function H3({ children }) {
   return (
-    <h3 style={{ fontSize: 17, fontWeight: 600, color: 'var(--color-text)', marginTop: 28, marginBottom: 8 }}>
+    <h3 style={{ fontSize: 17, fontWeight: 700, color: '#111827', marginTop: 32, marginBottom: 10, fontFamily: font }}>
       {children}
     </h3>
   )
@@ -51,13 +51,16 @@ export function H3({ children }) {
 
 export function Table({ headers, rows }) {
   return (
-    <div className="overflow-x-auto mb-8" style={{ marginTop: 8 }}>
-      <table className="w-full" style={{ fontSize: 15, borderCollapse: 'collapse' }}>
+    <div style={{ overflowX: 'auto', marginBottom: 32, marginTop: 8 }}>
+      <table style={{ width: '100%', borderCollapse: 'collapse', fontFamily: font }}>
         <thead>
-          <tr style={{ borderBottom: '2px solid var(--color-border)' }}>
+          <tr style={{ borderBottom: '2px solid #E4E7EC' }}>
             {headers.map((h, i) => (
-              <th key={i} className="text-left py-3 pr-6"
-                style={{ fontSize: 12, letterSpacing: '0.08em', color: 'var(--color-text-dim)', fontWeight: 600, textTransform: 'uppercase' }}>
+              <th key={i} style={{
+                textAlign: 'left', padding: '10px 16px 10px 0',
+                fontSize: 11, letterSpacing: '0.1em', color: '#9CA3AF',
+                fontWeight: 700, textTransform: 'uppercase', fontFamily: font,
+              }}>
                 {h}
               </th>
             ))}
@@ -65,9 +68,9 @@ export function Table({ headers, rows }) {
         </thead>
         <tbody>
           {rows.map((row, i) => (
-            <tr key={i} style={{ borderBottom: '1px solid var(--color-border)' }}>
+            <tr key={i} style={{ borderBottom: '1px solid #F3F4F6' }}>
               {row.map((cell, j) => (
-                <td key={j} className="py-3 pr-6" style={{ color: 'var(--color-text-dim)', fontSize: 15 }}>
+                <td key={j} style={{ padding: '12px 16px 12px 0', color: '#4B5563', fontSize: 15, lineHeight: 1.6, fontFamily: font }}>
                   {cell}
                 </td>
               ))}
@@ -81,51 +84,54 @@ export function Table({ headers, rows }) {
 
 export function Card({ title, children, accent = false }) {
   return (
-    <div className="mb-6" style={{ paddingLeft: 0 }}>
+    <div style={{ marginBottom: 28, paddingBottom: 28, borderBottom: '1px solid #F3F4F6' }}>
       {title && (
-        <p style={{ fontSize: 16, fontWeight: 700, color: accent ? 'var(--color-accent)' : 'var(--color-text)', marginBottom: 6 }}>
+        <p style={{ fontSize: 16, fontWeight: 700, color: accent ? '#0D9488' : '#111827', marginBottom: 8, fontFamily: font }}>
           {title}
         </p>
       )}
-      <div style={{ fontSize: 15, color: 'var(--color-text-dim)', lineHeight: 1.8 }}>{children}</div>
+      <div style={{ fontSize: 15, color: '#4B5563', lineHeight: 1.85, fontFamily: font }}>{children}</div>
     </div>
   )
 }
 
 export function WarnCard({ title, children }) {
   return (
-    <div className="mb-6" style={{
-      borderLeft: '3px solid var(--color-warn)',
-      paddingLeft: 20,
-      paddingTop: 4,
-      paddingBottom: 4,
-      marginTop: 32,
+    <div style={{
+      background: '#FFFBEB',
+      borderRadius: 8,
+      padding: '20px 24px',
+      marginTop: 36,
+      marginBottom: 24,
     }}>
       {title && (
-        <p style={{ fontSize: 13, fontWeight: 700, color: 'var(--color-warn)', marginBottom: 6, textTransform: 'uppercase', letterSpacing: '0.08em' }}>
+        <p style={{ fontSize: 11, fontWeight: 700, color: '#92400E', marginBottom: 8, textTransform: 'uppercase', letterSpacing: '0.1em', fontFamily: font }}>
           {title}
         </p>
       )}
-      <div style={{ fontSize: 15, color: 'var(--color-text-dim)', lineHeight: 1.8 }}>{children}</div>
+      <div style={{ fontSize: 15, color: '#4B5563', lineHeight: 1.85, fontFamily: font }}>{children}</div>
     </div>
   )
 }
 
 export function NumberedItem({ n, title, children }) {
   return (
-    <div className="flex gap-5 mb-6">
-      <span className="shrink-0 w-7 h-7 rounded-full flex items-center justify-center"
-        style={{ background: 'var(--color-accent-soft)', fontSize: 13, color: 'var(--color-accent)', fontWeight: 700, marginTop: 2 }}>
+    <div style={{ display: 'flex', gap: 20, marginBottom: 28, paddingBottom: 28, borderBottom: '1px solid #F3F4F6' }}>
+      <span style={{
+        flexShrink: 0, width: 28, height: 28, borderRadius: '50%',
+        display: 'flex', alignItems: 'center', justifyContent: 'center',
+        background: '#F0FDF9', fontSize: 13, color: '#0D9488', fontWeight: 700, marginTop: 2, fontFamily: font,
+      }}>
         {n}
       </span>
-      <div className="flex-1">
-        <p style={{ fontSize: 16, fontWeight: 700, color: 'var(--color-text)', marginBottom: 4 }}>{title}</p>
-        <div style={{ fontSize: 15, color: 'var(--color-text-dim)', lineHeight: 1.8 }}>{children}</div>
+      <div style={{ flex: 1 }}>
+        <p style={{ fontSize: 16, fontWeight: 700, color: '#111827', marginBottom: 6, fontFamily: font }}>{title}</p>
+        <div style={{ fontSize: 15, color: '#4B5563', lineHeight: 1.85, fontFamily: font }}>{children}</div>
       </div>
     </div>
   )
 }
 
 export function Mono({ children }) {
-  return <span style={{ fontSize: 13, color: 'var(--color-accent)', fontWeight: 600 }}>{children}</span>
+  return <span style={{ fontSize: 13, color: '#0D9488', fontWeight: 600, fontFamily: font }}>{children}</span>
 }

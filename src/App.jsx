@@ -11,19 +11,21 @@ import Kickoff from './components/tabs/Kickoff'
 import Process from './components/tabs/Process'
 
 const TABS = [
-  { id: 'cover', label: 'Cover', component: Cover },
-  { id: 'overview', label: 'Overview', component: Overview },
-  { id: 'roadmap', label: 'Roadmap', component: Roadmap },
-  { id: 'dual-track', label: 'Dual-Track', component: DualTrack },
-  { id: 'on-prem', label: 'On-Prem', component: OnPrem },
-  { id: 'development', label: 'Development', component: Development },
-  { id: 'mvp', label: 'MVP & DOD', component: MvpDod },
-  { id: 'risks', label: 'Risks', component: Risks },
-  { id: 'kickoff', label: 'Kickoff', component: Kickoff },
-  { id: 'process', label: 'Process & Cadence', component: Process },
+  { id: 'cover',       label: 'Cover',            component: Cover },
+  { id: 'overview',    label: 'Overview',          component: Overview },
+  { id: 'roadmap',     label: 'Roadmap',           component: Roadmap },
+  { id: 'dual-track',  label: 'Dual-Track',        component: DualTrack },
+  { id: 'on-prem',     label: 'On-Prem',           component: OnPrem },
+  { id: 'development', label: 'Development',       component: Development },
+  { id: 'mvp',         label: 'MVP & DOD',         component: MvpDod },
+  { id: 'risks',       label: 'Risks',             component: Risks },
+  { id: 'kickoff',     label: 'Kickoff',           component: Kickoff },
+  { id: 'process',     label: 'Process',           component: Process },
 ]
 
-function App() {
+const font = "'Calibri', 'Trebuchet MS', Arial, sans-serif"
+
+export default function App() {
   const [activeTab, setActiveTab] = useState(() => {
     const hash = window.location.hash.replace('#/', '')
     return TABS.find(t => t.id === hash)?.id || 'cover'
@@ -50,68 +52,85 @@ function App() {
   const ActiveComponent = TABS.find(t => t.id === activeTab)?.component || Cover
 
   return (
-    <div className="min-h-screen flex flex-col lg:flex-row">
-      <header className="lg:hidden flex items-center justify-between px-4 py-3 border-b"
-        style={{ borderColor: 'var(--color-border)', background: 'var(--color-surface)' }}>
-        <span style={{ fontFamily: 'var(--font-mono)', color: 'var(--color-accent)', fontSize: 13, fontWeight: 500 }}>
-          notch × Bullet
-        </span>
-        <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="p-2 rounded" style={{ color: 'var(--color-text-dim)' }}
-          aria-label="Toggle navigation">
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.5">
-            {mobileMenuOpen
-              ? <path d="M5 5l10 10M15 5L5 15" />
-              : <><path d="M3 5h14" /><path d="M3 10h14" /><path d="M3 15h14" /></>}
-          </svg>
-        </button>
+    <div style={{ minHeight: '100vh', background: '#fff', fontFamily: font }}>
+
+      {/* Top bar */}
+      <header style={{
+        position: 'sticky', top: 0, zIndex: 50,
+        background: '#fff',
+        borderBottom: '1px solid #E4E7EC',
+      }}>
+        {/* Brand row */}
+        <div style={{
+          maxWidth: 900, margin: '0 auto',
+          padding: '16px 40px 0',
+          display: 'flex', alignItems: 'baseline', gap: 12,
+        }}>
+          <span style={{ fontSize: 18, fontWeight: 700, color: '#111827', letterSpacing: '-0.3px' }}>
+            notch <span style={{ color: '#0D9488' }}>×</span> Bullet
+          </span>
+          <span style={{ fontSize: 13, color: '#9CA3AF', fontWeight: 400 }}>
+            Project Kickoff Plan
+          </span>
+        </div>
+
+        {/* Tab row — desktop */}
+        <nav style={{ maxWidth: 900, margin: '0 auto', padding: '0 40px' }}
+          className="hidden lg:flex gap-0 mt-3">
+          {TABS.map(tab => (
+            <button
+              key={tab.id}
+              onClick={() => switchTab(tab.id)}
+              style={{
+                fontFamily: font,
+                fontSize: 13,
+                fontWeight: activeTab === tab.id ? 600 : 400,
+                color: activeTab === tab.id ? '#0D9488' : '#6B7280',
+                background: 'none', border: 'none', cursor: 'pointer',
+                padding: '10px 14px',
+                borderBottom: activeTab === tab.id ? '2px solid #0D9488' : '2px solid transparent',
+                marginBottom: -1,
+                transition: 'color 0.15s, border-color 0.15s',
+                whiteSpace: 'nowrap',
+              }}>
+              {tab.label}
+            </button>
+          ))}
+        </nav>
+
+        {/* Mobile menu toggle */}
+        <div className="lg:hidden" style={{ maxWidth: 900, margin: '0 auto', padding: '8px 40px 12px', display: 'flex', justifyContent: 'flex-end' }}>
+          <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            style={{ background: 'none', border: 'none', cursor: 'pointer', color: '#6B7280', fontSize: 13, fontFamily: font }}>
+            {mobileMenuOpen ? 'Close' : 'Menu ▾'}
+          </button>
+        </div>
+
+        {/* Mobile dropdown */}
+        {mobileMenuOpen && (
+          <div style={{ borderTop: '1px solid #E4E7EC', background: '#fff' }}>
+            {TABS.map(tab => (
+              <button key={tab.id} onClick={() => switchTab(tab.id)}
+                style={{
+                  display: 'block', width: '100%', textAlign: 'left',
+                  padding: '12px 40px',
+                  fontFamily: font, fontSize: 14,
+                  fontWeight: activeTab === tab.id ? 600 : 400,
+                  color: activeTab === tab.id ? '#0D9488' : '#374151',
+                  background: activeTab === tab.id ? '#F0FDF9' : 'none',
+                  border: 'none', cursor: 'pointer',
+                }}>
+                {tab.label}
+              </button>
+            ))}
+          </div>
+        )}
       </header>
 
-      <nav className={`${mobileMenuOpen ? 'block' : 'hidden'} lg:block lg:w-56 shrink-0 border-r overflow-y-auto lg:sticky lg:top-0 lg:h-screen`}
-        style={{ borderColor: 'var(--color-border)', background: 'var(--color-surface)' }}>
-        <div className="hidden lg:block px-5 pt-6 pb-4">
-          <span style={{ fontFamily: 'var(--font-mono)', color: 'var(--color-accent)', fontSize: 13, fontWeight: 500 }}>
-            notch × Bullet
-          </span>
-          <p style={{ fontFamily: 'var(--font-mono)', color: 'var(--color-text-dim)', fontSize: 11, marginTop: 4 }}>
-            Project Kickoff Plan
-          </p>
-        </div>
-        <ul className="py-2 lg:py-0">
-          {TABS.map((tab, i) => (
-            <li key={tab.id}>
-              <button
-                onClick={() => switchTab(tab.id)}
-                className="w-full text-left px-5 py-2.5 transition-colors duration-150 focus:outline-none"
-                style={{
-                  background: activeTab === tab.id ? 'var(--color-accent-soft)' : 'transparent',
-                  borderLeft: activeTab === tab.id ? '2px solid var(--color-accent)' : '2px solid transparent',
-                }}>
-                <span style={{
-                  fontFamily: 'var(--font-mono)', fontSize: 10, letterSpacing: '0.08em',
-                  color: activeTab === tab.id ? 'var(--color-accent)' : 'var(--color-text-dim)',
-                  display: 'block', marginBottom: 1,
-                }}>
-                  {String(i + 1).padStart(2, '0')}
-                </span>
-                <span style={{
-                  fontFamily: 'var(--font-display)', fontSize: 14,
-                  fontWeight: activeTab === tab.id ? 600 : 400,
-                  color: activeTab === tab.id ? 'var(--color-text)' : 'var(--color-text-dim)',
-                }}>
-                  {tab.label}
-                </span>
-              </button>
-            </li>
-          ))}
-        </ul>
-      </nav>
-
-      <main className="flex-1 overflow-y-auto px-8 py-12 lg:px-20 lg:py-16 max-w-4xl">
+      {/* Page content */}
+      <main style={{ maxWidth: 900, margin: '0 auto', padding: '56px 40px 80px' }}>
         <ActiveComponent />
       </main>
     </div>
   )
 }
-
-export default App
