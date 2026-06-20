@@ -1,5 +1,22 @@
 import { Summary, SectionHeader, P, H2, Card, WarnCard, Table } from '../Shared'
 
+const font = "'Calibri', 'Trebuchet MS', Arial, sans-serif"
+
+function Proj({ p }) {
+  const map = {
+    DevOps:  { bg: '#EFF4FE', border: '#C7D7F5', color: '#1D4ED8' },
+    Product: { bg: '#FFF4EE', border: '#FAD2BD', color: '#C2410C' },
+    Both:    { bg: '#F3F4F6', border: '#E5E7EB', color: '#6B7280' },
+  }
+  const c = map[p]
+  return (
+    <span style={{
+      display: 'inline-block', background: c.bg, border: `1px solid ${c.border}`, color: c.color,
+      borderRadius: 999, padding: '2px 10px', fontSize: 11.5, fontWeight: 700, fontFamily: font, whiteSpace: 'nowrap',
+    }}>{p}</span>
+  )
+}
+
 export default function Resources() {
   return (
     <div>
@@ -15,11 +32,11 @@ export default function Resources() {
       <Table
         headers={['Role', 'Project', 'Responsibility', 'Load']}
         rows={[
-          ['Implementation Manager', 'Both', 'Single point of accountability. Owns the dependency tracker, runs the external sync, escalates blockers, manages scope.', 'Full'],
-          ['DevOps / Infrastructure Engineer', 'DevOps', 'Owns the on-prem foundation: workshops, binary pipeline, environment rollout, artifact storage, LLM deployment spec, access coordination.', 'Full'],
-          ['Platform Developers (2)', 'Product', 'Build the flows on Notch\'s platform. Mock-first, then real integration. The core build capacity.', 'Full'],
-          ['AI / Prompt Engineer', 'Product', 'Agent behaviour, guardrails, LLM integration, response tuning against Bullet\'s knowledge base and compliance rules.', 'Full → tapering'],
-          ['QA / Test Engineer', 'Both', 'Owns the testing funnel: automated suites, Stage validation, coordinating Bullet UAT, regression across versions.', 'Ramps at V0'],
+          ['Implementation Manager', <Proj p="Both" />, 'Single point of accountability. Owns the dependency tracker, runs the external sync, escalates blockers, manages scope.', 'Full'],
+          ['DevOps / Infrastructure Engineer', <Proj p="DevOps" />, 'Owns the on-prem foundation: workshops, binary pipeline, environment rollout, artifact storage, LLM deployment spec, access coordination.', 'Full'],
+          ['Platform Developers (2)', <Proj p="Product" />, 'Build the flows on Notch\'s platform. Mock-first, then real integration. The core build capacity.', 'Full'],
+          ['AI / Prompt Engineer', <Proj p="Product" />, 'Agent behaviour, guardrails, LLM integration, response tuning against Bullet\'s knowledge base and compliance rules.', 'Full → tapering'],
+          ['QA / Test Engineer', <Proj p="Both" />, 'Owns the testing funnel: automated suites, Stage validation, coordinating Bullet UAT, regression across versions.', 'Ramps at V0'],
         ]}
       />
 
