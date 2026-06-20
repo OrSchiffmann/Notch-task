@@ -16,6 +16,9 @@
   --color-track3: #7C3AED;
   --color-app: #4F46E5;
   --font-main: 'Calibri', 'Trebuchet MS', 'Gill Sans MT', Arial, sans-serif;
+  --font-display: 'Calibri', 'Trebuchet MS', 'Gill Sans MT', Arial, sans-serif;
+  --font-body: 'Calibri', 'Trebuchet MS', 'Gill Sans MT', Arial, sans-serif;
+  --font-mono: 'Calibri', 'Trebuchet MS', 'Gill Sans MT', Arial, sans-serif;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -30,7 +33,7 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-h1, h2, h3, h4, p, li, td, th, span, button {
+h1, h2, h3, h4, h5, p, li, td, th, span, button, div, a, em, strong {
   font-family: var(--font-main) !important;
 }
 

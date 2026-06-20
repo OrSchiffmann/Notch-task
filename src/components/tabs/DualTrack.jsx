@@ -3,51 +3,41 @@ import { Summary, SectionHeader, P, H2, Card, Table } from '../Shared'
 export default function DualTrack() {
   return (
     <div>
-      <SectionHeader eyebrow="ARCHITECTURE" title="Two parallel tracks, one delivery" />
+      <SectionHeader eyebrow="DELIVERY MODEL" title="How the two projects run and connect" />
       <Summary>
-        This is two projects running in parallel, not one. DevOps proves the deployment; Development builds the flows on Notch's platform. They're kept separate because they have different people, different risks, and different dependencies.
+        The DevOps project owns everything about running inside Bullet's environment. The Product project owns the AI flows, built on Notch's own platform. They stay decoupled through most of the timeline and meet at one handoff: a validated binary, shipped through the pipeline DevOps built. Building on our platform - not inside the customer - is also what keeps the work reusable.
       </Summary>
 
+      <H2>DevOps Project - prove the deployment</H2>
       <P>
-        The most important structural decision in this project is recognizing that <strong style={{ color: 'var(--color-text)' }}>DevOps and Development must run independently</strong>. Merging them creates bottlenecks: developers blocked on infrastructure access, DevOps distracted by feature work. Keeping them separate lets both move at full speed.
+        Owns the on-premise foundation: the deployment workshops, the binary pipeline, the rollout across Dev, Staging and Production, secure artifact storage, the LLM deployment spec, and all access coordination. Its output is a proven, repeatable path for getting a binary safely into Bullet's environment - and the connectivity each new channel needs to its integrations.
       </P>
 
-      <H2>Track 1 - DevOps / Infrastructure</H2>
+      <H2>Product Project - build the flows</H2>
       <P>
-        Owns everything about getting Notch running inside Bullet's environment. Binary pipeline, artifact storage, LLM deployment spec, access coordination. The work here is a gate - no features run until the deployment is proven.
+        Builds the AI support flows on Notch's platform, in Notch's codebase, where the IP lives. It develops against mocks first and connects to Bullet's real systems only once the logic is mature. Its output is validated binaries, handed to the DevOps project for deployment.
+      </P>
+
+      <H2>The internal dev environment - a DevOps deliverable, not a strategy</H2>
+      <P>
+        To let the Product team build without waiting on Bullet at every step, DevOps stands up an internal environment on Notch's side, configured to resemble Bullet's setup, with a pipeline into Bullet's Dev environment. Developers work here against mocks built from the Swagger specs Bullet provides. It is a practical tactic that removes a dependency - not an architectural centrepiece.
       </P>
       <Table
-        headers={['Work item', 'What it delivers']}
+        headers={['What it gives us', 'How']}
         rows={[
-          ['Workshop 1 - Hello World', 'Proves the pipeline works: a binary deploys, runs, and sends logs back.'],
-          ['Workshop 2 - Base binary', 'Proves the full Notch platform runs in Bullet\'s environment.'],
-          ['Internal dev environment', 'A Notch-side environment configured to match Bullet\'s setup, with a pipeline connecting to Bullet\'s Dev environment. Developers work here against mocks - no Bullet access needed for most of the build.'],
-          ['LLM deployment spec', 'Exact spec for what Bullet installs: model, version, GPU requirements, config.'],
-          ['Secure artifact storage', 'The handoff point - Notch uploads, Bullet pulls and scans.'],
+          ['Velocity', 'Developers build and test against Bullet-like conditions without waiting on Bullet access each iteration.'],
+          ['Mock-driven development', 'Mocks built from Bullet\'s Swagger stand in for real APIs until integration is ready. Swagger quality sets mock quality.'],
+          ['A clean handoff', 'When the logic is mature, the same pipeline carries the build from internal environment to Bullet\'s Dev for real integration.'],
         ]}
       />
 
-      <H2>Track 2 - Development</H2>
+      <H2>Where they converge</H2>
       <P>
-        Builds the AI support flows on Notch's own platform. Developers work against mocks based on Swagger specs Bullet provides - this means development can start immediately, without waiting for Bullet environment access. Real integration comes later, once the logic is mature.
-      </P>
-      <Table
-        headers={['Phase', 'What happens']}
-        rows={[
-          ['Discovery', 'Receive Swagger specs from Bullet. API comprehension Q&A with their team to understand semantics, not just syntax.'],
-          ['Mock-first build', 'Build all flows against accurate mocks. No Bullet network access needed.'],
-          ['Real integration', 'Connect to actual Bullet APIs inside their dev environment. Logic is already mature - integration is the last step, not the first.'],
-          ['Validation', 'End-to-end on staging before any production deployment.'],
-        ]}
-      />
-
-      <H2>How the tracks connect</H2>
-      <P>
-        Track 1 creates the internal dev environment - a Notch-side environment that mirrors Bullet's configuration and has a pipeline into Bullet's Dev environment. Track 2 builds against this environment using mocks. When real integration is ready, Track 2 connects through the pipeline Track 1 built. Validated code ships as a binary from Track 1's pipeline.
+        Through discovery, build, and mock integration, the two projects barely touch. They meet at one point and one point only: when a binary the Product project has validated is handed to the DevOps project and pulled into Bullet's environment through the pipeline. A single, well-defined seam between two otherwise independent efforts - which is exactly why they can move in parallel.
       </P>
 
-      <Card accent title="Genericization by architecture">
-        <p>Because Track 2 builds on Notch's platform (not inside Bullet's environment), every capability built is reusable. The work doesn't get trapped as customer-specific customization - it flows back into the product core. Build inside the customer and that's impossible.</p>
+      <Card accent title="Bonus - genericisation falls out of the architecture">
+        <p>Because the Product project builds on Notch's platform rather than inside Bullet's environment, every capability it produces is reusable by default. The work is never trapped as customer-specific customisation - it flows back into the product core. Concretely: the Data Integration flow's contract-driven connector becomes a reusable primitive, and the next regulated customer inherits it with only their API mapping swapped in. Genericisation is not a phase we add later; it is a consequence of where we build.</p>
       </Card>
     </div>
   )

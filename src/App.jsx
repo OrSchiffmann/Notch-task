@@ -12,18 +12,20 @@ import Process from './components/tabs/Process'
 import LaunchBeyond from './components/tabs/LaunchBeyond'
 import PreRequisites from './components/tabs/PreRequisites'
 import Testing from './components/tabs/Testing'
+import Resources from './components/tabs/Resources'
 
 const TABS = [
   { id: 'cover',       label: 'Cover',            component: Cover },
   { id: 'overview',    label: 'Overview',          component: Overview },
   { id: 'prereqs',     label: 'Pre-Requisites',   component: PreRequisites },
-  { id: 'dual-track',  label: 'Dual-Track',        component: DualTrack },
+  { id: 'dual-track',  label: 'Delivery Model',   component: DualTrack },
   { id: 'roadmap',     label: 'Roadmap',           component: Roadmap },
-  { id: 'testing',     label: 'Testing Strategy',  component: Testing },
-  { id: 'on-prem',     label: 'On-Prem',           component: OnPrem },
-  { id: 'development', label: 'Development',       component: Development },
+  { id: 'resources',   label: 'Resources',         component: Resources },
+  { id: 'on-prem',     label: 'DevOps Project',    component: OnPrem },
+  { id: 'development', label: 'Product Project',   component: Development },
   { id: 'mvp',         label: 'V0 & DOD',          component: MvpDod },
-  { id: 'risks',       label: 'Risks',             component: Risks },
+  { id: 'testing',     label: 'Testing Strategy',  component: Testing },
+  { id: 'risks',       label: 'Risks & Deps',      component: Risks },
   { id: 'kickoff',     label: 'Kickoff',           component: Kickoff },
   { id: 'process',     label: 'Process',           component: Process },
   { id: 'launch',      label: 'Launch & Beyond',   component: LaunchBeyond },
@@ -82,9 +84,9 @@ export default function App() {
         </div>
 
         {/* Tab row — desktop */}
-        <nav style={{ maxWidth: 900, margin: '0 auto', padding: '0 40px' }}
-          className="hidden lg:flex gap-0 mt-3">
-          {TABS.map(tab => (
+        <nav style={{ maxWidth: 900, margin: '0 auto', padding: '12px 36px 14px', display: 'flex', flexWrap: 'wrap', gap: 4 }}
+          className="hidden lg:flex">
+          {TABS.map((tab, i) => (
             <button
               key={tab.id}
               onClick={() => switchTab(tab.id)}
@@ -93,13 +95,19 @@ export default function App() {
                 fontSize: 13,
                 fontWeight: activeTab === tab.id ? 600 : 400,
                 color: activeTab === tab.id ? '#F06A22' : '#6B7280',
-                background: 'none', border: 'none', cursor: 'pointer',
-                padding: '10px 14px',
-                borderBottom: activeTab === tab.id ? '2px solid #F06A22' : '2px solid transparent',
-                marginBottom: -1,
-                transition: 'color 0.15s, border-color 0.15s',
+                background: activeTab === tab.id ? '#FFF4EE' : 'transparent',
+                border: 'none', cursor: 'pointer',
+                padding: '6px 12px',
+                borderRadius: 7,
+                transition: 'color 0.15s, background 0.15s',
                 whiteSpace: 'nowrap',
-              }}>
+                display: 'flex', alignItems: 'baseline', gap: 6,
+              }}
+              onMouseEnter={e => { if (activeTab !== tab.id) e.currentTarget.style.background = '#F7F8FA' }}
+              onMouseLeave={e => { if (activeTab !== tab.id) e.currentTarget.style.background = 'transparent' }}>
+              <span style={{ fontSize: 10, color: activeTab === tab.id ? '#F06A22' : '#C0C4CC', fontWeight: 600 }}>
+                {String(i + 1).padStart(2, '0')}
+              </span>
               {tab.label}
             </button>
           ))}
@@ -124,7 +132,7 @@ export default function App() {
                   fontFamily: font, fontSize: 14,
                   fontWeight: activeTab === tab.id ? 600 : 400,
                   color: activeTab === tab.id ? '#F06A22' : '#374151',
-                  background: activeTab === tab.id ? '#F0FDF9' : 'none',
+                  background: activeTab === tab.id ? '#FFF4EE' : 'none',
                   border: 'none', cursor: 'pointer',
                 }}>
                 {tab.label}

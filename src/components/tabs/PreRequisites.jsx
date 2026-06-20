@@ -47,7 +47,7 @@ export default function PreRequisites() {
       </NumberedItem>
 
       <NumberedItem n={5} title="Policy and claims data structures">
-        The Data Integration flow (Category B) depends on understanding the data model for policies and claims. Even if Category B is not in V0, Notch needs this early to design the connectors correctly.
+        The personal-data flow (Flow C - OTP and data integration) depends on understanding the data model for policies and claims. Even though Flow C lands in V1 rather than V0, Notch needs this early to design the connectors correctly.
       </NumberedItem>
 
       <NumberedItem n={6} title="Security scanning toolchain">

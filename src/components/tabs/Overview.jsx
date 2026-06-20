@@ -5,67 +5,68 @@ export default function Overview() {
     <div>
       <SectionHeader eyebrow="STRATEGY" title="Two projects, one kickoff" />
       <Summary>
-        We are managing this as two separate projects: a DevOps project and a Product project. They run in parallel, have different owners and different risks, and converge only at deployment. WhatsApp goes first - it has a fallback, and going live on it is the first real test of the DevOps pipeline in production.
+        We run this as two projects, not one: a DevOps project that proves Notch can deploy and operate inside Bullet's environment, and a Product project that builds the AI flows on Notch's platform. They run in parallel with different owners and different risks, and meet only at the deployment pipeline. WhatsApp is the first channel - it has a human fallback, and shipping it is our first real production test of the deployment itself.
       </Summary>
 
-      <H2>Two separate projects</H2>
+      <H2>Why two projects, not one</H2>
       <P>
-        The most important framing decision: this is not one project. It is two. A <strong style={{ color: 'var(--color-text)' }}>DevOps project</strong> that proves Notch can deploy and operate inside Bullet's on-prem environment, and a <strong style={{ color: 'var(--color-text)' }}>Product project</strong> that builds the AI support flows on Notch's platform. They have different people, different dependencies, and different risk profiles. Managing them as one project means the slower track blocks the faster one. Keeping them separate lets both move at full speed.
+        These two bodies of work have nothing in common except the customer. One is an infrastructure problem - getting a binary to deploy, run, and be observable inside a regulated insurer's cloud. The other is a product problem - building support flows that resolve real customer issues. They need different skills, depend on different things, and fail for different reasons.
       </P>
       <P>
-        They converge at one point: when a validated binary from the Product project is handed off through the pipeline the DevOps project built. Until that moment, they operate independently.
+        Managed as a single project, the slower of the two sets the pace for both and developers sit idle waiting on infrastructure. Managed as two, each runs at its own speed against its own dependencies. They converge at exactly one point: a validated binary from the Product project, handed off through the pipeline the DevOps project built. Everything in this plan follows from that split.
       </P>
 
       <H2>Channel sequencing</H2>
-      <P>We go live channel by channel, each choice deliberate:</P>
+      <P>We go live one channel at a time. The order is deliberate, and each position earns its place:</P>
 
-      <NumberedItem n="1" title="WhatsApp - first (V0)">
-        Bullet already operates this channel and it is the simplest technically (async text, no real-time NLU). It has a <strong style={{ color: 'var(--color-accent)' }}>built-in fallback via Glassix</strong> - if AI fails, a human agent picks up. That makes it the right place to discover failure modes, because they are recoverable. Going live on WhatsApp also gives us the first real end-to-end test of the DevOps pipeline in a production environment - validating the deployment model before we build on top of it. Critically, we do not need to go live with all WhatsApp flows - V0 can be a single category.
+      <NumberedItem n="1" title="WhatsApp - first">
+        Bullet already runs this channel, it is the simplest technically (asynchronous text, no real-time speech), and it has a <strong style={{ color: 'var(--color-accent)' }}>human fallback through Glassix</strong> - if the AI is unsure, an agent picks up. That makes it the right place to find our failure modes, because here they are recoverable. Going live also gives us the first end-to-end proof of the deployment pipeline in production, before anything higher-stakes depends on it. Critically, "WhatsApp" is not all-or-nothing - we can go live with a single slice and expand from there.
       </NumberedItem>
       <NumberedItem n="2" title="Mobile App - second (Bullet's 2026 priority)">
-        Highest customer value. WhatsApp V0 is Phase 0 of the App: the core capabilities proven there are exactly what the App reuses. App has no graceful fallback, so nothing unproven lands there first.
+        The highest-value channel, and the reason the engagement exists. By the time we reach it, the core capabilities are already proven on WhatsApp - the App reuses them rather than discovering them. The App has no graceful fallback, so nothing unproven is allowed to land there first.
       </NumberedItem>
       <NumberedItem n="3" title="Voice - third">
-        Reuses the proven core, adds real-time and NLU complexity.
+        Reuses the proven core and adds the genuinely hard part: real-time speech understanding. Sequenced after text is stable so the new variable is isolated.
       </NumberedItem>
       <NumberedItem n="4" title="Website - fourth">
-        Lowest marginal value once the above channels exist.
+        The lowest marginal value once the channels above exist, and the cheapest to add because the core is fully proven by then.
       </NumberedItem>
 
       <Card accent>
-        <p>WhatsApp first is not a detour from the App deadline - it is the first, recoverable increment of the same core the App depends on.</p>
+        <p>The reframe to hold in every Bullet conversation: WhatsApp-first is not a detour from the App deadline. It is the first recoverable increment of the exact core the App depends on.</p>
       </Card>
 
       <H2>Build vs Buy</H2>
       <P>
-        Notch builds only where it adds unique value. Everything else is a bought tool - and for each bought tool, the question is who brings the vendor: Notch (a tool we already work with) or Bullet (one they already operate).
+        Notch builds only where it is the differentiator. Everything commodity is bought - and for each bought capability, the only open question is who supplies the vendor: Notch, bringing a tool we already operate, or Bullet, using one they already run.
       </P>
       <Table
-        headers={['Category', 'What', 'Recommended owner']}
+        headers={['', 'Capability', 'Default owner']}
         rows={[
-          ['BUILD', 'AI agents, flow orchestration, guardrails, routing logic', 'Notch'],
-          ['BUY', 'Auth/OTP provider', 'Bullet - likely already have one'],
+          ['BUILD', 'AI agents, resolution logic, flow orchestration, guardrails, routing', 'Notch - this is the product'],
+          ['BUY', 'Authentication / OTP', 'Bullet - insurers already run one'],
           ['BUY', 'LLM model', 'Bullet - self-hosted in their cloud'],
-          ['BUY', 'Website search/scraping (e.g. Firecrawl)', 'Decide at kickoff'],
-          ['BUY', 'Monitoring/observability tools', 'Bullet - likely already have one'],
+          ['BUY', 'Website search / scraping (e.g. Firecrawl)', 'Decide at kickoff'],
+          ['BUY', 'Monitoring / observability tooling', 'Bullet - likely already in place'],
         ]}
       />
-      <Card title="Subscription ownership - Bullet holds">
-        <p>For every third-party tool, Bullet holds the subscription. AI pricing is unsettled and consumption-based. Notch sells value, not an infrastructure markup - and should not hedge costs it does not control. Confirm per tool at kickoff.</p>
+      <Card title="Subscription ownership - our recommendation is Bullet holds it">
+        <p>For every bought tool, Bullet should hold the subscription. AI pricing is unsettled and consumption-based, and it scales with the customer's own success. Notch sells outcomes, not a margin on infrastructure - and should not carry a cost it neither controls nor caps. We confirm this per tool at kickoff.</p>
       </Card>
 
       <H2>Working assumptions</H2>
+      <P>Stated openly so Bullet can confirm or correct them at kickoff. Each is a decision waiting to be ratified, not a fact we are hiding.</P>
 
-      <WarnCard title="Timeline interpretation">
-        The brief states Q1 2026 for App go-live. From a July 1 kickoff that date has already passed, so we read it as "one quarter from kickoff" - target end of Q3 2026 (September). If Q1 2026 is a hard external commitment, the plan needs rescoping. Flagged as the first open question for kickoff.
+      <WarnCard title="Timeline - the first thing to align on">
+        The brief names Q1 2026 for App go-live, which is unreachable from a mid-2026 kickoff. We read the intent as "the App is the priority channel" and target App go-live in <strong style={{ color: 'var(--color-text)' }}>Q1 2027</strong>, with WhatsApp live in Q3 2026 to prove the core first. If Q1 2026 reflects a hard external commitment we do not yet understand, the scope needs rethinking - and that is the very first conversation at kickoff.
       </WarnCard>
 
       <Table
-        headers={['Assumption', 'Detail']}
+        headers={['Assumption', 'What it means in practice']}
         rows={[
-          ['Deployment model', 'Binary-only - Bullet never sees Notch source code. IP protected.'],
-          ['LLM', 'Self-hosted inside Bullet\'s cloud. Customer data never leaves their environment.'],
-          ['3rd-party tools', 'Bullet likely already operates some of these (auth, monitoring). Use theirs before introducing new vendors.'],
+          ['Binary-only deployment', 'Bullet receives compiled binaries and never sees Notch source. Our IP stays protected; their environment stays controlled.'],
+          ['Self-hosted LLM', 'The model runs inside Bullet\'s cloud. The reason Bullet went on-premise is that customer data must not leave - so the model comes to the data.'],
+          ['Reuse before introduce', 'Where Bullet already runs a capable tool (auth, monitoring), we integrate with theirs before proposing a new vendor.'],
         ]}
       />
     </div>

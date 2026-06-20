@@ -12,7 +12,7 @@ export default function Risks() {
       <P>These are uncertainties we own mitigation for, regardless of what Bullet does.</P>
 
       <NumberedItem n="1" title="Resource contention collapses the parallel tracks">
-        <p>The 13-week plan assumes DevOps and Development run concurrently. If either track is understaffed, they serialize and the timeline extends.</p>
+        <p>The plan assumes the DevOps and Product projects run concurrently. If either is understaffed, they serialise and every milestone slides to the right.</p>
         <p className="mt-2"><strong style={{ color: 'var(--color-accent)' }}>Mitigation:</strong> Explicit resourcing commitment before kickoff. If constrained, the internal dev environment gets the dedicated resource first - it unblocks all development testing.</p>
       </NumberedItem>
 
@@ -43,11 +43,11 @@ export default function Risks() {
           ['Swagger specs - all internal APIs', 'Before Week 2', 'Mock-first development blocked. Developers idle.', '⭐⭐⭐ Critical'],
           ['Network reachability confirmation per API', 'Before Week 3', 'Integration phase blocked. Discovered late = rework.', '⭐⭐⭐ Critical'],
           ['Existing flow and intent inventory', 'Before Week 2', 'Cannot define V0 scope (top intents for FAQ).', '⭐⭐ High'],
-          ['Swagger specs - 3rd-party integrations (Glassix, auth)', 'Before Week 3', 'Category C and B flows blocked.', '⭐⭐ High'],
+          ['Swagger specs - 3rd-party integrations (Glassix, auth)', 'Before Week 3', 'Flow A (Glassix) and Flow C (auth) blocked.', '⭐⭐ High'],
           ['Named Bullet Implementation Engineer', 'At kickoff', 'No single coordination point. Access requests have no owner.', '⭐⭐ High'],
           ['Security toolchain list', 'Before Week 1', 'Cannot pre-scan binaries. First handoff may fail.', '⭐⭐ High'],
           ['GPU / infra capacity confirmed for LLM', 'Before Week 2', 'LLM deployment spec cannot be finalized. Procurement blocker.', '⭐ Medium'],
-          ['Policy and claims data structures', 'Before Week 4', 'Category B connector design blocked.', '⭐ Medium'],
+          ['Policy and claims data structures', 'Before Week 4', 'Flow C connector design blocked.', '⭐ Medium'],
           ['Developer access to Bullet dev environment', 'Before Week 6', 'Real integration phase blocked. Only impacts if mock dev is done.', '⭐ Medium'],
         ]}
       />

@@ -52,26 +52,26 @@ export default function Process() {
     <div>
       <SectionHeader eyebrow="OPERATING RHYTHM" title="How we run delivery" />
       <Summary>
-        Binaries ship through the pipeline on the version cadence (v1→v4). Each track holds its own weekly sync. The IM consolidates both into one weekly external meeting with Bullet's Implementation Engineer, so Bullet gets one coherent signal, not two raw feeds.
+        Releases ship as named versions through the pull-based pipeline, on the V0 → V1 → V2 cadence - not ad hoc. Each project runs its own weekly internal sync, and the IM consolidates both into a single weekly meeting with Bullet, so Bullet receives one coherent signal rather than two raw feeds.
       </Summary>
 
-      <H2>Delivery pipeline cadence</H2>
+      <H2>Release cadence</H2>
       <P>
-        Each version (see MVP & DOD, v1–v4) ships as a binary through the pull-based pipeline - delivery cadence matches the version plan, not ad hoc releases. Bullet always knows what's coming and when, tied to a named version.
+        Every release is a named version (see V0 &amp; DOD) shipped as a binary through the pull-based pipeline. Bullet always knows what is coming and when, tied to a specific version rather than a surprise drop. Predictability here is part of the trust we are building with a regulated customer.
       </P>
 
       <H2>Weekly cadence</H2>
       <CadenceDiagram />
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
-        <Card title="Internal track syncs (separate)">
-          <p><strong style={{ color: 'var(--color-text)' }}>DevOps sync</strong> - environments, access status, pipeline health, security scan results.</p>
-          <p className="mt-2"><strong style={{ color: 'var(--color-text)' }}>Development sync</strong> - flow progress, mock/integration status, blockers.</p>
-          <p className="mt-2">Kept separate - the two tracks have different rhythms and different blockers; merging dilutes both.</p>
+        <Card title="Internal syncs - one per project">
+          <p><strong style={{ color: 'var(--color-text)' }}>DevOps sync</strong> covers environments, access status, pipeline health, and security-scan results.</p>
+          <p className="mt-2"><strong style={{ color: 'var(--color-text)' }}>Product sync</strong> covers flow progress, mock and integration status, and blockers.</p>
+          <p className="mt-2">They stay separate on purpose: the two projects move on different rhythms and fail for different reasons, and merging the syncs dilutes both.</p>
         </Card>
-        <Card title="External client sync (consolidated)" accent>
-          <p>IM runs one weekly meeting with Bullet's Implementation Engineer, bringing the consolidated output of both internal syncs: status, decisions needed, blockers, what's shipping next.</p>
-          <p className="mt-2">Bullet sees one coherent picture, not two raw internal feeds - and the IM is the single point of accountability for escalation.</p>
+        <Card title="External sync - consolidated" accent>
+          <p>The IM runs one weekly meeting with Bullet's Implementation Engineer, carrying the combined output of both internal syncs: status, decisions needed, blockers, and what ships next.</p>
+          <p className="mt-2">Bullet sees one coherent picture rather than two raw internal feeds, and the IM is the single point of accountability for what gets escalated.</p>
         </Card>
       </div>
     </div>

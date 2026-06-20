@@ -5,7 +5,8 @@
       "PowerShell(Expand-Archive -Path \"C:\\\\Users\\\\Dvirs\\\\Notch\\\\files.zip\" -DestinationPath \"C:\\\\Users\\\\Dvirs\\\\Notch\" -Force)",
       "Bash(tar -xzf \"C:/Users/Dvirs/Notch/notch-site.tar.gz\" -C \"C:/Users/Dvirs/Notch/\")",
       "WebFetch(domain:getnotch.ai)",
-      "WebFetch(domain:www.notch.cx)"
+      "WebFetch(domain:www.notch.cx)",
+      "PowerShell(cd \"C:\\\\Users\\\\Dvirs\\\\Notch\"; if \\(-not \\(Test-Path node_modules\\)\\) { npm install 2>&1 | Select-Object -Last 5 }; npm run build 2>&1 | Select-Object -Last 30)"
     ]
   }
 }
