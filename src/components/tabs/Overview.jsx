@@ -5,7 +5,7 @@ export default function Overview() {
     <div>
       <SectionHeader eyebrow="STRATEGY" title="Two tracks, one kickoff" />
       <Summary>
-        Two parallel tracks - DevOps and Development - run independently and converge at deployment. WhatsApp goes first because it is the only channel with a built-in fallback. We build where we add value; everything else is bought, on Bullet's subscription.
+        Two parallel tracks - DevOps and Development - run independently and converge at deployment. WhatsApp goes first because it has a built-in fallback, and because going live on it gives us the first real test of the DevOps pipeline in production. We build where we add value; everything else is bought, on Bullet's subscription.
       </Summary>
 
       <P>
@@ -16,7 +16,7 @@ export default function Overview() {
       <P>We go live channel by channel, each choice deliberate:</P>
 
       <NumberedItem n="1" title="WhatsApp - first (V0)">
-        Bullet already operates this channel, it is the simplest technically (async text, no real-time NLU), and it is the <strong style={{ color: 'var(--color-accent)' }}>only channel with a built-in fallback</strong> - if AI fails, Glassix hands off to a human. We want failure modes discovered where they are recoverable. Critically, we do not need to go live with all WhatsApp flows - V0 can be a single category.
+        Bullet already operates this channel and it is the simplest technically (async text, no real-time NLU). It has a <strong style={{ color: 'var(--color-accent)' }}>built-in fallback via Glassix</strong> - if AI fails, a human agent picks up. That makes it the right place to discover failure modes, because they are recoverable. Going live on WhatsApp also gives us the first real end-to-end test of the DevOps pipeline in a production environment - validating the deployment model before we build on top of it. Critically, we do not need to go live with all WhatsApp flows - V0 can be a single category.
       </NumberedItem>
       <NumberedItem n="2" title="Mobile App - second (Bullet's 2026 priority)">
         Highest customer value. WhatsApp V0 is Phase 0 of the App: the core capabilities proven there are exactly what the App reuses. App has no graceful fallback, so nothing unproven lands there first.
