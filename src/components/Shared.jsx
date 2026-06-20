@@ -1,40 +1,41 @@
-// Executive Summary callout
+const font = "'Calibri', 'Trebuchet MS', Arial, sans-serif"
+
 export function Summary({ children }) {
   return (
-    <div className="mb-8 p-4 rounded-lg border-l-2"
-      style={{ background: 'var(--color-surface)', borderColor: 'var(--color-accent)', color: 'var(--color-text-dim)' }}>
-      <p style={{ fontFamily: 'var(--font-mono)', fontSize: 10, letterSpacing: '0.1em', color: 'var(--color-accent)', marginBottom: 6 }}>
-        EXECUTIVE SUMMARY
+    <div className="mb-10" style={{
+      borderLeft: '3px solid var(--color-accent)',
+      paddingLeft: 20,
+      paddingTop: 4,
+      paddingBottom: 4,
+    }}>
+      <p style={{ fontSize: 11, letterSpacing: '0.12em', color: 'var(--color-accent)', marginBottom: 8, fontWeight: 600, textTransform: 'uppercase' }}>
+        Executive Summary
       </p>
-      <p style={{ fontSize: 14, lineHeight: 1.7 }}>{children}</p>
+      <p style={{ fontSize: 16, lineHeight: 1.8, color: 'var(--color-text-dim)' }}>{children}</p>
     </div>
   )
 }
 
-// Section header with eyebrow
 export function SectionHeader({ eyebrow, title }) {
   return (
-    <div className="mb-6">
-      <p style={{ fontFamily: 'var(--font-mono)', fontSize: 11, letterSpacing: '0.1em', color: 'var(--color-accent)', marginBottom: 6 }}>
+    <div className="mb-10">
+      <p style={{ fontSize: 11, letterSpacing: '0.14em', color: 'var(--color-accent)', marginBottom: 10, fontWeight: 600, textTransform: 'uppercase' }}>
         {eyebrow}
       </p>
-      <h1 style={{ fontFamily: 'var(--font-display)', fontSize: 28, fontWeight: 700, lineHeight: 1.2 }}>
+      <h1 style={{ fontSize: 34, fontWeight: 700, lineHeight: 1.2, color: 'var(--color-text)' }}>
         {title}
       </h1>
     </div>
   )
 }
 
-// Body paragraph
 export function P({ children }) {
-  return <p className="mb-4" style={{ fontSize: 14, color: 'var(--color-text-dim)', lineHeight: 1.7 }}>{children}</p>
+  return <p className="mb-5" style={{ fontSize: 16, color: 'var(--color-text-dim)', lineHeight: 1.8 }}>{children}</p>
 }
 
-// Subsection heading
 export function H2({ children, className = '' }) {
   return (
-    <h2 className={`mt-8 mb-3 ${className}`}
-      style={{ fontFamily: 'var(--font-display)', fontSize: 18, fontWeight: 600 }}>
+    <h2 className={`mb-4 ${className}`} style={{ fontSize: 20, fontWeight: 700, color: 'var(--color-text)', marginTop: 40 }}>
       {children}
     </h2>
   )
@@ -42,23 +43,21 @@ export function H2({ children, className = '' }) {
 
 export function H3({ children }) {
   return (
-    <h3 className="mt-6 mb-2"
-      style={{ fontFamily: 'var(--font-display)', fontSize: 15, fontWeight: 600 }}>
+    <h3 style={{ fontSize: 17, fontWeight: 600, color: 'var(--color-text)', marginTop: 28, marginBottom: 8 }}>
       {children}
     </h3>
   )
 }
 
-// Compact table
 export function Table({ headers, rows }) {
   return (
-    <div className="overflow-x-auto mb-6 rounded-lg border" style={{ borderColor: 'var(--color-border)' }}>
-      <table className="w-full" style={{ fontSize: 13 }}>
+    <div className="overflow-x-auto mb-8" style={{ marginTop: 8 }}>
+      <table className="w-full" style={{ fontSize: 15, borderCollapse: 'collapse' }}>
         <thead>
-          <tr style={{ background: 'var(--color-surface-2)' }}>
+          <tr style={{ borderBottom: '2px solid var(--color-border)' }}>
             {headers.map((h, i) => (
-              <th key={i} className="text-left px-3 py-2 border-b"
-                style={{ fontFamily: 'var(--font-mono)', fontSize: 11, letterSpacing: '0.05em', color: 'var(--color-text-dim)', borderColor: 'var(--color-border)', fontWeight: 500 }}>
+              <th key={i} className="text-left py-3 pr-6"
+                style={{ fontSize: 12, letterSpacing: '0.08em', color: 'var(--color-text-dim)', fontWeight: 600, textTransform: 'uppercase' }}>
                 {h}
               </th>
             ))}
@@ -66,10 +65,9 @@ export function Table({ headers, rows }) {
         </thead>
         <tbody>
           {rows.map((row, i) => (
-            <tr key={i} style={{ background: i % 2 === 0 ? 'transparent' : 'var(--color-surface)' }}>
+            <tr key={i} style={{ borderBottom: '1px solid var(--color-border)' }}>
               {row.map((cell, j) => (
-                <td key={j} className="px-3 py-2 border-b"
-                  style={{ borderColor: 'var(--color-border)', color: 'var(--color-text-dim)' }}>
+                <td key={j} className="py-3 pr-6" style={{ color: 'var(--color-text-dim)', fontSize: 15 }}>
                   {cell}
                 </td>
               ))}
@@ -81,56 +79,53 @@ export function Table({ headers, rows }) {
   )
 }
 
-// Highlight card
 export function Card({ title, children, accent = false }) {
   return (
-    <div className="p-4 rounded-lg border mb-4"
-      style={{
-        background: accent ? 'var(--color-accent-soft)' : 'var(--color-surface)',
-        borderColor: accent ? 'var(--color-accent)' : 'var(--color-border)',
-      }}>
+    <div className="mb-6" style={{ paddingLeft: 0 }}>
       {title && (
-        <p className="mb-2" style={{ fontFamily: 'var(--font-display)', fontSize: 14, fontWeight: 600, color: accent ? 'var(--color-accent)' : 'var(--color-text)' }}>
+        <p style={{ fontSize: 16, fontWeight: 700, color: accent ? 'var(--color-accent)' : 'var(--color-text)', marginBottom: 6 }}>
           {title}
         </p>
       )}
-      <div style={{ fontSize: 13, color: 'var(--color-text-dim)', lineHeight: 1.6 }}>{children}</div>
+      <div style={{ fontSize: 15, color: 'var(--color-text-dim)', lineHeight: 1.8 }}>{children}</div>
     </div>
   )
 }
 
-// Warning/open-question card
 export function WarnCard({ title, children }) {
   return (
-    <div className="p-4 rounded-lg border mb-4"
-      style={{ background: 'var(--color-warn-soft)', borderColor: 'var(--color-warn)' }}>
+    <div className="mb-6" style={{
+      borderLeft: '3px solid var(--color-warn)',
+      paddingLeft: 20,
+      paddingTop: 4,
+      paddingBottom: 4,
+      marginTop: 32,
+    }}>
       {title && (
-        <p className="mb-2" style={{ fontFamily: 'var(--font-display)', fontSize: 14, fontWeight: 600, color: 'var(--color-warn)' }}>
+        <p style={{ fontSize: 13, fontWeight: 700, color: 'var(--color-warn)', marginBottom: 6, textTransform: 'uppercase', letterSpacing: '0.08em' }}>
           {title}
         </p>
       )}
-      <div style={{ fontSize: 13, color: 'var(--color-text-dim)', lineHeight: 1.6 }}>{children}</div>
+      <div style={{ fontSize: 15, color: 'var(--color-text-dim)', lineHeight: 1.8 }}>{children}</div>
     </div>
   )
 }
 
-// Numbered list item (for flows, risks, etc.)
 export function NumberedItem({ n, title, children }) {
   return (
-    <div className="flex gap-3 mb-4">
-      <span className="shrink-0 w-6 h-6 rounded-full flex items-center justify-center"
-        style={{ background: 'var(--color-accent-soft)', fontFamily: 'var(--font-mono)', fontSize: 11, color: 'var(--color-accent)', fontWeight: 500 }}>
+    <div className="flex gap-5 mb-6">
+      <span className="shrink-0 w-7 h-7 rounded-full flex items-center justify-center"
+        style={{ background: 'var(--color-accent-soft)', fontSize: 13, color: 'var(--color-accent)', fontWeight: 700, marginTop: 2 }}>
         {n}
       </span>
       <div className="flex-1">
-        <p style={{ fontFamily: 'var(--font-display)', fontSize: 14, fontWeight: 600, marginBottom: 2 }}>{title}</p>
-        <div style={{ fontSize: 13, color: 'var(--color-text-dim)', lineHeight: 1.6 }}>{children}</div>
+        <p style={{ fontSize: 16, fontWeight: 700, color: 'var(--color-text)', marginBottom: 4 }}>{title}</p>
+        <div style={{ fontSize: 15, color: 'var(--color-text-dim)', lineHeight: 1.8 }}>{children}</div>
       </div>
     </div>
   )
 }
 
-// Mono label
 export function Mono({ children }) {
-  return <span style={{ fontFamily: 'var(--font-mono)', fontSize: 12, color: 'var(--color-accent)' }}>{children}</span>
+  return <span style={{ fontSize: 13, color: 'var(--color-accent)', fontWeight: 600 }}>{children}</span>
 }

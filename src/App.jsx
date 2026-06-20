@@ -107,7 +107,7 @@ function App() {
         </ul>
       </nav>
 
-      <main className="flex-1 overflow-y-auto px-8 py-10 lg:px-16 lg:py-14 max-w-5xl">
+      <main className="flex-1 overflow-y-auto px-8 py-12 lg:px-20 lg:py-16 max-w-4xl">
         <ActiveComponent />
       </main>
     </div>
