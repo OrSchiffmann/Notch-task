@@ -1,20 +1,20 @@
 @import "tailwindcss";
 
 @theme {
-  --color-bg: #0E1116;
-  --color-surface: #161B22;
-  --color-surface-2: #1C232D;
-  --color-border: #2A323D;
-  --color-text: #E6EDF3;
-  --color-text-dim: #8B949E;
-  --color-accent: #2DD4BF;
-  --color-accent-soft: rgba(45,212,191,0.12);
-  --color-warn: #D9A441;
-  --color-warn-soft: rgba(217,164,65,0.12);
-  --color-track1: #4A7FB5;
-  --color-track2: #1D9E75;
-  --color-track3: #7A6BC4;
-  --color-app: #534AB7;
+  --color-bg: #F8F9FB;
+  --color-surface: #FFFFFF;
+  --color-surface-2: #F1F3F6;
+  --color-border: #E2E6ED;
+  --color-text: #111827;
+  --color-text-dim: #6B7280;
+  --color-accent: #0D9488;
+  --color-accent-soft: rgba(13,148,136,0.08);
+  --color-warn: #B45309;
+  --color-warn-soft: rgba(180,83,9,0.08);
+  --color-track1: #2563EB;
+  --color-track2: #059669;
+  --color-track3: #7C3AED;
+  --color-app: #4F46E5;
   --font-display: 'Space Grotesk', sans-serif;
   --font-body: 'Inter', sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
@@ -27,8 +27,9 @@ body {
   background: var(--color-bg);
   color: var(--color-text);
   font-family: var(--font-body);
-  line-height: 1.6;
+  line-height: 1.7;
   -webkit-font-smoothing: antialiased;
+  font-size: 15px;
 }
 
 ::selection {
