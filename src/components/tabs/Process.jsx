@@ -1,4 +1,4 @@
-import { Summary, SectionHeader, P, H2, Card } from '../Shared'
+﻿import { Summary, SectionHeader, P, H2, Card } from '../Shared'
 
 function CadenceDiagram() {
   const box = (extra = {}) => ({
@@ -57,7 +57,7 @@ export default function Process() {
 
       <H2>Delivery pipeline cadence</H2>
       <P>
-        Each version (see MVP & DOD, v1–v4) ships as a binary through the pull-based pipeline — delivery cadence matches the version plan, not ad hoc releases. Bullet always knows what's coming and when, tied to a named version.
+        Each version (see MVP & DOD, v1–v4) ships as a binary through the pull-based pipeline - delivery cadence matches the version plan, not ad hoc releases. Bullet always knows what's coming and when, tied to a named version.
       </P>
 
       <H2>Weekly cadence</H2>
@@ -65,13 +65,13 @@ export default function Process() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
         <Card title="Internal track syncs (separate)">
-          <p><strong style={{ color: 'var(--color-text)' }}>DevOps sync</strong> — environments, access status, pipeline health, security scan results.</p>
-          <p className="mt-2"><strong style={{ color: 'var(--color-text)' }}>Development sync</strong> — flow progress, mock/integration status, blockers.</p>
-          <p className="mt-2">Kept separate — the two tracks have different rhythms and different blockers; merging dilutes both.</p>
+          <p><strong style={{ color: 'var(--color-text)' }}>DevOps sync</strong> - environments, access status, pipeline health, security scan results.</p>
+          <p className="mt-2"><strong style={{ color: 'var(--color-text)' }}>Development sync</strong> - flow progress, mock/integration status, blockers.</p>
+          <p className="mt-2">Kept separate - the two tracks have different rhythms and different blockers; merging dilutes both.</p>
         </Card>
         <Card title="External client sync (consolidated)" accent>
           <p>IM runs one weekly meeting with Bullet's Implementation Engineer, bringing the consolidated output of both internal syncs: status, decisions needed, blockers, what's shipping next.</p>
-          <p className="mt-2">Bullet sees one coherent picture, not two raw internal feeds — and the IM is the single point of accountability for escalation.</p>
+          <p className="mt-2">Bullet sees one coherent picture, not two raw internal feeds - and the IM is the single point of accountability for escalation.</p>
         </Card>
       </div>
     </div>

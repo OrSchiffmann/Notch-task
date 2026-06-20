@@ -1,11 +1,11 @@
-import { Summary, SectionHeader, P, H2, H3, Card, Table } from '../Shared'
+﻿import { Summary, SectionHeader, P, H2, H3, Card, Table } from '../Shared'
 
 export default function MvpDod() {
   return (
     <div>
       <SectionHeader eyebrow="SCOPE" title="Live fast, recoverable first" />
       <Summary>
-        Phase 1 is FAQ + OTP + Glassix on WhatsApp — one flow, maximum caution, full safety net. Success = containment rate. Subsequent versions grow the batch size as confidence builds.
+        Phase 1 is FAQ + OTP + Glassix on WhatsApp - one flow, maximum caution, full safety net. Success = containment rate. Subsequent versions grow the batch size as confidence builds.
       </Summary>
 
       <H2>MVP = WhatsApp Phase 1</H2>
@@ -15,10 +15,10 @@ export default function MvpDod() {
         <Card title="IN scope (Phase 1)">
           <ul style={{ listStyle: 'none', padding: 0 }}>
             {[
-              'FAQ — top intents only (not full KB)',
-              'OTP authentication — identity verification',
-              'Glassix integration — human handoff (precondition, not feature)',
-              'Minimal guardrails — baseline compliance gate',
+              'FAQ - top intents only (not full KB)',
+              'OTP authentication - identity verification',
+              'Glassix integration - human handoff (precondition, not feature)',
+              'Minimal guardrails - baseline compliance gate',
             ].map((item, i) => (
               <li key={i} className="flex gap-2 mb-1.5" style={{ fontSize: 13 }}>
                 <span style={{ color: 'var(--color-accent)' }}>✓</span> {item}
@@ -35,14 +35,14 @@ export default function MvpDod() {
               'Voice, App, Website channels → later',
             ].map((item, i) => (
               <li key={i} className="flex gap-2 mb-1.5" style={{ fontSize: 13 }}>
-                <span style={{ color: 'var(--color-text-dim)' }}>—</span> {item}
+                <span style={{ color: 'var(--color-text-dim)' }}> - </span> {item}
               </li>
             ))}
           </ul>
         </Card>
       </div>
 
-      <H2>Definition of Done — first features</H2>
+      <H2>Definition of Done - first features</H2>
 
       <H3>FAQ (top intents)</H3>
       <Table
@@ -94,7 +94,7 @@ export default function MvpDod() {
 
       <H2>Versions after the MVP</H2>
       <P>
-        The batch size increases each version — we start cautious and accelerate as confidence builds:
+        The batch size increases each version - we start cautious and accelerate as confidence builds:
       </P>
       <Table
         headers={['Version', 'Scope', 'Batch size']}
@@ -102,11 +102,11 @@ export default function MvpDod() {
           ['v1 (MVP)', 'Single flow (FAQ top intents + OTP + Glassix)', 'One flow, maximum caution'],
           ['v2', 'Small set of flows added', 'A few flows'],
           ['v3', 'Many flows', 'Larger batches'],
-          ['v4', 'Remaining — WhatsApp complete', 'Everything'],
+          ['v4', 'Remaining - WhatsApp complete', 'Everything'],
         ]}
       />
       <P>
-        By the time we reach later channels (App, Voice), <strong style={{ color: 'var(--color-text)' }}>we no longer slice this finely</strong> — the core is proven, so those channels take larger increments.
+        By the time we reach later channels (App, Voice), <strong style={{ color: 'var(--color-text)' }}>we no longer slice this finely</strong> - the core is proven, so those channels take larger increments.
       </P>
     </div>
   )

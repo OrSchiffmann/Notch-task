@@ -1,8 +1,8 @@
-const WEEKS = Array.from({ length: 13 }, (_, i) => i + 1)
+﻿const WEEKS = Array.from({ length: 13 }, (_, i) => i + 1)
 
 const tracks = [
   {
-    label: 'Track 1 — DevOps / Infra',
+    label: 'Track 1 - DevOps / Infra',
     color: 'var(--color-track1)',
     sublabel: 'per-environment rollout',
     bars: [
@@ -14,7 +14,7 @@ const tracks = [
     ],
   },
   {
-    label: 'Track 3 — Single-tenant',
+    label: 'Track 3 - Single-tenant',
     color: 'var(--color-track3)',
     sublabel: 'bridge',
     bars: [
@@ -23,7 +23,7 @@ const tracks = [
     ],
   },
   {
-    label: 'Track 2 — Development',
+    label: 'Track 2 - Development',
     color: 'var(--color-track2)',
     sublabel: 'by flow / phase',
     bars: [

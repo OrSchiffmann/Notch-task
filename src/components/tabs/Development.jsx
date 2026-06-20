@@ -1,11 +1,11 @@
-import { Summary, SectionHeader, P, H2, Card, Table, NumberedItem } from '../Shared'
+﻿import { Summary, SectionHeader, P, H2, Card, Table, NumberedItem } from '../Shared'
 
 export default function Development() {
   return (
     <div>
       <SectionHeader eyebrow="TRACK 2 · DEVELOPMENT" title="Discover, mock, build, integrate" />
       <Summary>
-        Discover what Bullet has, mock it, build against the mocks, then integrate for real. Mock-first means developers aren't blocked on Bullet access — only the final integration step requires their network.
+        Discover what Bullet has, mock it, build against the mocks, then integrate for real. Mock-first means developers aren't blocked on Bullet access - only the final integration step requires their network.
       </Summary>
 
       <H2>Known vs unknown</H2>
@@ -21,20 +21,20 @@ export default function Development() {
       <H2>The four flows (vertical slices)</H2>
 
       <NumberedItem n="A" title="Inbound & Routing">
-        Replace IVR, Glassix integration. Components: Platform, Backlog Run. The skeleton — nothing works without it.
+        Replace IVR, Glassix integration. Components: Platform, Backlog Run. The skeleton - nothing works without it.
       </NumberedItem>
       <NumberedItem n="B" title="Knowledge & Answers">
         FAQ, website scraping. Components: AI Components (LLM), Platform. Website data pulled via a tool like Firecrawl (subscription: Bullet's). First customer value.
       </NumberedItem>
       <NumberedItem n="C" title="Identity & Personal Data">
-        OTP authentication, data integration. Components: Platform (auth), AI Components, Bullet DB connectors. The complex core — longer path, more components.
+        OTP authentication, data integration. Components: Platform (auth), AI Components, Bullet DB connectors. The complex core - longer path, more components.
       </NumberedItem>
       <NumberedItem n="D" title="Safety & Compliance">
-        Guardrails, prompt-injection safety. A gate every other flow passes through — not standalone. At least partially present from Phase 1.
+        Guardrails, prompt-injection safety. A gate every other flow passes through - not standalone. At least partially present from Phase 1.
       </NumberedItem>
 
       <P>
-        <em>App Deeplinks and Voice routing are out of WhatsApp scope — mapped to their own channels deliberately.</em>
+        <em>App Deeplinks and Voice routing are out of WhatsApp scope - mapped to their own channels deliberately.</em>
       </P>
 
       <H2>Development sequence</H2>
@@ -44,7 +44,7 @@ export default function Development() {
           { n: '1', title: 'Receive Swagger per API', desc: 'Bullet dependency, pre-kickoff ask. Internal APIs and 3rd-party APIs.' },
           { n: '2', title: 'API comprehension', desc: 'Architecture studies APIs (AI-assisted parsing) + Q&A session with Bullet. Swagger gives syntax; Q&A gives semantics.' },
           { n: '3', title: 'Build mocks', desc: 'Accurate fakes from understood contracts. The mocks are a deliverable in themselves.' },
-          { n: '4', title: 'Platform-side build', desc: 'On the single-tenant. No Bullet network needed — can start immediately.' },
+          { n: '4', title: 'Platform-side build', desc: 'On the single-tenant. No Bullet network needed - can start immediately.' },
           { n: '5', title: 'Real integration', desc: 'Connect to actual internal APIs inside Bullet\'s network. Requires dev-env access for our developers.' },
           { n: '6', title: 'Validation', desc: 'End-to-end on staging, then production.' },
         ].map(s => (
@@ -62,16 +62,16 @@ export default function Development() {
       </div>
 
       <Card accent title="Why mock-first matters">
-        <p>Everything buildable without Bullet is built against mocks — fast, independent. Only the final integration needs the expensive network access, and it arrives once the logic is already mature. Swagger quality determines mock quality: accurate Swagger = accurate mocks = fewer surprises at integration.</p>
+        <p>Everything buildable without Bullet is built against mocks - fast, independent. Only the final integration needs the expensive network access, and it arrives once the logic is already mature. Swagger quality determines mock quality: accurate Swagger = accurate mocks = fewer surprises at integration.</p>
       </Card>
 
       <H2>Three types of Bullet dependency (timed differently)</H2>
       <Table
         headers={['Category', 'Who needs it', 'When']}
         rows={[
-          ['DevOps access', 'DevOps/Infra', 'Phase 0 — immediately'],
+          ['DevOps access', 'DevOps/Infra', 'Phase 0 - immediately'],
           ['Support access', 'Support team', 'Toward go-live'],
-          ['Developer access', 'Developers', 'Stage 5 — after mock dev'],
+          ['Developer access', 'Developers', 'Stage 5 - after mock dev'],
         ]}
       />
     </div>

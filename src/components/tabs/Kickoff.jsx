@@ -1,4 +1,4 @@
-import { Summary, SectionHeader, P, H2, Card, WarnCard, Table, NumberedItem } from '../Shared'
+﻿import { Summary, SectionHeader, P, H2, Card, WarnCard, Table, NumberedItem } from '../Shared'
 
 export default function Kickoff() {
   return (
@@ -11,11 +11,11 @@ export default function Kickoff() {
       <H2>Meeting agenda</H2>
       <div className="space-y-2 mb-6">
         {[
-          'Strategy & sequencing — WhatsApp-first as Phase 0 of the App; the timeline interpretation.',
-          'Dual-track structure — DevOps ∥ Development, single-tenant bridge.',
-          'On-prem foundation — binary-only, pull-based deployment, the two workshops.',
+          'Strategy & sequencing - WhatsApp-first as Phase 0 of the App; the timeline interpretation.',
+          'Dual-track structure - DevOps ∥ Development, single-tenant bridge.',
+          'On-prem foundation - binary-only, pull-based deployment, the two workshops.',
           'Critical decisions (below).',
-          'Access matrix & discovery asks — walk through, assign owners.',
+          'Access matrix & discovery asks - walk through, assign owners.',
           'Week 1–3 action items & owners.',
         ].map((item, i) => (
           <div key={i} className="flex gap-3 items-start p-3 rounded-lg" style={{ background: 'var(--color-surface)' }}>
@@ -32,28 +32,28 @@ export default function Kickoff() {
       <Table
         headers={['What we need', 'Why']}
         rows={[
-          ['Existing flows/intents per channel (WhatsApp first)', 'Defines the actual scope — "FAQ" and "Replace IVR" are empty words without this'],
+          ['Existing flows/intents per channel (WhatsApp first)', 'Defines the actual scope - "FAQ" and "Replace IVR" are empty words without this'],
           ['Current state description of each flow', 'Understand what we\'re replacing, not guessing'],
-          ['API state — are they documented? Swagger available?', 'Determines mock-first timeline'],
+          ['API state - are they documented? Swagger available?', 'Determines mock-first timeline'],
           ['3rd-party tools Bullet already has', 'Avoid introducing vendors for what they already run (auth, monitoring, etc.)'],
-          ['Top intents / traffic volumes', 'Scope the FAQ MVP — which N intents to cover first'],
+          ['Top intents / traffic volumes', 'Scope the FAQ MVP - which N intents to cover first'],
           ['Security scanning toolchain', 'We need to install the same tools on our single-tenant'],
         ]}
       />
 
       <H2>Key questions for Bullet at kickoff</H2>
 
-      <NumberedItem n="?" title="3rd-party integrations — who owns what?">
+      <NumberedItem n="?" title="3rd-party integrations - who owns what?">
         For each integration we need to buy (auth/OTP, website search, LLM): does Bullet already have it, or do we bring the vendor? Swagger needed for 3rd-party APIs too.
       </NumberedItem>
       <NumberedItem n="?" title="Are internal APIs reachable from our pipeline?">
         If not reachable externally, the mock-first pattern applies and dev-env access is needed for Stage 5.
       </NumberedItem>
       <NumberedItem n="?" title="Policy/claim data structures">
-        What the data looks like — critical for Data Integration (Flow C).
+        What the data looks like - critical for Data Integration (Flow C).
       </NumberedItem>
       <NumberedItem n="?" title="Security/compliance constraints on access">
-        Especially production access — what controls are required?
+        Especially production access - what controls are required?
       </NumberedItem>
       <NumberedItem n="?" title="LLM infra readiness">
         Does Bullet have the infra (GPU) to self-host the LLM Model, or does it need provisioning?
@@ -64,7 +64,7 @@ export default function Kickoff() {
       <div className="space-y-3 mb-6">
         {[
           { title: 'Timeline', desc: 'Is Q1 2026 a hard commitment, or do we plan to end-of-Q3 2026?' },
-          { title: 'Build/buy boundary & vendors', desc: 'Confirm the split. Per bought tool, who brings the vendor — notch or Bullet?' },
+          { title: 'Build/buy boundary & vendors', desc: 'Confirm the split. Per bought tool, who brings the vendor - notch or Bullet?' },
           { title: 'Subscription ownership (all tools)', desc: 'Recommendation: Bullet owns. AI pricing is volatile and shouldn\'t be hedged by notch.' },
           { title: 'Production access model', desc: 'Is time-boxed, audited, test-user access acceptable?' },
           { title: 'Access matrix sign-off', desc: 'Which asks are approved, which need escalation.' },

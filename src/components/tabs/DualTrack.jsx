@@ -1,4 +1,4 @@
-import { Summary, SectionHeader, P, H2, Card, Table } from '../Shared'
+﻿import { Summary, SectionHeader, P, H2, Card, Table } from '../Shared'
 
 function DualTrackDiagram() {
   const boxStyle = (color) => ({
@@ -16,7 +16,7 @@ function DualTrackDiagram() {
     <div className="mb-8 p-5 rounded-lg border" style={{ background: 'var(--color-surface)', borderColor: 'var(--color-border)' }}>
       <div className="grid grid-cols-2 gap-6 mb-6">
         <div>
-          <p style={label('accent')} className="mb-3">TRACK 1 — DEVOPS</p>
+          <p style={label('accent')} className="mb-3">TRACK 1 - DEVOPS</p>
           <div className="space-y-2">
             <div style={boxStyle('accent')}>Workshops 1 & 2</div>
             <div style={boxStyle('accent')}>Pipeline + artifact storage</div>
@@ -24,7 +24,7 @@ function DualTrackDiagram() {
           </div>
         </div>
         <div>
-          <p style={label('gray')} className="mb-3">TRACK 2 — DEVELOPMENT</p>
+          <p style={label('gray')} className="mb-3">TRACK 2 - DEVELOPMENT</p>
           <div className="space-y-2">
             <div style={boxStyle('gray')}>Build on notch platform</div>
             <div style={boxStyle('gray')}>4 flows + guardrails</div>
@@ -42,7 +42,7 @@ function DualTrackDiagram() {
           Single-tenant bridge
         </p>
         <p style={{ color: 'var(--color-text-dim)', fontSize: 12 }}>
-          Internal env mimicking Bullet — where both tracks meet
+          Internal env mimicking Bullet - where both tracks meet
         </p>
       </div>
 
@@ -67,7 +67,7 @@ export default function DualTrack() {
     <div>
       <SectionHeader eyebrow="ARCHITECTURE" title="Two projects, one bridge" />
       <Summary>
-        This is two projects, not one. DevOps proves the deployment; Development builds on our platform. The single-tenant environment bridges them — and makes every feature generic-by-design.
+        This is two projects, not one. DevOps proves the deployment; Development builds on our platform. The single-tenant environment bridges them - and makes every feature generic-by-design.
       </Summary>
 
       <P>
@@ -88,16 +88,16 @@ export default function DualTrack() {
 
       <H2>Build vs buy</H2>
       <div className="grid grid-cols-2 gap-4 mb-6">
-        <Card title="BUILD — our value">
+        <Card title="BUILD - our value">
           <p>AI agents & resolution logic, 4 flows / orchestration, guardrails & routing, single-tenant platform. Generic-by-design.</p>
         </Card>
-        <Card title="BUY — commodity">
+        <Card title="BUY - commodity">
           <p>Auth/OTP, LLM Model, website search (e.g. Firecrawl). No reason to rebuild. Per tool: who brings the vendor? Subscription → Bullet owns.</p>
         </Card>
       </div>
 
       <Card accent title="Bonus: genericization by architecture">
-        <p>Genericization isn't a feature we retrofit — it's a consequence of building on our platform through a single-tenant. Any capability is reusable for the next customer. Example: Data Integration's contract-driven connector pattern becomes a reusable primitive with only the per-customer API mapping swapped.</p>
+        <p>Genericization isn't a feature we retrofit - it's a consequence of building on our platform through a single-tenant. Any capability is reusable for the next customer. Example: Data Integration's contract-driven connector pattern becomes a reusable primitive with only the per-customer API mapping swapped.</p>
       </Card>
     </div>
   )

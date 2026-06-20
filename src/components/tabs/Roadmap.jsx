@@ -1,4 +1,4 @@
-import { Summary, SectionHeader, P, H2, Card } from '../Shared'
+﻿import { Summary, SectionHeader, P, H2, Card } from '../Shared'
 import GanttChart from '../GanttChart'
 
 export default function Roadmap() {
@@ -22,11 +22,11 @@ export default function Roadmap() {
       </Card>
 
       <Card title="App build starts before WhatsApp closes">
-        <p>App build (W9) overlaps with WhatsApp Phase 2 completion (W9) — deliberate, only possible with parallel capacity. The proven core transfers directly.</p>
+        <p>App build (W9) overlaps with WhatsApp Phase 2 completion (W9) - deliberate, only possible with parallel capacity. The proven core transfers directly.</p>
       </Card>
 
       <Card title="Production stands up mid-project">
-        <p>Production environment is established at W8–9, after Staging is validated. WhatsApp Phase 1 MVP targets production by W7 — sequence may need adjustment based on Bullet's environment provisioning speed.</p>
+        <p>Production environment is established at W8–9, after Staging is validated. WhatsApp Phase 1 MVP targets production by W7 - sequence may need adjustment based on Bullet's environment provisioning speed.</p>
       </Card>
     </div>
   )
