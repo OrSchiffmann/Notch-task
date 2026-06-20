@@ -14,13 +14,13 @@ import PreRequisites from './components/tabs/PreRequisites'
 
 const TABS = [
   { id: 'cover',       label: 'Cover',            component: Cover },
-  { id: 'prereqs',     label: 'Pre-Requisites',   component: PreRequisites },
   { id: 'overview',    label: 'Overview',          component: Overview },
-  { id: 'roadmap',     label: 'Roadmap',           component: Roadmap },
+  { id: 'prereqs',     label: 'Pre-Requisites',   component: PreRequisites },
   { id: 'dual-track',  label: 'Dual-Track',        component: DualTrack },
+  { id: 'roadmap',     label: 'Roadmap',           component: Roadmap },
   { id: 'on-prem',     label: 'On-Prem',           component: OnPrem },
   { id: 'development', label: 'Development',       component: Development },
-  { id: 'mvp',         label: 'MVP & DOD',         component: MvpDod },
+  { id: 'mvp',         label: 'V0 & DOD',          component: MvpDod },
   { id: 'risks',       label: 'Risks',             component: Risks },
   { id: 'kickoff',     label: 'Kickoff',           component: Kickoff },
   { id: 'process',     label: 'Process',           component: Process },

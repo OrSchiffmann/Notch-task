@@ -1,123 +1,153 @@
-﻿const WEEKS = Array.from({ length: 13 }, (_, i) => i + 1)
-
-const tracks = [
-  {
-    label: 'Track 1 - DevOps / Infra',
-    color: 'var(--color-track1)',
-    sublabel: 'per-environment rollout',
-    bars: [
-      { name: 'WS1 hello world · Dev', start: 1, end: 2, text: 'plumbing', shade: 1 },
-      { name: 'WS2 base binary · Dev', start: 3, end: 4, text: 'core+LLM', shade: 1 },
-      { name: 'Stand up Staging', start: 5, end: 6, text: 'staging env', shade: 0.7 },
-      { name: 'Stand up Production', start: 8, end: 9, text: 'prod env', shade: 0.5 },
-      { name: 'Deploy + support ops', start: 5, end: 13, text: 'ongoing', shade: 0.35 },
-    ],
-  },
-  {
-    label: 'Track 3 - Single-tenant',
-    color: 'var(--color-track3)',
-    sublabel: 'bridge',
-    bars: [
-      { name: 'Build Bullet-like env', start: 1, end: 3, text: 'mimic setup', shade: 1 },
-      { name: 'Maintain + sync', start: 4, end: 13, text: 'test bed', shade: 0.5 },
-    ],
-  },
-  {
-    label: 'Track 2 - Development',
-    color: 'var(--color-track2)',
-    sublabel: 'by flow / phase',
-    bars: [
-      { name: 'Discovery + mocks', start: 1, end: 3, text: 'swagger+Q&A', shade: 0.7 },
-      { name: 'Flow A · routing', start: 2, end: 5, text: 'Glassix+IVR', shade: 1 },
-      { name: 'Flow B+D · Phase 1', start: 3, end: 6, text: 'FAQ+guardrails', shade: 1 },
-      { name: 'Flow C · Phase 2', start: 6, end: 9, text: 'OTP+data', shade: 1 },
-      { name: 'App build', start: 9, end: 13, text: 'reuse core', shade: 1, customColor: 'var(--color-app)' },
-    ],
-  },
+const MONTHS = ['Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec', 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun']
+const QUARTERS = [
+  { label: 'Q3 2026', span: '2 / 5' },
+  { label: 'Q4 2026', span: '5 / 8' },
+  { label: 'Q1 2027', span: '8 / 11' },
+  { label: 'Q2 2027', span: '11 / 14' },
 ]
 
-const milestones = [
-  { week: 4, label: 'gate', color: 'var(--color-track1)' },
-  { week: 7, label: 'MVP live', color: 'var(--color-warn)' },
-  { week: 10, label: 'WA full', color: 'var(--color-track2)' },
-  { week: 13, label: 'App live', color: 'var(--color-accent)' },
-]
+// start/end are 1-indexed month numbers
+const devopsTrack = {
+  label: 'DevOps / Infrastructure',
+  color: '#2563EB',
+  bars: [
+    { name: 'Workshop 1 - Hello World', start: 1, end: 1.5, text: 'pipeline + access' },
+    { name: 'Workshop 2 - Base binary', start: 1.5, end: 2.5, text: 'core platform' },
+    { name: 'Stand up Staging', start: 2.5, end: 3, text: 'staging env' },
+    { name: 'Stand up Production', start: 3, end: 3.5, text: 'prod env' },
+    { name: 'Deploy + support ops', start: 3, end: 12, text: 'ongoing', light: true },
+  ],
+}
+
+const devTrack = {
+  label: 'Development',
+  color: '#F06A22',
+  milestones: [
+    { month: 3, label: 'WhatsApp V0 live' },
+    { month: 5, label: 'WhatsApp full' },
+    { month: 9, label: 'App live' },
+    { month: 11, label: 'Voice live' },
+    { month: 12, label: 'Web live' },
+  ],
+  bars: [
+    { name: 'Discovery + mocks', start: 1, end: 2, text: 'Swagger + Q&A' },
+    { name: 'WhatsApp V0 - first flow', start: 1.5, end: 3, text: 'FAQ + routing + Glassix' },
+    { name: 'WhatsApp full flows', start: 3, end: 5, text: 'OTP + data + hardening' },
+    { name: 'App build', start: 5, end: 9, text: 'reuse core + mobile integration', customColor: '#7C3AED' },
+    { name: 'Voice', start: 9, end: 11, text: 'IVR replacement + NLU', customColor: '#0891B2' },
+    { name: 'Web', start: 11, end: 12, text: 'website AI support', customColor: '#059669' },
+  ],
+}
+
+function monthToCol(m) {
+  // m is 1-indexed month, returns grid column (label col = 1, month 1 = col 2)
+  return Math.round(m * 2) + 1 // 2 sub-columns per month for finer positioning
+}
+
+// Simplified: just use integer month positions for grid
+function Bar({ bar, color }) {
+  const startCol = bar.start + 1 // +1 for label column
+  const endCol = bar.end + 1
+  return (
+    <div className="grid items-center mb-1.5" style={{ gridTemplateColumns: '160px repeat(12, 1fr)', gap: 0 }}>
+      <div style={{ fontSize: 12, color: '#6B7280', paddingRight: 8, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+        {bar.name}
+      </div>
+      <div style={{
+        gridColumn: `${Math.ceil(bar.start) + 1} / ${Math.ceil(bar.end) + 2}`,
+        height: 22,
+        background: bar.customColor || color,
+        opacity: bar.light ? 0.25 : 0.85,
+        borderRadius: 4,
+        display: 'flex', alignItems: 'center', justifyContent: 'center',
+        fontSize: 10, color: '#fff',
+        overflow: 'hidden',
+      }}>
+        {bar.text}
+      </div>
+    </div>
+  )
+}
 
 export default function GanttChart() {
   return (
-    <div className="overflow-x-auto mb-6">
-      <div style={{ minWidth: 680 }}>
-        {/* Week headers */}
-        <div className="grid gap-0 mb-1" style={{ gridTemplateColumns: '140px repeat(13, 1fr)' }}>
+    <div style={{ overflowX: 'auto', marginBottom: 24 }}>
+      <div style={{ minWidth: 700 }}>
+
+        {/* Quarter headers */}
+        <div className="grid mb-0" style={{ gridTemplateColumns: '160px repeat(12, 1fr)', gap: 0 }}>
           <div />
-          {WEEKS.map(w => (
-            <div key={w} className="text-center" style={{ fontFamily: 'var(--font-mono)', fontSize: 10, color: 'var(--color-text-dim)' }}>
-              W{w}
+          {QUARTERS.map(q => (
+            <div key={q.label} style={{
+              gridColumn: q.span,
+              textAlign: 'center',
+              fontSize: 10,
+              fontWeight: 700,
+              color: '#9CA3AF',
+              letterSpacing: '0.08em',
+              paddingBottom: 4,
+              borderBottom: '1px solid #E4E7EC',
+            }}>
+              {q.label}
             </div>
           ))}
         </div>
 
-        {/* Month labels */}
-        <div className="grid gap-0 mb-3 pb-2 border-b" style={{ gridTemplateColumns: '140px repeat(13, 1fr)', borderColor: 'var(--color-border)' }}>
-          <div style={{ fontFamily: 'var(--font-mono)', fontSize: 10, color: 'var(--color-text-dim)' }}>Jul 1</div>
-          <div style={{ gridColumn: '2 / 6', textAlign: 'center', fontFamily: 'var(--font-mono)', fontSize: 10, color: 'var(--color-text-dim)' }}>July</div>
-          <div style={{ gridColumn: '6 / 10', textAlign: 'center', fontFamily: 'var(--font-mono)', fontSize: 10, color: 'var(--color-text-dim)' }}>August</div>
-          <div style={{ gridColumn: '10 / 14', textAlign: 'center', fontFamily: 'var(--font-mono)', fontSize: 10, color: 'var(--color-text-dim)' }}>September</div>
-        </div>
-
-        {/* Tracks */}
-        {tracks.map((track) => (
-          <div key={track.label} className="mb-4">
-            <div className="mb-2" style={{ fontFamily: 'var(--font-mono)', fontSize: 10, letterSpacing: '0.05em', color: track.color, fontWeight: 600 }}>
-              {track.label} <span style={{ color: 'var(--color-text-dim)', fontWeight: 400 }}>· {track.sublabel}</span>
+        {/* Month headers */}
+        <div className="grid mb-4" style={{ gridTemplateColumns: '160px repeat(12, 1fr)', gap: 0 }}>
+          <div />
+          {MONTHS.map((m, i) => (
+            <div key={i} style={{
+              textAlign: 'center',
+              fontSize: 10,
+              color: '#9CA3AF',
+              paddingTop: 4,
+            }}>
+              {m}
             </div>
-            {track.bars.map((bar) => (
-              <div key={bar.name} className="grid gap-0 items-center mb-1.5" style={{ gridTemplateColumns: '140px repeat(13, 1fr)' }}>
-                <div style={{ fontSize: 12, color: 'var(--color-text-dim)', paddingRight: 8, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
-                  {bar.name}
-                </div>
-                <div style={{
-                  gridColumn: `${bar.start + 1} / ${bar.end + 2}`,
-                  height: 22,
-                  background: bar.customColor || track.color,
-                  opacity: bar.shade,
-                  borderRadius: 5,
-                  display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  fontSize: 9, fontFamily: 'var(--font-mono)', color: bar.shade > 0.6 ? '#E6EDF3' : '#1a1a1a',
-                }}>
-                  {bar.text}
-                </div>
-              </div>
-            ))}
-          </div>
-        ))}
-
-        {/* MVP window */}
-        <div className="grid gap-0 items-center mb-3 pt-3 border-t" style={{ gridTemplateColumns: '140px repeat(13, 1fr)', borderColor: 'var(--color-border)' }}>
-          <div style={{ fontSize: 12, color: 'var(--color-warn)', fontFamily: 'var(--font-mono)', fontWeight: 500 }}>MVP window</div>
-          <div style={{
-            gridColumn: '2 / 9',
-            height: 20, border: '1.5px dashed var(--color-warn)', borderRadius: 5,
-            display: 'flex', alignItems: 'center', justifyContent: 'center',
-            fontSize: 9, fontFamily: 'var(--font-mono)', color: 'var(--color-warn)',
-          }}>
-            kickoff → WhatsApp Phase 1 live (W7)
-          </div>
+          ))}
         </div>
 
-        {/* Milestones */}
-        <div className="grid gap-0 items-center pt-2" style={{ gridTemplateColumns: '140px repeat(13, 1fr)' }}>
-          <div style={{ fontFamily: 'var(--font-mono)', fontSize: 10, color: 'var(--color-text-dim)' }}>Milestones</div>
-          {WEEKS.map(w => {
-            const m = milestones.find(ms => ms.week === w)
+        {/* DevOps Track */}
+        <div style={{ marginBottom: 24 }}>
+          <div style={{ fontSize: 11, fontWeight: 700, color: '#2563EB', letterSpacing: '0.08em', marginBottom: 8, textTransform: 'uppercase' }}>
+            DevOps / Infrastructure
+          </div>
+          {devopsTrack.bars.map(bar => <Bar key={bar.name} bar={bar} color={devopsTrack.color} />)}
+        </div>
+
+        {/* Divider */}
+        <div style={{ borderTop: '1px solid #F3F4F6', marginBottom: 24 }} />
+
+        {/* Development Track */}
+        <div style={{ marginBottom: 24 }}>
+          <div style={{ fontSize: 11, fontWeight: 700, color: '#F06A22', letterSpacing: '0.08em', marginBottom: 8, textTransform: 'uppercase' }}>
+            Development
+          </div>
+          {devTrack.bars.map(bar => <Bar key={bar.name} bar={bar} color={devTrack.color} />)}
+        </div>
+
+        {/* Divider */}
+        <div style={{ borderTop: '1px solid #F3F4F6', marginBottom: 8 }} />
+
+        {/* Milestone row */}
+        <div className="grid" style={{ gridTemplateColumns: '160px repeat(12, 1fr)', gap: 0 }}>
+          <div style={{ fontSize: 11, fontWeight: 600, color: '#6B7280' }}>Milestones</div>
+          {MONTHS.map((_, i) => {
+            const month = i + 1
+            const ms = devTrack.milestones.find(m => m.month === month)
             return (
-              <div key={w} className="flex flex-col items-center">
-                {m ? (
+              <div key={i} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                {ms && (
                   <>
-                    <svg width="12" height="12" viewBox="0 0 12 12"><polygon points="6,1 11,6 6,11 1,6" fill={m.color} /></svg>
-                    <span style={{ fontFamily: 'var(--font-mono)', fontSize: 8, color: 'var(--color-text-dim)', marginTop: 1 }}>{m.label}</span>
+                    <svg width="10" height="10" viewBox="0 0 10 10">
+                      <polygon points="5,0 10,5 5,10 0,5" fill="#F06A22" />
+                    </svg>
+                    <span style={{ fontSize: 8, color: '#6B7280', textAlign: 'center', marginTop: 2, lineHeight: 1.2 }}>
+                      {ms.label}
+                    </span>
                   </>
-                ) : null}
+                )}
               </div>
             )
           })}

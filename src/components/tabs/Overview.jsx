@@ -3,13 +3,17 @@ import { Summary, SectionHeader, P, H2, Card, WarnCard, Table, NumberedItem } fr
 export default function Overview() {
   return (
     <div>
-      <SectionHeader eyebrow="STRATEGY" title="Two tracks, one kickoff" />
+      <SectionHeader eyebrow="STRATEGY" title="Two projects, one kickoff" />
       <Summary>
-        Two parallel tracks - DevOps and Development - run independently and converge at deployment. WhatsApp goes first because it has a built-in fallback, and because going live on it gives us the first real test of the DevOps pipeline in production. We build where we add value; everything else is bought, on Bullet's subscription.
+        We are managing this as two separate projects: a DevOps project and a Product project. They run in parallel, have different owners and different risks, and converge only at deployment. WhatsApp goes first - it has a fallback, and going live on it is the first real test of the DevOps pipeline in production.
       </Summary>
 
+      <H2>Two separate projects</H2>
       <P>
-        Notch is standing up its first insurance deployment with Bullet. The work splits into two projects that run in parallel because they need different people and carry different risks: a <strong style={{ color: 'var(--color-text)' }}>DevOps / Infrastructure track</strong> that proves the on-prem deployment, and a <strong style={{ color: 'var(--color-text)' }}>Development track</strong> that builds the AI support flows on Notch's own platform. Both tracks converge at the deployment pipeline.
+        The most important framing decision: this is not one project. It is two. A <strong style={{ color: 'var(--color-text)' }}>DevOps project</strong> that proves Notch can deploy and operate inside Bullet's on-prem environment, and a <strong style={{ color: 'var(--color-text)' }}>Product project</strong> that builds the AI support flows on Notch's platform. They have different people, different dependencies, and different risk profiles. Managing them as one project means the slower track blocks the faster one. Keeping them separate lets both move at full speed.
+      </P>
+      <P>
+        They converge at one point: when a validated binary from the Product project is handed off through the pipeline the DevOps project built. Until that moment, they operate independently.
       </P>
 
       <H2>Channel sequencing</H2>
