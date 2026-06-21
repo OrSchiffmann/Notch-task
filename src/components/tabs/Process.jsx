@@ -52,12 +52,12 @@ export default function Process() {
     <div>
       <SectionHeader eyebrow="OPERATING RHYTHM" title="How we run delivery" />
       <Summary>
-        Releases ship as named versions through the pull-based pipeline, on the V0 → V1 → V2 cadence - not ad hoc. Each project runs its own weekly internal sync, and the IM consolidates both into a single weekly meeting with Bullet, so Bullet receives one coherent signal rather than two raw feeds.
+        Releases ship as named versions through the pull-based pipeline, on the MVP → V1 → V2 cadence - not ad hoc. Each project runs its own weekly internal sync, and the IM consolidates both into a single weekly meeting with Bullet, so Bullet receives one coherent signal rather than two raw feeds.
       </Summary>
 
       <H2>Release cadence</H2>
       <P>
-        Every release is a named version (see V0 &amp; DOD) shipped as a binary through the pull-based pipeline. Bullet always knows what is coming and when, tied to a specific version rather than a surprise drop. Predictability here is part of the trust we are building with a regulated customer.
+        Every release is a named version (see MVP &amp; DOD) shipped as a binary through the pull-based pipeline. Bullet always knows what is coming and when, tied to a specific version rather than a surprise drop. Predictability here is part of the trust we are building with a regulated customer.
       </P>
 
       <H2>Weekly cadence</H2>

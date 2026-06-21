@@ -18,7 +18,7 @@ export default function Testing() {
       </Summary>
 
       <H2>The six-phase funnel</H2>
-      <P>Every channel release - WhatsApp V0, WhatsApp Full, App, Voice, Web - passes through these phases in order. Phase 6 (go-live) is only reached after all prior phases are signed off.</P>
+      <P>Every channel release - WhatsApp MVP, WhatsApp Full, App, Voice, Web - passes through these phases in order. Phase 6 (go-live) is only reached after all prior phases are signed off.</P>
 
       <NumberedItem n={1} title="Notch Stage testing">
         <p>Notch's internal QA on the staging environment. Tests run against real Bullet APIs (not mocks) in a non-production environment. Goal: validate the full flow end-to-end before Bullet's team is involved.</p>
@@ -64,7 +64,7 @@ export default function Testing() {
       <Table
         headers={['Channel', 'Stage testing', 'Bullet UAT', 'Pentest + load', 'Prod validation', 'PVT', 'Go-live']}
         rows={[
-          ['WhatsApp V0',   <Yes />, <Yes />, <Tag>Light</Tag>, <Yes />, <Tag>Recommended</Tag>, <Yes />],
+          ['WhatsApp MVP',  <Yes />, <Yes />, <Tag>Light</Tag>, <Yes />, <Tag>Recommended</Tag>, <Yes />],
           ['WhatsApp Full', <Yes />, <Yes />, <Yes />,          <Yes />, <Tag>Recommended</Tag>, <Yes />],
           ['App',           <Yes />, <Yes />, <Yes />,          <Yes />, <Tag tone="amber">Open question</Tag>, <Yes />],
           ['Voice',         <Yes />, <Yes />, <Yes />,          <Yes />, <Tag tone="amber">Open question</Tag>, <Yes />],

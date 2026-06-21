@@ -62,9 +62,9 @@ export default function OnPrem() {
       <Table
         headers={['Environment', 'Purpose', 'Stood up']}
         rows={[
-          ['Development', 'Active integration and the first real deployment target. Where the workshops land.', 'First - months 1-2'],
-          ['Staging', 'Pre-production validation. Where the testing funnel runs against production-like conditions.', 'Second - month 2-3'],
-          ['Production', 'Live customer traffic. Built from the proven Staging recipe, stood up before the first go-live needs it.', 'Third - month 3'],
+          ['Development', 'Active integration and the first real deployment target. Where the workshops land.', 'First - month 1 (Nov)'],
+          ['Staging', 'Pre-production validation. Where the testing funnel runs against production-like conditions.', 'Second - Nov-Dec'],
+          ['Production', 'Live customer traffic. Built from the proven Staging recipe, stood up before the first go-live needs it.', 'Third - by Dec, before MVP go-live'],
         ]}
       />
 

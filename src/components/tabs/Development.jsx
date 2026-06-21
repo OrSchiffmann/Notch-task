@@ -23,7 +23,7 @@ export default function Development() {
 
       <H2>The four flows</H2>
       <P>
-        We cut the build into four vertical flows - each a full end-to-end slice rather than a horizontal layer - so we can take one live without waiting for the rest. These four labels are used consistently across the plan, including in V0 scoping.
+        We cut the build into four vertical flows - each a full end-to-end slice rather than a horizontal layer - so we can take one live without waiting for the rest. These four labels are used consistently across the plan, including in MVP scoping.
       </P>
 
       <NumberedItem n="A" title="Routing & Handoff">
@@ -76,7 +76,7 @@ export default function Development() {
       <Table
         headers={['Component', 'Role across the build']}
         rows={[
-          ['Testing Service', 'Automated test suites per flow, run continuously from V0 onward.'],
+          ['Testing Service', 'Automated test suites per flow, run continuously from the MVP onward.'],
           ['Monitor Service', 'Observability - especially critical under binary deployment, where we cannot read the running code.'],
           ['BI Service', 'Analytics feeding the success metrics: containment, handoff quality, accuracy.'],
         ]}

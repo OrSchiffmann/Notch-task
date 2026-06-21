@@ -36,7 +36,7 @@ export default function Resources() {
           ['DevOps / Infrastructure Engineer', <Proj p="DevOps" />, 'Owns the on-prem foundation: workshops, binary pipeline, environment rollout, artifact storage, LLM deployment spec, access coordination.', 'Full'],
           ['Platform Developers (2)', <Proj p="Product" />, 'Build the flows on Notch\'s platform. Mock-first, then real integration. The core build capacity.', 'Full'],
           ['AI / Prompt Engineer', <Proj p="Product" />, 'Agent behaviour, guardrails, LLM integration, response tuning against Bullet\'s knowledge base and compliance rules.', 'Full → tapering'],
-          ['QA / Test Engineer', <Proj p="Both" />, 'Owns the testing funnel: automated suites, Stage validation, coordinating Bullet UAT, regression across versions.', 'Ramps at V0'],
+          ['QA / Test Engineer', <Proj p="Both" />, 'Owns the testing funnel: automated suites, Stage validation, coordinating Bullet UAT, regression across versions.', 'Ramps at MVP'],
         ]}
       />
 
@@ -51,7 +51,7 @@ export default function Resources() {
           ['DevOps / Cloud Engineer', 'Provisions the three environments, grants pipeline and network access, stands up GPU for the self-hosted LLM.', 'Heavy at start, then as-needed'],
           ['API / Backend owner(s)', 'Provide Swagger specs, join the API comprehension Q&A, confirm reachability. They hold the semantics our mocks depend on.', 'Concentrated in discovery'],
           ['Security / Compliance lead', 'Owns the scanning toolchain, the pentest decision, and the production-access model. Gatekeeper for anything touching customer data.', 'Decision points + reviews'],
-          ['Product / CS stakeholder', 'Defines the top intents that scope V0, runs UAT, owns the tone and correctness of AI responses against their standards.', 'Scoping + UAT + go-live'],
+          ['Product / CS stakeholder', 'Defines the top intents that scope the MVP, runs UAT, owns the tone and correctness of AI responses against their standards.', 'Scoping + UAT + go-live'],
         ]}
       />
 

@@ -4,9 +4,9 @@ import GanttChart from '../GanttChart'
 export default function Roadmap() {
   return (
     <div>
-      <SectionHeader eyebrow="TIMELINE" title="Five milestones, twelve months" />
+      <SectionHeader eyebrow="TIMELINE" title="Five milestones, five months" />
       <Summary>
-        Five channel go-lives over twelve months. Each milestone follows the same pattern: DevOps connectivity for that channel's integrations, Development building against mocks and then real APIs, and a testing funnel before production. The DevOps track foundation runs in the first three months and enables everything after.
+        Five channel go-lives from a 1 November 2025 kickoff to end of Q1 2026, with the App live inside that window. Each milestone follows the same pattern: DevOps connectivity, Development building against mocks then real APIs, and a testing funnel before production. The DevOps foundation runs in the first month and enables everything after; the compressed window is only achievable because the two projects run in parallel and later channels reuse a proven core.
       </Summary>
 
       <GanttChart />

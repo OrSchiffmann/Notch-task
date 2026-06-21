@@ -19,8 +19,8 @@ export default function Overview() {
       <H2>Channel sequencing</H2>
       <P>We go live one channel at a time. The order is deliberate, and each position earns its place:</P>
 
-      <NumberedItem n="1" title="WhatsApp - first">
-        Bullet already runs this channel, it is the simplest technically (asynchronous text, no real-time speech), and it has a <strong style={{ color: 'var(--color-accent)' }}>human fallback through Glassix</strong> - if the AI is unsure, an agent picks up. That makes it the right place to find our failure modes, because here they are recoverable. Going live also gives us the first end-to-end proof of the deployment pipeline in production, before anything higher-stakes depends on it. Critically, "WhatsApp" is not all-or-nothing - we can go live with a single slice and expand from there.
+      <NumberedItem n="1" title="WhatsApp - first (the MVP)">
+        Bullet already runs this channel, it is the simplest technically (asynchronous text, no real-time speech), and it has a <strong style={{ color: 'var(--color-accent)' }}>human fallback through Glassix</strong> - if the AI is unsure, an agent picks up. That makes it the right place to find our failure modes, because here they are recoverable. Going live also gives us the first end-to-end proof of the deployment pipeline in production, before anything higher-stakes depends on it. Critically, "WhatsApp" is not all-or-nothing - the MVP can go live as a single slice and expand from there.
       </NumberedItem>
       <NumberedItem n="2" title="Mobile App - second (Bullet's 2026 priority)">
         The highest-value channel, and the reason the engagement exists. By the time we reach it, the core capabilities are already proven on WhatsApp - the App reuses them rather than discovering them. The App has no graceful fallback, so nothing unproven is allowed to land there first.
@@ -57,8 +57,8 @@ export default function Overview() {
       <H2>Working assumptions</H2>
       <P>Stated openly so Bullet can confirm or correct them at kickoff. Each is a decision waiting to be ratified, not a fact we are hiding.</P>
 
-      <WarnCard title="Timeline - the first thing to align on">
-        The brief names Q1 2026 for App go-live, which is unreachable from a mid-2026 kickoff. We read the intent as "the App is the priority channel" and target App go-live in <strong style={{ color: 'var(--color-text)' }}>Q1 2027</strong>, with WhatsApp live in Q3 2026 to prove the core first. If Q1 2026 reflects a hard external commitment we do not yet understand, the scope needs rethinking - and that is the very first conversation at kickoff.
+      <WarnCard title="Timeline - aggressive and fixed">
+        Kickoff is <strong style={{ color: 'var(--color-text)' }}>1 November 2025</strong>; the committed deadline is <strong style={{ color: 'var(--color-text)' }}>end of Q1 2026 (31 March)</strong>, with the App - Bullet's priority channel - live within that window. Five months for an on-premise deployment across five channels is only achievable because the two projects run in parallel and later channels reuse a proven core. The compression is real and is the reason the parallel structure is non-negotiable, not a nicety.
       </WarnCard>
 
       <Table

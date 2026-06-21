@@ -21,7 +21,7 @@ export default function LaunchBeyond() {
         When a conversation fails in production, Notch developers can't access Bullet's live environment. How are bugs reproduced - via anonymized logs, test user replays, or a staging environment that mirrors production traffic patterns?
       </NumberedItem>
       <NumberedItem n={4} title="What is the handoff SLA from Glassix to a human agent?">
-        The Glassix fallback is the safety net for V0. Is there an agreed SLA on how fast a human agent picks up after AI handoff? Who monitors this metric and who owns it if it degrades?
+        The Glassix fallback is the safety net for the MVP. Is there an agreed SLA on how fast a human agent picks up after AI handoff? Who monitors this metric and who owns it if it degrades?
       </NumberedItem>
       <NumberedItem n={5} title="How does Bullet handle a full AI outage?">
         If the Notch platform is unreachable inside Bullet's environment, what happens to incoming conversations? Is there a manual fallback flow, or does the channel go dark? This must be defined and tested before go-live.
@@ -62,11 +62,11 @@ export default function LaunchBeyond() {
         Developer access is time-boxed and scoped by design. Who at Bullet reviews and renews it? What happens to in-progress work if access is revoked mid-sprint? Define the review cycle before access is granted.
       </NumberedItem>
       <NumberedItem n={5} title="Is there a penetration testing or audit requirement before go-live?">
-        Some insurers require a third-party pen test or compliance audit before any AI system touches customer data. Does Bullet have this requirement? If yes, who commissions it, how long does it take, and does it block the V0 go-live date?
+        Some insurers require a third-party pen test or compliance audit before any AI system touches customer data. Does Bullet have this requirement? If yes, who commissions it, how long does it take, and does it block the MVP go-live date?
       </NumberedItem>
 
       <WarnCard title="Recommended action">
-        Send this list to Bullet's Implementation Engineer and their IT/Security lead before the kickoff meeting. Answers to these questions determine whether the V0 go-live target is achievable - and several of them have long lead times if escalation is needed.
+        Send this list to Bullet's Implementation Engineer and their IT/Security lead before the kickoff meeting. Answers to these questions determine whether the MVP go-live target is achievable - and several of them have long lead times if escalation is needed.
       </WarnCard>
     </div>
   )

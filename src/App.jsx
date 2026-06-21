@@ -25,7 +25,7 @@ const TABS = [
   { id: 'resources',   label: 'Resources',         component: Resources },
   { id: 'on-prem',     label: 'DevOps Project',    component: OnPrem },
   { id: 'development', label: 'Product Project',   component: Development },
-  { id: 'mvp',         label: 'V0 & DOD',          component: MvpDod },
+  { id: 'mvp',         label: 'MVP & DOD',         component: MvpDod },
   { id: 'testing',     label: 'Testing Strategy',  component: Testing },
   { id: 'risks',       label: 'Risks & Deps',      component: Risks },
   { id: 'kickoff',     label: 'Kickoff',           component: Kickoff },
@@ -93,6 +93,8 @@ export default function App() {
         <nav style={{ flex: 1, overflowY: 'auto', padding: '10px 0' }}>
           {TABS.map((tab, i) => {
             const active = activeTab === tab.id
+            const special = tab.id === 'summary'
+            const lit = active || special
             return (
               <button
                 key={tab.id}
@@ -102,19 +104,24 @@ export default function App() {
                   width: '100%', textAlign: 'left',
                   padding: '8px 22px',
                   fontFamily: font, fontSize: 13.5,
-                  fontWeight: active ? 700 : 400,
-                  color: active ? '#F06A22' : '#5B6472',
-                  background: active ? '#FFF4EE' : 'transparent',
+                  fontWeight: lit ? 700 : 400,
+                  color: lit ? '#F06A22' : '#5B6472',
+                  background: active ? '#FFF4EE' : special ? '#FFF7F2' : 'transparent',
                   border: 'none', cursor: 'pointer',
-                  borderLeft: active ? '3px solid #F06A22' : '3px solid transparent',
+                  borderLeft: lit ? '3px solid #F06A22' : '3px solid transparent',
                   transition: 'color 0.12s, background 0.12s',
                 }}
-                onMouseEnter={e => { if (!active) e.currentTarget.style.background = '#F2F3F5' }}
-                onMouseLeave={e => { if (!active) e.currentTarget.style.background = 'transparent' }}>
-                <span style={{ fontSize: 11, fontWeight: 600, color: active ? '#F06A22' : '#BFC4CC', minWidth: 16 }}>
+                onMouseEnter={e => { if (!active && !special) e.currentTarget.style.background = '#F2F3F5' }}
+                onMouseLeave={e => { if (!active && !special) e.currentTarget.style.background = 'transparent' }}>
+                <span style={{ fontSize: 11, fontWeight: 600, color: lit ? '#F06A22' : '#BFC4CC', minWidth: 16 }}>
                   {String(i + 1).padStart(2, '0')}
                 </span>
                 {tab.label}
+                {special && (
+                  <span style={{ marginLeft: 'auto', fontSize: 8.5, fontWeight: 700, color: '#fff', background: '#F06A22', borderRadius: 999, padding: '2px 7px', letterSpacing: '0.06em' }}>
+                    ANSWERS
+                  </span>
+                )}
               </button>
             )
           })}
@@ -155,22 +162,29 @@ export default function App() {
         }}>
           {TABS.map((tab, i) => {
             const active = activeTab === tab.id
+            const special = tab.id === 'summary'
+            const lit = active || special
             return (
               <button key={tab.id} onClick={() => switchTab(tab.id)}
                 style={{
                   display: 'flex', alignItems: 'center', gap: 11, width: '100%', textAlign: 'left',
                   padding: '13px 24px',
                   fontFamily: font, fontSize: 15,
-                  fontWeight: active ? 700 : 400,
-                  color: active ? '#F06A22' : '#374151',
-                  background: active ? '#FFF4EE' : 'none',
-                  borderLeft: active ? '3px solid #F06A22' : '3px solid transparent',
+                  fontWeight: lit ? 700 : 400,
+                  color: lit ? '#F06A22' : '#374151',
+                  background: active ? '#FFF4EE' : special ? '#FFF7F2' : 'none',
+                  borderLeft: lit ? '3px solid #F06A22' : '3px solid transparent',
                   border: 'none', cursor: 'pointer',
                 }}>
-                <span style={{ fontSize: 11, fontWeight: 600, color: active ? '#F06A22' : '#BFC4CC', minWidth: 16 }}>
+                <span style={{ fontSize: 11, fontWeight: 600, color: lit ? '#F06A22' : '#BFC4CC', minWidth: 16 }}>
                   {String(i + 1).padStart(2, '0')}
                 </span>
                 {tab.label}
+                {special && (
+                  <span style={{ marginLeft: 'auto', fontSize: 9, fontWeight: 700, color: '#fff', background: '#F06A22', borderRadius: 999, padding: '2px 8px', letterSpacing: '0.06em' }}>
+                    ANSWERS
+                  </span>
+                )}
               </button>
             )
           })}

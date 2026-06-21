@@ -3,22 +3,22 @@ import { Summary, SectionHeader, P, H2, H3, Card, Table, WarnCard } from '../Sha
 export default function MvpDod() {
   return (
     <div>
-      <SectionHeader eyebrow="SCOPE & VERSIONING" title="V0: start small, go live fast" />
+      <SectionHeader eyebrow="SCOPE & VERSIONING" title="MVP: start small, go live fast" />
       <Summary>
-        Going live on WhatsApp does not mean replacing everything on WhatsApp. V0 is the smallest slice that delivers real value with a full safety net - Flow A for routing, Flow B for knowledge, and a Flow D guardrail baseline. Identity and personal data (Flow C) deliberately wait for V1. How much to switch on, and when, is Bullet's decision.
+        The MVP is the first WhatsApp release - the smallest slice that delivers real value with a full safety net. It ships as V0 (the initial WhatsApp flow that goes live): Flow A for routing, Flow B for knowledge, and a Flow D guardrail baseline. Identity and personal data (Flow C) deliberately wait for V1. How much to switch on, and when, is Bullet's decision.
       </Summary>
 
       <H2>The core message: we don't have to replace it all</H2>
       <P>
-        The instinct on a first deployment is to wait until the whole channel is rebuilt before going live. We do the opposite. WhatsApp has a human fallback, so we can switch on a single slice, prove it on real traffic, and expand from there. Each version is a deliberate, bounded increment - not a big-bang cutover.
+        The instinct on a first deployment is to wait until the whole channel is rebuilt before going live. We do the opposite. WhatsApp has a human fallback, so the MVP can switch on a single slice, prove it on real traffic, and expand from there. Each version is a deliberate, bounded increment - not a big-bang cutover.
       </P>
       <P>
-        We use the same four flows defined in the Product Project tab. V0 combines the flows that carry value at the lowest risk, and holds back the one that carries personal data until the model has earned trust in production.
+        We use the same four flows defined in the Product Project tab. The MVP combines the flows that carry value at the lowest risk, and holds back the one that carries personal data until the model has earned trust in production.
       </P>
 
-      <H2>What V0 includes - and what it doesn't</H2>
+      <H2>What the MVP includes - and what it doesn't</H2>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-2">
-        <Card title="In V0">
+        <Card title="In the MVP (V0)">
           <ul style={{ listStyle: 'none', padding: 0 }}>
             {[
               'Flow A - Routing & Handoff. IVR replacement + Glassix fallback. The skeleton; always on.',
@@ -48,10 +48,10 @@ export default function MvpDod() {
       </div>
 
       <WarnCard title="The go-live decision is Bullet's to make">
-        V0 is, at minimum, Flow A plus one content flow. Our recommendation is Flow A + Flow B with a Flow D baseline: lowest risk, fastest to validate, immediate value. Bullet decides the trigger to switch it on and how fast to ramp traffic behind it.
+        The MVP is, at minimum, Flow A plus one content flow. Our recommendation is Flow A + Flow B with a Flow D baseline: lowest risk, fastest to validate, immediate value. Bullet decides the trigger to switch it on and how fast to ramp traffic behind it.
       </WarnCard>
 
-      <H2>Definition of Done - the V0 flows</H2>
+      <H2>Definition of Done - the MVP flows</H2>
 
       <H3>Flow B - FAQ (Knowledge & Answers)</H3>
       <Table
@@ -104,12 +104,12 @@ export default function MvpDod() {
 
       <H2>Versioning - the increment grows with confidence</H2>
       <P>
-        V0 is the smallest live step. Each version after it is deliberately larger, because the model has proven more. By the time we reach later channels we no longer slice this finely - the core is trusted, so App and Voice take bigger increments.
+        The MVP ships as V0, the smallest live step. Each version after it is deliberately larger, because the model has proven more. By the time we reach later channels we no longer slice this finely - the core is trusted, so App and Voice take bigger increments.
       </P>
       <Table
         headers={['Version', 'Scope', 'Why this size']}
         rows={[
-          ['V0', 'Flow A + Flow B + Flow D baseline', 'Smallest live increment, full safety net, real value'],
+          ['V0 (MVP)', 'Flow A + Flow B + Flow D baseline', 'Smallest live increment, full safety net, real value'],
           ['V1', 'Add Flow C - OTP + personal data', 'Identity layer added once knowledge is stable'],
           ['V2', 'Full KB, hardening, website scraping - WhatsApp complete', 'Confidence high; broaden aggressively'],
           ['Next channels', 'App, then Voice, then Web', 'Proven core - each channel reuses it in larger steps'],

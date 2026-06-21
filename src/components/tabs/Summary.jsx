@@ -67,24 +67,46 @@ export default function SummaryTab() {
     <div>
       <SectionHeader eyebrow="TL;DR" title="Everything, on one page" />
       <Callout>
-        Every deliverable answered in brief, with a link to the full detail. Two parallel projects (DevOps + Product), WhatsApp first via a recoverable V0, App on a Q1 2027 target, and a deployment architecture built to be reused by the next regulated customer.
+        Every deliverable answered in brief, with a link to the full detail. Two parallel projects (DevOps + Product), WhatsApp first via a recoverable MVP, the App live by the end-of-Q1-2026 deadline, and a deployment architecture built to be reused by the next regulated customer.
       </Callout>
+
+      {/* ===== SIGNS OF SUCCESS ===== */}
+      <div style={{ background: '#F0FDF7', border: '1px solid #BBF7D0', borderRadius: 10, padding: '20px 24px', marginBottom: 36 }}>
+        <p style={{ fontSize: 11, letterSpacing: '0.12em', color: '#047857', marginBottom: 12, fontWeight: 700, textTransform: 'uppercase', fontFamily: font }}>
+          Signs of success
+        </p>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '8px 24px' }}>
+          {[
+            'WhatsApp MVP live and safe - containment at or above the 70-73% benchmark on covered intents.',
+            'App live by end of Q1 2026 - the priority deadline hit.',
+            'Glassix safety net holds - every failure recovers to a human, zero dead ends.',
+            'Zero compliance breaches on personal or financial data.',
+            'On-prem deployment proven (binary-only, pull-based) and reusable for the next regulated customer.',
+            'Every version shipped on its named cadence - no surprise drops.',
+          ].map((s, i) => (
+            <div key={i} style={{ display: 'flex', gap: 9, fontSize: 14, color: '#374151', fontFamily: font, lineHeight: 1.5 }}>
+              <span style={{ color: '#059669', fontWeight: 700, flexShrink: 0 }}>✓</span>
+              <span>{s}</span>
+            </div>
+          ))}
+        </div>
+      </div>
 
       {/* ===== ROADMAP ===== */}
       <Block title="Project Roadmap" links={<><Link to="roadmap">Roadmap</Link><Link to="resources">Resources</Link></>}>
         <Row q="Phases (kickoff → prod)">Six per channel: DevOps connectivity → Discovery + mocks → Build → Real integration → Testing funnel → Go-live.</Row>
-        <Row q="Timeline & milestones">12 months from a Jul 2026 kickoff. WhatsApp V0 (Q3 26) · WhatsApp Full (Q4 26) · App (Q1 27) · Voice (Q2 27) · Web (Q2 27).</Row>
+        <Row q="Timeline & milestones">5 months: 1 Nov 2025 kickoff → end Q1 2026. WhatsApp MVP (early Dec) · WhatsApp Full (Jan) · App (end Feb) · Voice (mid Mar) · Web (end Mar).</Row>
         <Row q="Prioritisation logic">WhatsApp first - has a Glassix fallback and is the first live test of the pipeline. App second - Bullet's priority, reuses the proven core. Voice, then Web. Within WhatsApp: Flow A + B + D before C.</Row>
         <Row q="Environment rollout">Dev → Staging → Production, in sequence. Each inherits a proven config from the one before; Production is built from a recipe that already worked twice.</Row>
         <Row q="Notch resources">IM · DevOps/Infra Engineer · 2 Platform Developers · AI/Prompt Engineer · QA/Test Engineer.</Row>
         <Row q="Bullet resources">Implementation Engineer (critical) · DevOps/Cloud Engineer · API owners · Security/Compliance lead · Product/CS stakeholder. Services: 3 cloud environments, GPU for the LLM, artifact storage, security scanning, 3rd-party subscriptions.</Row>
       </Block>
 
-      {/* ===== MVP / V0 ===== */}
-      <Block title="MVP (V0) & Definition of Done" links={<Link to="mvp">V0 &amp; DOD</Link>}>
-        <Row q="First channel">WhatsApp - the only first option with a built-in human fallback (Glassix).</Row>
-        <Row q="IN scope (V0)">Flow A (routing + Glassix), Flow B (FAQ on top intents), Flow D (guardrail baseline).</Row>
-        <Row q="OUT of V0">Flow C (OTP + personal data) → V1. Full KB, hardening, website scraping → V2. App / Voice / Web → own rollouts.</Row>
+      {/* ===== MVP ===== */}
+      <Block title="MVP & Definition of Done" links={<Link to="mvp">MVP &amp; DOD</Link>}>
+        <Row q="First channel">WhatsApp - the only first option with a built-in human fallback (Glassix). The MVP ships as V0, the initial flow live.</Row>
+        <Row q="IN scope (MVP)">Flow A (routing + Glassix), Flow B (FAQ on top intents), Flow D (guardrail baseline).</Row>
+        <Row q="OUT of MVP">Flow C (OTP + personal data) → V1. Full KB, hardening, website scraping → V2. App / Voice / Web → own rollouts.</Row>
         <Row q="Success metrics">Business: containment rate (headline, 70-73% benchmark), handoff quality. Technical: answer accuracy, availability/latency. Safety: guardrail pass rate.</Row>
         <Row q="DOD (first features)">FAQ: answers validated top-N, out-of-scope → Glassix, tests green, observable. Glassix: clean handoff with context, rate tracked. OTP (V1): in-flow verify, graceful failure, no data pre-verify, audited.</Row>
         <Row q="How we prove it">Staged: internal mocks → Staging real APIs → limited Production behind Glassix → containment measured on real traffic before widening.</Row>
@@ -93,7 +115,7 @@ export default function SummaryTab() {
       {/* ===== KICKOFF ===== */}
       <Block title="Kickoff Meeting Plan" links={<><Link to="kickoff">Kickoff</Link><Link to="prereqs">Pre-Reqs</Link></>}>
         <Row q="Agenda">Strategy &amp; sequencing → timeline → deployment model → critical decisions → access &amp; discovery → first three weeks.</Row>
-        <Row q="Critical decisions">Timeline (Q1 2027?) · build/buy boundary &amp; vendors · subscription ownership (recommend Bullet) · production access model · access-list sign-off.</Row>
+        <Row q="Critical decisions">Scope vs end-Q1-2026 deadline · build/buy boundary &amp; vendors · subscription ownership (recommend Bullet) · production access model · access-list sign-off.</Row>
         <Row q="Week 1-3">W1: submit access + discovery, stand up internal env, WS1 prep, schedule API Q&A. W2: Workshop 1, Flow A on mocks, first Swagger. W3: Workshop 2 prep, API Q&A, first mocks.</Row>
       </Block>
 
@@ -102,7 +124,7 @@ export default function SummaryTab() {
           Key questions, by priority
         </p>
         <QGroup p="P0" items={[
-          'Is Q1 2026 a hard external commitment, or is Q1 2027 the real App target?',
+          'Is all five-channel scope required by end Q1 2026, or is the App the one committed deliverable?',
           'Confirm the LLM is self-hosted - does any customer data leave the environment?',
           'Are the internal APIs documented (Swagger) and reachable from our pipeline?',
           'Is there a named Bullet Implementation Engineer to own coordination?',
@@ -111,7 +133,7 @@ export default function SummaryTab() {
         <QGroup p="P1" items={[
           'Which third-party tools does Bullet already operate (auth/OTP, monitoring, search)?',
           'Per bought tool - who brings the vendor, and who holds the subscription?',
-          'What are the top intents and traffic volumes (to scope the V0 FAQ)?',
+          'What are the top intents and traffic volumes (to scope the MVP FAQ)?',
           'Is GPU capacity already in place to self-host the LLM?',
           'What are the regulatory constraints on production access?',
         ]} />
@@ -124,14 +146,14 @@ export default function SummaryTab() {
 
       {/* ===== RISKS ===== */}
       <Block title="Risks & Dependencies" links={<Link to="risks">Risks &amp; Deps</Link>}>
-        <p style={{ fontSize: 13.5, fontWeight: 700, color: '#5B6472', marginBottom: 10, fontFamily: font }}>Top 5 risks → mitigation</p>
+        <p style={{ fontSize: 13.5, fontWeight: 700, color: '#5B6472', marginBottom: 10, fontFamily: font }}>Top 5 risks (by score) → mitigation</p>
         <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 18px' }}>
           {[
-            ['Resource contention serialises the two projects', 'Staff both in parallel; if constrained, protect the DevOps project + internal env first.'],
-            ['Binary fails Bullet\'s security scan on first submission', 'Get the toolchain as a pre-req; pre-scan internally before every handoff.'],
-            ['Production access refused on regulatory grounds', 'Request with controls (test user, time-boxed, audited); fallback to Staging or repro-as-a-service.'],
-            ['Internal APIs undocumented or unreachable', 'Swagger + reachability as pre-reqs; mock-first so the build proceeds regardless.'],
-            ['Containment rate below target at launch', 'Staged rollout behind Glassix; tune against Bullet KB; measure on real traffic before widening.'],
+            ['Production access refused on regulatory grounds (16 · Critical)', 'Request with controls (test user, time-boxed, audited); fallback to Staging or repro-as-a-service.'],
+            ['Containment rate below target at launch (15 · High)', 'Staged rollout behind Glassix; tune against Bullet KB; measure on real traffic before widening.'],
+            ['Resource contention serialises the two projects (12 · High)', 'Staff both in parallel; if constrained, protect the DevOps project + internal env first.'],
+            ['Binary fails Bullet\'s security scan on first submission (8 · Medium)', 'Get the toolchain as a pre-req; pre-scan internally before every handoff.'],
+            ['Third-party tooling ownership unresolved at go-live (4 · Low)', 'Lock build/buy boundary + subscription owner per tool at kickoff; recommend Bullet owns.'],
           ].map(([r, m], i) => (
             <li key={i} style={{ fontSize: 14.5, color: '#374151', fontFamily: font, lineHeight: 1.5, marginBottom: 8, paddingLeft: 18, position: 'relative' }}>
               <span style={{ position: 'absolute', left: 0, color: '#F06A22', fontWeight: 700 }}>{i + 1}</span>

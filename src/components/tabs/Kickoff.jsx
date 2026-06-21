@@ -16,7 +16,7 @@ export default function Kickoff() {
       <div className="space-y-2 mb-6">
         {[
           'Strategy and sequencing - the two-project structure, and WhatsApp-first as the recoverable first increment of the App.',
-          'Timeline alignment - confirm the Q1 2027 App target, or surface a hard commitment we need to design around.',
+          'Timeline alignment - confirm scope against the fixed end-Q1-2026 deadline, and whether all five channels or just the App are committed.',
           'The deployment model - binary-only, pull-based, the two workshops, the environment rollout.',
           'Critical decisions - work through the list below and record an owner for each.',
           'Access and discovery - walk the pre-requisites list, sign off what is approved, escalate what is not.',
@@ -53,7 +53,7 @@ export default function Kickoff() {
       <H2>Critical decisions to lock</H2>
       <div className="space-y-3 mb-6">
         {[
-          { title: 'Timeline', desc: 'Confirm App go-live at Q1 2027 with WhatsApp in Q3 2026, or surface the hard commitment that forces a rescope.' },
+          { title: 'Timeline & scope', desc: 'Deadline is end of Q1 2026 from a 1 Nov 2025 start. Confirm whether all five channels are required in that window, or the App is the one committed deliverable with Voice/Web as fast-follow.' },
           { title: 'Build / buy boundary and vendors', desc: 'Ratify what Notch builds versus buys, and per bought tool, who supplies the vendor - Notch or Bullet.' },
           { title: 'Subscription ownership', desc: 'Confirm Bullet holds third-party subscriptions, given volatile consumption-based AI pricing Notch should not hedge.' },
           { title: 'Production access model', desc: 'Agree whether time-boxed, audited, test-user access is acceptable - and the fallback if it is not.' },

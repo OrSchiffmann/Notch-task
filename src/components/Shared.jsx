@@ -22,7 +22,7 @@ export function SectionHeader({ eyebrow, title }) {
       <p style={{ fontSize: 11, letterSpacing: '0.16em', color: '#F06A22', marginBottom: 12, fontWeight: 700, textTransform: 'uppercase', fontFamily: font }}>
         {eyebrow}
       </p>
-      <h1 style={{ fontSize: 36, fontWeight: 700, lineHeight: 1.15, color: '#111827', fontFamily: font, letterSpacing: '-0.5px' }}>
+      <h1 style={{ fontSize: 34, fontWeight: 700, lineHeight: 1.18, color: '#111827', fontFamily: font, letterSpacing: '-0.3px', textTransform: 'uppercase' }}>
         {title}
       </h1>
     </div>

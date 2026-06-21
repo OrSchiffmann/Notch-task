@@ -39,7 +39,7 @@ export default function PreRequisites() {
       </NumberedItem>
 
       <NumberedItem n={3} title="Existing flow and intent inventory">
-        What does the current WhatsApp flow look like? What does the IVR handle today? What are the top intents by volume? This shapes the V0 scope directly - we cannot define "top intents for FAQ" without this data.
+        What does the current WhatsApp flow look like? What does the IVR handle today? What are the top intents by volume? This shapes the MVP scope directly - we cannot define "top intents for FAQ" without this data.
       </NumberedItem>
 
       <NumberedItem n={4} title="Network reachability confirmation">
@@ -47,7 +47,7 @@ export default function PreRequisites() {
       </NumberedItem>
 
       <NumberedItem n={5} title="Policy and claims data structures">
-        The personal-data flow (Flow C - OTP and data integration) depends on understanding the data model for policies and claims. Even though Flow C lands in V1 rather than V0, Notch needs this early to design the connectors correctly.
+        The personal-data flow (Flow C - OTP and data integration) depends on understanding the data model for policies and claims. Even though Flow C lands in V1 rather than the MVP, Notch needs this early to design the connectors correctly.
       </NumberedItem>
 
       <NumberedItem n={6} title="Security scanning toolchain">
@@ -62,7 +62,7 @@ export default function PreRequisites() {
       <Table
         headers={['Decision', 'Why it must be pre-decided']}
         rows={[
-          ['Timeline: is Q3 2026 the real target, or is there a hard external commitment?', 'Affects scope, resourcing, and whether the plan as written is feasible.'],
+          ['Timeline: is the end-Q1-2026 deadline immovable, and is all five-channel scope required?', 'Affects scope, resourcing, and whether the plan as written is feasible.'],
           ['LLM hosting confirmed: self-hosted inside Bullet\'s cloud?', 'The entire on-prem architecture depends on this. If data can leave the environment, the model changes significantly.'],
           ['Which 3rd-party tools does Bullet already operate? (auth/OTP, monitoring, website search)', 'Determines vendor decisions and integration scope at kickoff. Use what Bullet has before introducing new tools.'],
           ['Named Implementation Engineer on Bullet\'s side', 'The DevOps workshops need a Bullet counterpart who owns the deployment pipeline. Without a named owner, coordination fails.'],

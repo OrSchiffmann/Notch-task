@@ -33,18 +33,24 @@ function bandFor(score) {
   return 'Low'
 }
 
+// Ordered by score (impact × probability), highest first.
 const RISKS = [
-  { n: 1, title: 'Resource contention collapses the parallel tracks', type: 'Resourcing', sev: 4, prob: 3,
-    mitigation: 'Explicit resourcing commitment before kickoff. If constrained, the internal dev environment gets the dedicated resource first - it unblocks all development testing.' },
-  { n: 2, title: "Binary fails Bullet's security scanning", type: 'Technical', sev: 2, prob: 4,
-    mitigation: "Obtain Bullet's security toolchain list as a pre-requisite. Install the same tools internally and pre-scan before every handoff - failures are caught on our side, not theirs." },
-  { n: 3, title: 'Production support access refused (regulatory)', type: 'Compliance', sev: 4, prob: 4,
+  { title: 'Production support access refused (regulatory)', type: 'Compliance', sev: 4, prob: 4,
+    desc: "A vendor holding network access to an insurer's production environment is a regulatory red flag, and may not be grantable under any conditions. Without it, post-launch support and incident reproduction are effectively blind.",
     mitigation: 'Request with controls built in - test user only, time-boxed, audited, break-glass. Define the fallback early: staging with production-like data, or Bullet reproduces issues on our behalf.' },
-  { n: 4, title: 'Third-party tooling ownership unresolved at go-live', type: 'Commercial', sev: 2, prob: 2,
-    mitigation: 'Lock the build/buy boundary and subscription owner per tool at kickoff - not left open. Recommendation: Bullet owns all third-party subscriptions.' },
-  { n: 5, title: 'Containment rate below target at launch', type: 'Product', sev: 5, prob: 3,
+  { title: 'Containment rate below target at launch', type: 'Product', sev: 5, prob: 3,
+    desc: 'The entire value promise rests on containment. Insurance is a new vertical for Notch, so the model can underperform on unfamiliar intents at launch - and the headline metric is the most visible thing to Bullet.',
     mitigation: "Staged rollout behind the Glassix safety net; tune against Bullet's knowledge base during UAT; measure containment on real traffic before widening coverage, so misses surface early and recoverably." },
-]
+  { title: 'Resource contention collapses the parallel tracks', type: 'Resourcing', sev: 4, prob: 3,
+    desc: 'The plan assumes the DevOps and Product projects run concurrently across a compressed five-month window. If either is understaffed they serialise, and in five months there is no slack to absorb the slip.',
+    mitigation: 'Explicit resourcing commitment before kickoff. If constrained, the internal dev environment gets the dedicated resource first - it unblocks all development testing.' },
+  { title: "Binary fails Bullet's security scanning", type: 'Technical', sev: 2, prob: 4,
+    desc: "Bullet's pipeline scans every binary before deployment. If we do not know their toolchain in advance, binaries can fail on first submission - and on a five-month timeline each failed cycle costs days we do not have.",
+    mitigation: "Obtain Bullet's security toolchain list as a pre-requisite. Install the same tools internally and pre-scan before every handoff - failures are caught on our side, not theirs." },
+  { title: 'Third-party tooling ownership unresolved at go-live', type: 'Commercial', sev: 2, prob: 2,
+    desc: 'If subscription ownership for the LLM, auth, and search tools is left undecided, consumption costs land in the wrong place and surface as a billing dispute after launch.',
+    mitigation: 'Lock the build/buy boundary and subscription owner per tool at kickoff - not left open. Recommendation: Bullet owns all third-party subscriptions.' },
+].map((r, i) => ({ ...r, n: i + 1 }))
 
 function NumChip({ n }) {
   return (
@@ -173,11 +179,14 @@ export default function Risks() {
               <TypeBadge>{r.type}</TypeBadge>
               <ScoreBadge score={score} />
             </div>
-            <div style={{ display: 'flex', gap: 22, margin: '10px 0 8px 36px', flexWrap: 'wrap' }}>
+            <div style={{ display: 'flex', gap: 22, margin: '10px 0 10px 36px', flexWrap: 'wrap' }}>
               <Metric label="Impact" val={r.sev} />
               <Metric label="Probability" val={r.prob} />
             </div>
-            <p style={{ fontSize: 14.5, color: '#4B5563', lineHeight: 1.6, marginLeft: 36, fontFamily: font }}>
+            <p style={{ fontSize: 14.5, color: '#4B5563', lineHeight: 1.65, marginLeft: 36, marginBottom: 8, fontFamily: font }}>
+              {r.desc}
+            </p>
+            <p style={{ fontSize: 14.5, color: '#4B5563', lineHeight: 1.65, marginLeft: 36, fontFamily: font }}>
               <strong style={{ color: '#111827' }}>Mitigation:</strong> {r.mitigation}
             </p>
           </div>
@@ -195,7 +204,7 @@ export default function Risks() {
           ['DevOps pipeline access', 'Before Week 1', 'Workshop 1 cannot start. First gate in the entire project.', <Sev level="Critical" />],
           ['Swagger specs - all internal APIs', 'Before Week 2', 'Mock-first development blocked. Developers idle.', <Sev level="Critical" />],
           ['Network reachability confirmation per API', 'Before Week 3', 'Integration phase blocked. Discovered late = rework.', <Sev level="Critical" />],
-          ['Existing flow and intent inventory', 'Before Week 2', 'Cannot define V0 scope (top intents for FAQ).', <Sev level="High" />],
+          ['Existing flow and intent inventory', 'Before Week 2', 'Cannot define MVP scope (top intents for FAQ).', <Sev level="High" />],
           ['Swagger specs - 3rd-party integrations (Glassix, auth)', 'Before Week 3', 'Flow A (Glassix) and Flow C (auth) blocked.', <Sev level="High" />],
           ['Named Bullet Implementation Engineer', 'At kickoff', 'No single coordination point. Access requests have no owner.', <Sev level="High" />],
           ['Security toolchain list', 'Before Week 1', 'Cannot pre-scan binaries. First handoff may fail.', <Sev level="High" />],
