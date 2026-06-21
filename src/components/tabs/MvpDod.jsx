@@ -40,7 +40,7 @@ export default function MvpDod() {
               'App, Voice, Web channels → their own rollouts after WhatsApp.',
             ].map((item, i) => (
               <li key={i} style={{ fontSize: 14, marginBottom: 8, lineHeight: 1.6 }}>
-                <span style={{ color: 'var(--color-text-dim)', marginRight: 8 }}>—</span>{item}
+                <span style={{ color: '#9CA3AF', marginRight: 8, fontWeight: 700 }}>✕</span>{item}
               </li>
             ))}
           </ul>

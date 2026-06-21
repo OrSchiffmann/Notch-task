@@ -13,9 +13,11 @@ import LaunchBeyond from './components/tabs/LaunchBeyond'
 import PreRequisites from './components/tabs/PreRequisites'
 import Testing from './components/tabs/Testing'
 import Resources from './components/tabs/Resources'
+import SummaryTab from './components/tabs/Summary'
 
 const TABS = [
   { id: 'cover',       label: 'Cover',            component: Cover },
+  { id: 'summary',     label: 'Summary',           component: SummaryTab },
   { id: 'overview',    label: 'Overview',          component: Overview },
   { id: 'prereqs',     label: 'Pre-Requisites',   component: PreRequisites },
   { id: 'dual-track',  label: 'Delivery Model',   component: DualTrack },
@@ -44,7 +46,7 @@ export default function App() {
     const onHash = () => {
       const hash = window.location.hash.replace('#/', '')
       const tab = TABS.find(t => t.id === hash)
-      if (tab) setActiveTab(tab.id)
+      if (tab) { setActiveTab(tab.id); window.scrollTo(0, 0) }
     }
     window.addEventListener('hashchange', onHash)
     return () => window.removeEventListener('hashchange', onHash)

@@ -49,6 +49,11 @@ export default function Risks() {
         <p className="mt-2"><strong style={{ color: 'var(--color-accent)' }}>Mitigation:</strong> Lock build/buy boundary and subscription owner per tool at kickoff - not left open. Notch recommendation: Bullet owns all third-party subscriptions.</p>
       </NumberedItem>
 
+      <NumberedItem n="5" title="Containment rate below target at launch">
+        <p>The whole value promise rests on containment. If the AI underperforms on insurance-specific traffic at go-live, the headline metric misses and confidence erodes - the outcome risk that matters most to Bullet.</p>
+        <p className="mt-2"><strong style={{ color: 'var(--color-accent)' }}>Mitigation:</strong> Staged rollout behind the Glassix safety net; tune against Bullet's knowledge base during UAT; measure containment on real traffic before widening intent coverage, so misses surface early and recoverably.</p>
+      </NumberedItem>
+
       <H2>Dependencies - what we need from Bullet</H2>
       <P>
         These are deliverables Bullet owes us. They are not risks today - they become risks the moment a deadline is missed with no escalation path. Each dependency has a due date and an owner; if it slips, it immediately elevates to a tracked risk.
