@@ -104,7 +104,7 @@ export default function SummaryTab() {
 
       {/* ===== MVP ===== */}
       <Block title="MVP & Definition of Done" links={<Link to="mvp">MVP &amp; DOD</Link>}>
-        <Row q="First channel">WhatsApp - the only channel with a built-in human fallback (Glassix). Ships in three steps: V0 pilot (all four flows live, one FAQ intent), V1 full (Flow B expanded to all intents - the only change), V2 complete (full KB + hardening + scraping).</Row>
+        <Row q="First channel">WhatsApp - a channel with a built-in human fallback (Glassix). Ships in three steps: V0 pilot (all four flows live, one FAQ intent), V1 full (Flow B expanded to all intents - the only change), V2 complete (full KB + hardening + scraping).</Row>
         <Row q="V0 (pilot)">All four flows live from day one: Flow A (routing + Glassix) + Flow B (1 intent only) + Flow C (OTP identity) + Flow D (compliance baseline). All capabilities present; knowledge coverage intentionally narrow.</Row>
         <Row q="V1 (WhatsApp Full)">V0 unchanged + Flow B expanded to all remaining top intents. This is the only difference between V0 and V1.</Row>
         <Row q="V2">Full KB (all intents, not just top-N), prompt hardening, website scraping. WhatsApp complete.</Row>
