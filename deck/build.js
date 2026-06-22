@@ -61,7 +61,7 @@ function chip(slide, x, y, text, fg, bg) {
   s.addShape(S.LINE, { x: M, y: 5.5, w: 5.2, h: 0, line: { color: "27384D", width: 1 } });
   s.addText([
     { text: "CUSTOMER  ", options: { color: MUTE, bold: true, charSpacing: 2 } }, { text: "Bullet (carrier + investor)     ", options: { color: "E6EDF3" } },
-    { text: "FIRST CHANNEL  ", options: { color: MUTE, bold: true, charSpacing: 2 } }, { text: "WhatsApp MVP", options: { color: "E6EDF3" } },
+    { text: "FIRST CHANNEL  ", options: { color: MUTE, bold: true, charSpacing: 2 } }, { text: "WhatsApp V0", options: { color: "E6EDF3" } },
   ], { x: M, y: 5.7, w: 11, h: 0.4, fontSize: 12.5, fontFace: F, margin: 0 });
   s.addText([
     { text: "TIMELINE  ", options: { color: MUTE, bold: true, charSpacing: 2 } }, { text: "1 Nov 2025  →  end Q1 2026     ", options: { color: "E6EDF3" } },
@@ -163,7 +163,7 @@ function chip(slide, x, y, text, fg, bg) {
   sectionTag(s, "04", "Sequencing");
   title(s, "One channel at a time, deliberately");
   const steps = [
-    ["1", "WhatsApp", "MVP", "Has a Glassix human fallback - the only safe place to find failure modes.", ORANGE],
+    ["1", "WhatsApp", "Pilot", "Has a Glassix human fallback - the only safe place to find failure modes.", ORANGE],
     ["2", "Mobile App", "Priority", "Bullet's 2026 goal. Reuses the proven core rather than discovering it.", PURPLE],
     ["3", "Voice", "Q2", "Adds the hard part - real-time speech - once text is stable.", TEAL],
     ["4", "Website", "Q2", "Lowest marginal value, cheapest once the core is fully proven.", GREEN],
@@ -421,7 +421,7 @@ function chip(slide, x, y, text, fg, bg) {
   // left: agenda + decisions
   s.addText("AGENDA", { x: M, y: 2.25, w: 5, h: 0.3, color: ORANGE, bold: true, fontSize: 12, charSpacing: 2, fontFace: F, margin: 0 });
   s.addText([
-    "Strategy & sequencing", "Timeline & scope vs the Q1 2026 deadline", "The deployment model", "Lock the critical decisions", "Access & discovery sign-off", "First three weeks & owners",
+    "Strategy & sequencing", "Timeline & scope vs the Q1 2026 deadline", "The deployment model", "Lock the critical decisions", "Access & discovery sign-off", "First four weeks & owners",
   ].map((t, i) => ({ text: t, options: { bullet: { type: "number" }, color: BODY, breakLine: true, paraSpaceAfter: 4 } })), { x: M, y: 2.6, w: 5.5, h: 2.1, fontSize: 12.5, fontFace: F, margin: 0 });
   s.addText("CRITICAL DECISIONS", { x: M, y: 4.85, w: 5, h: 0.3, color: ORANGE, bold: true, fontSize: 12, charSpacing: 2, fontFace: F, margin: 0 });
   s.addText(["Scope vs deadline (all 5 channels, or App?)", "Build/buy boundary & vendors", "Subscription ownership (recommend Bullet)", "Production access model"].map(t => ({ text: t, options: { bullet: true, color: BODY, breakLine: true, paraSpaceAfter: 3 } })), { x: M, y: 5.2, w: 5.5, h: 1.5, fontSize: 12, fontFace: F, margin: 0 });
