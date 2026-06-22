@@ -81,7 +81,7 @@ export default function Search({ onNavigate, onClose }) {
             value={query}
             onChange={e => setQuery(e.target.value)}
             onKeyDown={handleKey}
-            placeholder="חפש בתוכן התוכנית..."
+            placeholder="Search the plan..."
             style={{
               flex: 1, border: 'none', outline: 'none',
               fontSize: 15.5, fontFamily: font, color: '#111827',
@@ -103,12 +103,12 @@ export default function Search({ onNavigate, onClose }) {
         <div ref={listRef} style={{ maxHeight: 420, overflowY: 'auto' }}>
           {!query && (
             <p style={{ padding: '28px 20px', textAlign: 'center', color: '#9CA3AF', fontSize: 14 }}>
-              התחל להקליד כדי לחפש בכל הטאבים
+              Start typing to search across all tabs
             </p>
           )}
           {query && results.length === 0 && (
             <p style={{ padding: '28px 20px', textAlign: 'center', color: '#9CA3AF', fontSize: 14 }}>
-              לא נמצאו תוצאות עבור "{query}"
+              No results for "{query}"
             </p>
           )}
           {results.map((r, i) => {
@@ -151,9 +151,9 @@ export default function Search({ onNavigate, onClose }) {
         {/* footer hint */}
         {results.length > 0 && (
           <div style={{ padding: '8px 16px', borderTop: '1px solid #ECEEF2', display: 'flex', gap: 16, fontSize: 11, color: '#9CA3AF' }}>
-            <span><kbd style={{ fontFamily: 'monospace', background: '#F3F4F6', borderRadius: 3, padding: '1px 5px' }}>↑↓</kbd> ניווט</span>
-            <span><kbd style={{ fontFamily: 'monospace', background: '#F3F4F6', borderRadius: 3, padding: '1px 5px' }}>↵</kbd> פתח</span>
-            <span><kbd style={{ fontFamily: 'monospace', background: '#F3F4F6', borderRadius: 3, padding: '1px 5px' }}>Esc</kbd> סגור</span>
+            <span><kbd style={{ fontFamily: 'monospace', background: '#F3F4F6', borderRadius: 3, padding: '1px 5px' }}>↑↓</kbd> navigate</span>
+            <span><kbd style={{ fontFamily: 'monospace', background: '#F3F4F6', borderRadius: 3, padding: '1px 5px' }}>↵</kbd> open</span>
+            <span><kbd style={{ fontFamily: 'monospace', background: '#F3F4F6', borderRadius: 3, padding: '1px 5px' }}>Esc</kbd> close</span>
           </div>
         )}
       </div>

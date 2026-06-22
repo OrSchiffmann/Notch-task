@@ -1,5 +1,6 @@
-import { useState, useEffect, useCallback } from 'react'
+import { useState, useEffect } from 'react'
 import Search from './components/Search'
+import Login from './components/Login'
 import Cover from './components/tabs/Cover'
 import Overview from './components/tabs/Overview'
 import Roadmap from './components/tabs/Roadmap'
@@ -15,6 +16,8 @@ import PreRequisites from './components/tabs/PreRequisites'
 import Testing from './components/tabs/Testing'
 import Resources from './components/tabs/Resources'
 import SummaryTab from './components/tabs/Summary'
+
+const AUTH_KEY = 'notch_auth_user'
 
 const TABS = [
   { id: 'summary',     label: 'Summary',           component: SummaryTab },
@@ -36,7 +39,8 @@ const TABS = [
 
 const font = "'Calibri', 'Trebuchet MS', Arial, sans-serif"
 
-export default function App() {
+// ── Main shell (only rendered when authenticated) ─────────────────────────────
+function AppShell({ user, onSignOut }) {
   const [activeTab, setActiveTab] = useState(() => {
     const hash = window.location.hash.replace('#/', '')
     return TABS.find(t => t.id === hash)?.id || 'cover'
@@ -70,8 +74,6 @@ export default function App() {
   }
 
   const ActiveComponent = TABS.find(t => t.id === activeTab)?.component || Cover
-
-  const activeIndex = TABS.findIndex(t => t.id === activeTab)
 
   return (
     <div style={{ minHeight: '100vh', background: '#fff', fontFamily: font, display: 'flex' }}>
@@ -110,7 +112,7 @@ export default function App() {
               <circle cx="7.5" cy="7.5" r="5.5" stroke="currentColor" strokeWidth="1.8" />
               <path d="M12 12l3.5 3.5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
             </svg>
-            חיפוש...
+            Search...
             <kbd style={{ marginLeft: 'auto', fontSize: 10, background: '#E9EAEC', borderRadius: 4, padding: '1px 5px', fontFamily: 'monospace', color: '#9CA3AF' }}>⌘K</kbd>
           </button>
         </div>
@@ -120,7 +122,6 @@ export default function App() {
           {TABS.map((tab, i) => {
             const active = activeTab === tab.id
 
-            // Summary gets a distinct solid CTA-card treatment, unlike the flat active highlight
             if (tab.id === 'summary') {
               return (
                 <button
@@ -172,6 +173,23 @@ export default function App() {
             )
           })}
         </nav>
+
+        {/* User + sign-out */}
+        <div style={{ padding: '12px 16px', borderTop: '1px solid #ECEEF2', display: 'flex', alignItems: 'center', gap: 9 }}>
+          {user.picture
+            ? <img src={user.picture} alt="" style={{ width: 28, height: 28, borderRadius: '50%', flexShrink: 0 }} />
+            : <div style={{ width: 28, height: 28, borderRadius: '50%', background: '#F06A22', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontSize: 12, fontWeight: 700, flexShrink: 0 }}>
+                {user.name?.[0] || user.email?.[0] || '?'}
+              </div>
+          }
+          <div style={{ minWidth: 0, flex: 1 }}>
+            <div style={{ fontSize: 12, fontWeight: 600, color: '#374151', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{user.name || user.email}</div>
+          </div>
+          <button onClick={onSignOut} title="Sign out"
+            style={{ background: 'none', border: 'none', cursor: 'pointer', color: '#9CA3AF', padding: 4, flexShrink: 0, fontSize: 14 }}>
+            ⎋
+          </button>
+        </div>
       </aside>
 
       {/* ===== Mobile top bar ===== */}
@@ -250,6 +268,16 @@ export default function App() {
               </button>
             )
           })}
+          {/* Mobile sign-out */}
+          <button onClick={onSignOut}
+            style={{
+              display: 'flex', alignItems: 'center', gap: 8, width: '100%', textAlign: 'left',
+              padding: '13px 24px', marginTop: 8,
+              fontFamily: font, fontSize: 14, color: '#9CA3AF',
+              background: 'none', border: 'none', borderTop: '1px solid #ECEEF2', cursor: 'pointer',
+            }}>
+            Sign out
+          </button>
         </div>
       )}
 
@@ -269,4 +297,24 @@ export default function App() {
       )}
     </div>
   )
+}
+
+// ── Root: auth gate ───────────────────────────────────────────────────────────
+export default function App() {
+  const [user, setUser] = useState(() => {
+    try { return JSON.parse(localStorage.getItem(AUTH_KEY)) } catch { return null }
+  })
+
+  const handleAuth = (u) => {
+    localStorage.setItem(AUTH_KEY, JSON.stringify(u))
+    setUser(u)
+  }
+
+  const handleSignOut = () => {
+    localStorage.removeItem(AUTH_KEY)
+    setUser(null)
+  }
+
+  if (!user) return <Login onAuth={handleAuth} />
+  return <AppShell user={user} onSignOut={handleSignOut} />
 }
