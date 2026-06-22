@@ -77,7 +77,7 @@ export default function SummaryTab() {
         </p>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '8px 24px' }}>
           {[
-            'WhatsApp MVP live and safe - containment at or above the 90% benchmark on covered intents.',
+            'WhatsApp MVP live and safe - containment at or above 90% on covered intents.',
             'App live by end of Q1 2026 - the priority deadline hit.',
             'Glassix safety net holds - every failure recovers to a human, zero dead ends.',
             'Zero compliance breaches on personal or financial data.',
@@ -108,7 +108,7 @@ export default function SummaryTab() {
         <Row q="V0 (pilot)">All four flows live from day one: Flow A (routing + Glassix) + Flow B (1 intent only) + Flow C (OTP identity) + Flow D (compliance baseline). All capabilities present; knowledge coverage intentionally narrow.</Row>
         <Row q="V1 (WhatsApp Full)">V0 unchanged + Flow B expanded to all remaining top intents. This is the only difference between V0 and V1.</Row>
         <Row q="V2">Full KB (all intents, not just top-N), prompt hardening, website scraping. WhatsApp complete.</Row>
-        <Row q="Success metrics">Business: containment rate (headline; based on Notch benchmarks, calibrate with Bullet at kickoff), handoff quality. Technical: answer accuracy / re-contact rate, availability/latency. Compliance: guardrail pass rate.</Row>
+        <Row q="Success metrics">Business: containment rate (headline; target 90%, calibrate with Bullet at kickoff), handoff quality. Technical: answer accuracy / re-contact rate, availability/latency. Compliance: guardrail pass rate.</Row>
         <Row q="DOD highlights">Flow A: clean handoff with context, BI dashboard live. Flow B: top intents validated, zero hallucinated answers, tests green. Flow C: in-flow OTP verify, graceful failure, no data pre-verify, audited. Flow D: guardrail pass rate meets threshold.</Row>
         <Row q="How we prove it">Staged: internal mocks → Staging real APIs → limited Production behind Glassix → containment measured on real traffic before widening.</Row>
       </Block>

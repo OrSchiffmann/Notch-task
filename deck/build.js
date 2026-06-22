@@ -90,7 +90,7 @@ function chip(slide, x, y, text, fg, bg) {
   });
   // right stat card
   card(s, 8.5, 2.35, 4.1, 4.3, NAVY, { line: { type: "none" }, shadow: true });
-  s.addText("THE BENCHMARK WE DEFEND", { x: 8.5, y: 2.65, w: 4.1, h: 0.3, align: "center", color: "AEB8C7", bold: true, fontSize: 11, charSpacing: 2, fontFace: F, margin: 0 });
+  s.addText("NOTCH TARGET", { x: 8.5, y: 2.65, w: 4.1, h: 0.3, align: "center", color: "AEB8C7", bold: true, fontSize: 11, charSpacing: 2, fontFace: F, margin: 0 });
   const stats = [["90%", "average automation"], ["~50%", "CS headcount reduction"], ["200%", "ROI within a year"]];
   let sy = 3.2;
   stats.forEach(([n, l]) => {
