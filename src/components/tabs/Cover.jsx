@@ -12,7 +12,7 @@ export default function Cover() {
         <ul style={{ listStyle: 'none', padding: 0 }}>
           <li className="mb-1.5">Bullet - a large US insurance carrier, and Notch's first on-premise deployment in a regulated vertical.</li>
           <li className="mb-1.5">Backed by Lightspeed, Jibe, Munich Re Ventures, and <strong style={{ color: 'var(--color-text)' }}>Bullet itself</strong> - customer and investor in one.</li>
-          <li>Notch target: 90% automation, ~50% CS headcount reduction, 200% ROI within a year.</li>
+          <li>Notch target: 70–73% automation, ~50% CS headcount reduction, 200% ROI within a year.</li>
         </ul>
       </Card>
 

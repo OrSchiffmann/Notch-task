@@ -3,7 +3,7 @@ export const SEARCH_INDEX = [
 
   // ── SUMMARY ──────────────────────────────────────────────────────────────
   { tab: 'summary', tabLabel: 'Summary', section: 'Project overview', text: 'two projects devops product parallel whatsapp v0 pilot v1 v2 app q1 2026 deadline on-prem binary' },
-  { tab: 'summary', tabLabel: 'Summary', section: 'Signs of success', text: 'containment 90% glassix safety net compliance pii zero breaches on-prem reusable every version on cadence' },
+  { tab: 'summary', tabLabel: 'Summary', section: 'Signs of success', text: 'containment 70-73% glassix safety net compliance pii zero breaches on-prem reusable every version on cadence' },
   { tab: 'summary', tabLabel: 'Summary', section: 'Roadmap milestones', text: 'nov 2025 kickoff wa v0 december wa v1 january wa v2 february app march voice april web may hyper care optimization' },
   { tab: 'summary', tabLabel: 'Summary', section: 'Resources', text: 'pm project manager im implementation manager product devops platform developers ai prompt engineer qa notch team bullet owner' },
   { tab: 'summary', tabLabel: 'Summary', section: 'Key questions P0', text: 'q1 2026 deadline llm self-hosted swagger reachable named bullet owner security scanning toolchain' },
@@ -12,7 +12,7 @@ export const SEARCH_INDEX = [
 
   // ── PURPOSE ──────────────────────────────────────────────────────────────
   { tab: 'cover', tabLabel: 'Purpose', section: 'Why this engagement matters', text: 'on-premise model binary-only pull-based regulated insurance first large us enterprise reusable playbook investor notch bullet' },
-  { tab: 'cover', tabLabel: 'Purpose', section: 'Notch target', text: '90% automation 50% cs headcount reduction 200% roi within a year' },
+  { tab: 'cover', tabLabel: 'Purpose', section: 'Notch target', text: '70-73% automation 50% cs headcount reduction 200% roi within a year' },
   { tab: 'cover', tabLabel: 'Purpose', section: 'Channel sequencing rationale', text: 'whatsapp first glassix fallback recoverable app second priority voice web' },
 
   // ── OVERVIEW ─────────────────────────────────────────────────────────────
@@ -80,7 +80,7 @@ export const SEARCH_INDEX = [
   { tab: 'mvp', tabLabel: 'MVP & DOD', section: 'Definition of Done — Flow B', text: 'dod flow b knowledge top-n intents zero hallucinated answers automated test suite green observable monitor bi' },
   { tab: 'mvp', tabLabel: 'MVP & DOD', section: 'Definition of Done — Flow C', text: 'dod flow c otp identity verify end-to-end graceful failure no data pre-verify audit log' },
   { tab: 'mvp', tabLabel: 'MVP & DOD', section: 'Definition of Done — Flow D', text: 'dod flow d guardrail pass rate unauthorised financial advice pii exposure compliance events logged sign-off before go-live' },
-  { tab: 'mvp', tabLabel: 'MVP & DOD', section: 'Success metrics', text: 'containment rate 90% target handoff quality answer accuracy re-contact rate availability latency guardrail compliance pass rate' },
+  { tab: 'mvp', tabLabel: 'MVP & DOD', section: 'Success metrics', text: 'containment rate 70-73% target handoff quality answer accuracy re-contact rate availability latency guardrail compliance pass rate' },
 
   // ── TESTING ──────────────────────────────────────────────────────────────
   { tab: 'testing', tabLabel: 'Testing Strategy', section: 'Six-phase funnel', text: 'stage testing bullet uat pentest load production validation pvt friends family go-live six phases ordered cost failure' },
