@@ -28,7 +28,7 @@ function CadenceDiagram() {
       <div className="flex justify-center mb-4">
         <div style={box({ borderColor: 'var(--color-accent)', background: 'var(--color-accent-soft)', maxWidth: 220 })}>
           <p style={{ fontFamily: 'var(--font-display)', fontWeight: 600, color: 'var(--color-accent)' }}>
-            IM consolidates
+            PM consolidates
           </p>
         </div>
       </div>
@@ -40,7 +40,7 @@ function CadenceDiagram() {
       <div className="flex justify-center">
         <div style={box({ borderColor: 'var(--color-warn)', background: 'var(--color-warn-soft)', maxWidth: 320 })}>
           <p style={{ fontFamily: 'var(--font-mono)', fontSize: 10, color: 'var(--color-warn)', marginBottom: 4 }}>WEEKLY · EXTERNAL</p>
-          Sync with Bullet's Implementation Engineer
+          Sync with Bullet's Owner (PM-led; IM joins when scope or business questions are open)
         </div>
       </div>
     </div>
@@ -52,7 +52,7 @@ export default function Process() {
     <div>
       <SectionHeader eyebrow="OPERATING RHYTHM" title="How we run delivery" />
       <Summary>
-        Releases ship as named versions through the pull-based pipeline, on the MVP → V1 → V2 cadence - not ad hoc. Each project runs its own weekly internal sync, and the IM consolidates both into a single weekly meeting with Bullet, so Bullet receives one coherent signal rather than two raw feeds.
+        Releases ship as named versions through the pull-based pipeline, on the V0 → V1 → V2 cadence - not ad hoc. Each project runs its own weekly internal sync, and the PM consolidates both into a single weekly meeting with Bullet's Owner, so Bullet receives one coherent signal rather than two raw feeds.
       </Summary>
 
       <H2>Release cadence</H2>
@@ -70,8 +70,8 @@ export default function Process() {
           <p className="mt-2">They stay separate on purpose: the two projects move on different rhythms and fail for different reasons, and merging the syncs dilutes both.</p>
         </Card>
         <Card title="External sync - consolidated" accent>
-          <p>The IM runs one weekly meeting with Bullet's Implementation Engineer, carrying the combined output of both internal syncs: status, decisions needed, blockers, and what ships next.</p>
-          <p className="mt-2">Bullet sees one coherent picture rather than two raw internal feeds, and the IM is the single point of accountability for what gets escalated.</p>
+          <p>The PM runs one weekly meeting with Bullet's Owner, carrying the combined output of both internal syncs: status, decisions needed, blockers, and what ships next.</p>
+          <p className="mt-2">Bullet sees one coherent picture rather than two raw internal feeds. The IM joins when there are open business, scope, or stakeholder questions - but is not required on every call.</p>
         </Card>
       </div>
     </div>

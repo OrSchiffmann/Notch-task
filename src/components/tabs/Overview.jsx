@@ -58,7 +58,7 @@ export default function Overview() {
       <P>Stated openly so Bullet can confirm or correct them at kickoff. Each is a decision waiting to be ratified, not a fact we are hiding.</P>
 
       <WarnCard title="Timeline - what we commit to vs what extends">
-        Kickoff is <strong style={{ color: 'var(--color-text)' }}>1 November 2025</strong>. Fitting all five channels into five months is not realistic for a first on-premise deployment, so we are explicit about what we commit to: the <strong style={{ color: 'var(--color-text)' }}>MVP (WhatsApp first flow) ships in December</strong>, and the <strong style={{ color: 'var(--color-text)' }}>App - Bullet's priority - lands by the end-of-Q1-2026 deadline</strong>. Voice, Web, and every channel's Hyper Care and Optimization deliberately extend into Q2 2026. Protecting the must-haves beats forcing the whole scope into the window and missing the one that matters.
+        Kickoff is <strong style={{ color: 'var(--color-text)' }}>1 November 2025</strong>. Fitting all five channels into five months is not realistic for a first on-premise deployment, so we are explicit about what we commit to: the <strong style={{ color: 'var(--color-text)' }}>WhatsApp V0 pilot ships in December</strong>, WhatsApp Full (including OTP) follows in January, and the <strong style={{ color: 'var(--color-text)' }}>App - Bullet's priority - lands by the end-of-Q1-2026 deadline</strong>. Voice and Web extend into Q2 2026. Hyper Care starts immediately after each go-live - it is not deferred. Optimization begins after a channel's Hyper Care is complete. Protecting the must-haves beats forcing the whole scope into the window and missing the one that matters.
       </WarnCard>
 
       <Table

@@ -40,11 +40,14 @@ export default function OnPrem() {
       </P>
 
       <H2>Two workshops, one variable each</H2>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
         <Card title="Workshop 1 - Hello World">
           <p>A minimal binary deploys, runs, and reports back. It proves the <em>plumbing</em> - pipeline, permissions, networking, observability - and deliberately proves nothing about the product. If it fails, the problem is infrastructure or access, never our code.</p>
           <p className="mt-2" style={{ color: 'var(--color-accent)', fontWeight: 600, fontSize: 13 }}>
             Exit criterion: a log line from the deployed binary reaches Notch's Monitor Service.
+          </p>
+          <p className="mt-2" style={{ fontSize: 13, color: '#5B6472' }}>
+            <strong style={{ color: 'var(--color-text)' }}>Required from Bullet:</strong> an architect and a compliance representative with authority to make deployment decisions on the spot. Deferring sign-off to after the workshop extends the critical path.
           </p>
         </Card>
         <Card title="Workshop 2 - Base Binary">
@@ -54,6 +57,9 @@ export default function OnPrem() {
           </p>
         </Card>
       </div>
+      <p style={{ fontSize: 13.5, color: '#5B6472', background: '#FFFBEB', border: '1px solid #FCE3B0', borderRadius: 8, padding: '10px 14px', marginBottom: 24 }}>
+        <strong style={{ color: '#92400E' }}>One week between workshops.</strong> After Workshop 1 there will typically be internal changes needed inside Bullet's environment - firewall adjustments, provisioning, configuration. Approximately one week is planned between the two events. This is expected time, not dead time, and is reflected in the Gantt.
+      </p>
 
       <H2>Environment rollout - Dev, then Staging, then Production</H2>
       <P>
@@ -68,9 +74,9 @@ export default function OnPrem() {
         ]}
       />
 
-      <H2>Pull-based deployment</H2>
+      <H2>Deployment path - end to end</H2>
       <P>
-        Notch packages a binary and uploads it to a secure intermediate artifact store. Bullet's pipeline <strong style={{ color: 'var(--color-text)' }}>pulls</strong> from there, runs its security scans, and deploys. Notch never holds push access into Bullet's environment. This is a smaller attack surface and it leaves Bullet in full control of what enters and when - which is the only model an insurer's security team will sign off on.
+        Notch runs as a single-tenant system: full source code on Notch's side is compiled into a binary, then handed off through a secure artifact store. Bullet's pipeline <strong style={{ color: 'var(--color-text)' }}>pulls</strong> from there, runs security scans, and deploys into each environment in sequence. Notch never holds push access into Bullet's environment.
       </P>
 
       <div style={{
@@ -78,21 +84,28 @@ export default function OnPrem() {
         gap: 8, marginBottom: 12, padding: '20px 16px',
         background: '#FBFBFC', border: '1px solid #ECEEF2', borderRadius: 12,
       }}>
-        <FlowNode tone="orange">Notch</FlowNode>
+        <FlowNode tone="orange">Notch<br /><span style={{ fontWeight: 400, fontSize: 11 }}>code → binary</span></FlowNode>
         <FlowArrow label="push" dir="right" />
         <FlowNode tone="amber">Artifact store</FlowNode>
         <FlowArrow label="Bullet pulls" dir="left" />
-        <FlowNode tone="blue">Bullet pipeline</FlowNode>
-        <FlowArrow label="scan + deploy" dir="right" />
-        <FlowNode tone="blue">Environments</FlowNode>
+        <FlowNode tone="blue">Bullet Dev</FlowNode>
+        <FlowArrow label="proven" dir="right" />
+        <FlowNode tone="blue">Bullet Stg</FlowNode>
+        <FlowArrow label="proven" dir="right" />
+        <FlowNode tone="blue">Bullet Prod</FlowNode>
       </div>
       <p style={{ fontSize: 12.5, color: '#9CA3AF', textAlign: 'center', marginBottom: 28, fontFamily: font }}>
-        The only arrow reaching Bullet's side is the pull they initiate. Notch never pushes in.
+        Notch source code never enters Bullet's environment - only compiled binaries do. Each environment is stood up from the recipe proven in the one before it.
       </p>
 
       <H2>Self-hosted LLM</H2>
       <P>
         Bullet went on-premise precisely so customer data never leaves their environment, so the model comes to the data: the LLM runs inside their cloud. This creates two Notch responsibilities. First, an <strong style={{ color: 'var(--color-text)' }}>LLM deployment spec</strong> - the exact model, version, GPU requirements, and configuration Bullet must install. Second, <strong style={{ color: 'var(--color-text)' }}>verification access</strong> - the ability to confirm the installed model is the right one, correctly configured. The second is a new access requirement worth flagging early.
+      </P>
+
+      <H2>BI and Observability</H2>
+      <P>
+        Every conversation flow emits events. These events must route to two destinations inside Bullet's environment: an <strong style={{ color: 'var(--color-text)' }}>observability system</strong> for monitoring, alerting, and incident debugging, and a <strong style={{ color: 'var(--color-text)' }}>BI system</strong> for business dashboards (containment rate, handoff rate, intent coverage). Setting up these integrations is a DevOps responsibility - configuring the pipelines so that events flow correctly is a prerequisite for the product team's DOD criteria (the handoff rate BI dashboard is a go-live gate for Flow A).
       </P>
 
       <H2>Project work items</H2>
@@ -102,9 +115,12 @@ export default function OnPrem() {
           ['Workshop 1 - Hello World', 'Pipeline, access, and observability proven end-to-end'],
           ['Workshop 2 - Base binary', 'The core platform running in Bullet\'s cloud'],
           ['Environment rollout', 'Dev → Staging → Production, each from a proven recipe'],
+          ['Database setup (all environments)', 'Databases provisioned per Notch Core\'s required schemas in Dev, Staging, and Production'],
           ['LLM deployment spec', 'Exactly what Bullet installs to self-host the model'],
           ['LLM verification access', 'Confirmation the installed model is correct and configured'],
           ['Secure artifact storage', 'The pull-based handoff zone between Notch and Bullet'],
+          ['Observability integration', 'Logging, alerting, and dashboards for Monitor Service in Bullet\'s cloud'],
+          ['BI event routing', 'Event emission from flows routed to Bullet\'s BI platform for business dashboards'],
           ['Per-channel connectivity', 'Integration access each new channel needs (Glassix, telephony, mobile SDK)'],
           ['Deploy + support operations', 'Ongoing release handling and production support'],
         ]}

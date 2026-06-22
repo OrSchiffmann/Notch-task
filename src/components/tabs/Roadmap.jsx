@@ -6,11 +6,11 @@ export default function Roadmap() {
     <div>
       <SectionHeader eyebrow="TIMELINE" title="MVP committed, the rest sequenced" />
       <Summary>
-        From a 1 November 2025 kickoff, the MVP (WhatsApp first flow) is the one hard commitment - live in December, well inside the window. The App, Bullet's priority, is targeted for the end-of-Q1-2026 deadline. Voice, Web, and every channel's post-launch Hyper Care and Optimization deliberately extend into Q2 2026. We protect the must-haves rather than forcing all five channels into five months.
+        From a 1 November 2025 kickoff, the MVP (WhatsApp V0 pilot) is the first live milestone, with WhatsApp Full close behind. The App - Bullet's priority - is targeted for the end-of-Q1-2026 deadline. Voice and Web extend into Q2 2026. Hyper Care starts immediately after each go-live; Optimization follows once a channel is stable. We protect the must-haves rather than forcing all five channels into five months.
       </Summary>
 
       <Card accent title="What is committed vs sequenced">
-        <p><strong style={{ color: 'var(--color-text)' }}>Committed by end of Q1 2026:</strong> WhatsApp MVP, WhatsApp Full, and the Mobile App. <strong style={{ color: 'var(--color-text)' }}>Sequenced into Q2 2026:</strong> Voice, Web, and the Hyper Care + Optimization tail of every channel. The red dashed line on the chart is the Q1 2026 deadline - the App lands just inside it; nothing committed sits to the right of it.</p>
+        <p><strong style={{ color: 'var(--color-text)' }}>Committed by end of Q1 2026:</strong> WhatsApp V0 pilot, WhatsApp Full (with OTP), and the Mobile App. <strong style={{ color: 'var(--color-text)' }}>Sequenced into Q2 2026:</strong> Voice and Web. Hyper Care follows immediately after each go-live and may run into Q2 for later channels. Optimization starts once Hyper Care is complete. The red dashed line on the chart is the Q1 2026 deadline.</p>
       </Card>
 
       <GanttChart />
@@ -41,11 +41,11 @@ export default function Roadmap() {
       </Card>
 
       <Card title="6. Hyper Care">
-        <p>An intensive, time-boxed support window (2-3 weeks) immediately after go-live: elevated monitoring, a dedicated responder on standby, and a fast incident loop. The goal is to catch and resolve the surprises that only real traffic reveals, before the channel is treated as steady-state.</p>
+        <p>An intensive, time-boxed support window (2-3 weeks) starting immediately after go-live: elevated monitoring, a dedicated responder on standby, and a fast incident loop. Hyper Care is part of the delivery sequence - it is not deferred. The goal is to catch and resolve the surprises that only real traffic reveals before the channel is treated as steady-state.</p>
       </Card>
 
       <Card title="7. Optimization">
-        <p>Once stable, each channel enters ongoing optimization: tuning prompts and guardrails against real conversations, expanding intent coverage, and lifting the containment rate. This phase has no hard end - it runs as the channel matures and deliberately extends past the Q1 2026 window.</p>
+        <p>Once Hyper Care is complete and the channel is stable, ongoing optimization begins: tuning prompts and guardrails against real conversations, expanding intent coverage, and lifting the containment rate. Optimization starts after all preceding phases for that channel are complete - unless Bullet's priorities direct otherwise. It runs as long as the channel matures.</p>
       </Card>
     </div>
   )

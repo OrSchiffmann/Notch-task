@@ -5,8 +5,14 @@ export default function LaunchBeyond() {
     <div>
       <SectionHeader eyebrow="PHASE 2 READINESS" title="Launch & Beyond" />
       <Summary>
-        These are the questions we need to resolve before and immediately after go-live - covering support operations, deployment upgrades, and security posture on Bullet's side. Answering them early prevents the most common post-launch surprises.
+        These are the questions we need answers to before go-live - covering support operations, deployment upgrades, and security posture on Bullet's side. Development does not wait for them, but they must be resolved before any channel goes live. A meeting to begin working through them is scheduled in Week 2 of the project.
       </Summary>
+
+      <div style={{ background: '#EFF4FE', border: '1px solid #C7D7F5', borderRadius: 8, padding: '12px 16px', marginBottom: 28 }}>
+        <p style={{ fontSize: 13.5, color: '#1D4ED8', margin: 0 }}>
+          <strong>Scheduled: Week 2 of the project.</strong> A focused meeting with Bullet's Owner and their IT/Security lead to begin resolving these questions. Development runs in parallel - these answers gate go-live, not the build.
+        </p>
+      </div>
 
       <H2>Support Operations (Hyper Care)</H2>
       <P>The first 2-3 weeks after each go-live are a Hyper Care window (see Roadmap): elevated monitoring and a dedicated responder on standby. These questions define who owns what when something breaks, and the boundary between Notch's responsibility and Bullet's.</P>

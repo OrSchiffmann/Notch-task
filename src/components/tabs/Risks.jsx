@@ -206,16 +206,16 @@ export default function Risks() {
           ['Network reachability confirmation per API', 'Before Week 3', 'Integration phase blocked. Discovered late = rework.', <Sev level="Critical" />],
           ['Existing flow and intent inventory', 'Before Week 2', 'Cannot define MVP scope (top intents for FAQ).', <Sev level="High" />],
           ['Swagger specs - 3rd-party integrations (Glassix, auth)', 'Before Week 3', 'Flow A (Glassix) and Flow C (auth) blocked.', <Sev level="High" />],
-          ['Named Bullet Implementation Engineer', 'At kickoff', 'No single coordination point. Access requests have no owner.', <Sev level="High" />],
+          ['Named Bullet Owner', 'At kickoff', 'No single coordination point. Access requests have no owner.', <Sev level="High" />],
           ['Security toolchain list', 'Before Week 1', 'Cannot pre-scan binaries. First handoff may fail.', <Sev level="High" />],
           ['GPU / infra capacity confirmed for LLM', 'Before Week 2', 'LLM deployment spec cannot be finalized. Procurement blocker.', <Sev level="Medium" />],
-          ['Policy and claims data structures', 'Before Week 4', 'Flow C connector design blocked.', <Sev level="Medium" />],
+          ['Swagger / API docs for Policy and Claims endpoints', 'Before Week 4', 'Flow C connector design blocked.', <Sev level="Medium" />],
           ['Developer access to Bullet dev environment', 'Before Week 6', 'Real integration phase blocked. Only impacts if mock dev is done.', <Sev level="Medium" />],
         ]}
       />
 
       <WarnCard title="Escalation rule">
-        Any dependency not delivered by its due date is immediately raised in the weekly external sync as a tracked risk with a revised date and a named Bullet owner. Dependencies with no owner at kickoff default to the Bullet Implementation Engineer.
+        Any dependency not delivered by its due date is immediately raised in the weekly external sync as a tracked risk with a revised date and a named Bullet owner. Dependencies with no owner at kickoff default to the Bullet Owner.
       </WarnCard>
     </div>
   )

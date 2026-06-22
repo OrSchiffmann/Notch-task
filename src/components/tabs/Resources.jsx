@@ -32,7 +32,8 @@ export default function Resources() {
       <Table
         headers={['Role', 'Project', 'Responsibility', 'Load']}
         rows={[
-          ['Implementation Manager', <Proj p="Both" />, 'Single point of accountability. Owns the dependency tracker, runs the external sync, escalates blockers, manages scope.', 'Full'],
+          ['Project Manager', <Proj p="Both" />, 'Single point of accountability for delivery. Owns the dependency tracker, runs the weekly external sync with Bullet, escalates blockers, manages scope.', 'Full'],
+          ['Implementation Manager', <Proj p="Both" />, 'Manages the business relationship with Bullet. Translates business requirements into project scope, ensures Bullet\'s business stakeholders are aligned with the plan, and owns scope change decisions.', 'Part-time / advisory'],
           ['DevOps / Infrastructure Engineer', <Proj p="DevOps" />, 'Owns the on-prem foundation: workshops, binary pipeline, environment rollout, artifact storage, LLM deployment spec, access coordination.', 'Full'],
           ['Platform Developers (2)', <Proj p="Product" />, 'Build the flows on Notch\'s platform. Mock-first, then real integration. The core build capacity.', 'Full'],
           ['AI / Prompt Engineer', <Proj p="Product" />, 'Agent behaviour, guardrails, LLM integration, response tuning against Bullet\'s knowledge base and compliance rules.', 'Full → tapering'],
@@ -47,11 +48,11 @@ export default function Resources() {
       <Table
         headers={['Role', 'Why we need them', 'Engagement']}
         rows={[
-          ['Implementation Engineer', 'Bullet\'s counterpart to our IM. Owns the deployment pipeline on their side, coordinates access, the single escalation point.', 'Weekly + on-demand'],
+          ['Owner', 'Bullet\'s single coordination counterpart. Owns the deployment pipeline on their side, coordinates access, the single escalation point for all Notch asks.', 'Weekly + on-demand'],
           ['DevOps / Cloud Engineer', 'Provisions the three environments, grants pipeline and network access, stands up GPU for the self-hosted LLM.', 'Heavy at start, then as-needed'],
           ['API / Backend owner(s)', 'Provide Swagger specs, join the API comprehension Q&A, confirm reachability. They hold the semantics our mocks depend on.', 'Concentrated in discovery'],
           ['Security / Compliance lead', 'Owns the scanning toolchain, the pentest decision, and the production-access model. Gatekeeper for anything touching customer data.', 'Decision points + reviews'],
-          ['Product / CS stakeholder', 'Defines the top intents that scope the MVP, runs UAT, owns the tone and correctness of AI responses against their standards.', 'Scoping + UAT + go-live'],
+          ['QA', 'Defines the top intents that scope the MVP, runs UAT, owns the tone and correctness of AI responses against their standards.', 'Scoping + UAT + go-live'],
         ]}
       />
 

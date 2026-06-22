@@ -21,7 +21,8 @@ const channels = [
   {
     id: 'wa-mvp', label: 'WhatsApp MVP', target: 1.2, committed: true,
     bars: [
-      { type: 'devops', name: 'Glassix + IVR connectivity', start: 0.1, end: 0.8 },
+      { type: 'devops', name: 'WS1 - Hello World', start: 0.1, end: 0.35 },
+      { type: 'devops', name: 'WS2 - Base Binary', start: 0.6, end: 0.85 },
       { type: 'dev',    name: 'Discovery + mocks', start: 0.1, end: 0.7 },
       { type: 'dev',    name: 'Build + integration', start: 0.5, end: 1.2 },
       { type: 'testing', name: 'Stage testing + Bullet UAT', start: 1.0, end: 1.4 },
@@ -46,7 +47,7 @@ const channels = [
       { type: 'app',    name: 'Adapt core flows + mobile UX', start: 2.7, end: 4.5 },
       { type: 'testing', name: 'Stage + UAT + pentest', start: 4.0, end: 4.7 },
       { type: 'hypercare', name: 'Hyper Care', start: 4.7, end: 5.1 },
-      { type: 'optimization', name: 'Optimization', start: 5.1, end: 6.2 },
+      { type: 'optimization', name: 'Optimization', start: 6.0, end: 7.0 },
     ],
   },
   {

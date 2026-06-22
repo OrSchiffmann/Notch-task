@@ -40,8 +40,8 @@ export default function Kickoff() {
       <NumberedItem n="Q2" title="Are the internal APIs reachable from our pipeline?">
         If they are not reachable externally, mock-first is mandatory and developer access to Bullet's Dev environment becomes the gating dependency for real integration.
       </NumberedItem>
-      <NumberedItem n="Q3" title="What do the policy and claim data structures look like?">
-        The shape of this data drives the Flow C connector design. We need enough to design against, even though Flow C lands in V1.
+      <NumberedItem n="Q3" title="What API documentation is available for the Policy and Claims endpoints?">
+        Bullet already operates these systems. We need the Swagger / API docs for the personal data endpoints to design the Flow C connector. Flow C (OTP + identity) lands in V1 (WhatsApp Full) - the second WhatsApp release - so this documentation is needed before integration starts.
       </NumberedItem>
       <NumberedItem n="Q4" title="What are the constraints on production access?">
         Especially the regulatory ones. This determines whether our test-user, time-boxed, audited model is acceptable or whether we plan around a refusal from day one.
@@ -65,7 +65,7 @@ export default function Kickoff() {
         ))}
       </div>
 
-      <H2>First three weeks</H2>
+      <H2>First four weeks</H2>
       <Table
         headers={['Week', 'Notch', 'Bullet']}
         rows={[
@@ -76,13 +76,18 @@ export default function Kickoff() {
           ],
           [
             'Week 2',
-            'Run Workshop 1 (Hello World). Start Flow A on the internal dev environment. Receive the first Swagger specs.',
-            'Provide Swagger for the priority APIs. Confirm the security scanning toolchain.',
+            'Run Workshop 1 (Hello World). Start Flow A on the internal dev environment. Receive the first Swagger specs. Hold the Launch & Beyond questions meeting (pre-go-live operations, security posture, upgrade process).',
+            'Provide Swagger for the priority APIs. Confirm the security scanning toolchain. Send Owner and IT/Security lead to the Launch & Beyond meeting.',
           ],
           [
             'Week 3',
-            'Prep Workshop 2. Run the API comprehension session. Build the first mocks. Continue Flow A and B against mocks.',
-            'Join the Q&A with their API owners. Confirm per-API reachability from our pipeline.',
+            'Internal gap week after Workshop 1. API comprehension session. Build the first mocks. Continue Flow A and B against mocks.',
+            'Internal environment adjustments following Workshop 1. Join the Q&A with their API owners. Confirm per-API reachability.',
+          ],
+          [
+            'Week 4',
+            'Run Workshop 2 (Base Binary). Core platform running in Bullet\'s Dev environment.',
+            'Support Workshop 2 deployment. Architect and compliance representative available on the day.',
           ],
         ]}
       />

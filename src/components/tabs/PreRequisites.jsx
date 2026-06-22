@@ -43,11 +43,11 @@ export default function PreRequisites() {
       </NumberedItem>
 
       <NumberedItem n={4} title="Network reachability confirmation">
-        Which internal APIs are reachable from the pipeline Notch will build? This must be confirmed before integration starts - not discovered during it. A simple yes/no per API is sufficient; the full network topology is not needed.
+        Bullet's internal APIs are protected behind firewalls and VPN configurations that Notch's pipeline cannot access without explicit rules being opened. Without confirming which endpoints are reachable from the Notch pipeline, integration cannot start - developers will discover the blockage on their first real API call. A simple yes/no per API is sufficient at this stage; the full network topology is not needed.
       </NumberedItem>
 
-      <NumberedItem n={5} title="Policy and claims data structures">
-        The personal-data flow (Flow C - OTP and data integration) depends on understanding the data model for policies and claims. Even though Flow C lands in V1 rather than the MVP, Notch needs this early to design the connectors correctly.
+      <NumberedItem n={5} title="Swagger / API documentation for Policy and Claims endpoints">
+        Bullet already operates these systems. Notch needs the API documentation (Swagger or equivalent) for the Policy and Claims endpoints to design the Flow C connector - not to define the data model itself. Flow C (OTP + identity) lands in V1 (WhatsApp Full), so this documentation needs to be in hand before that integration phase begins.
       </NumberedItem>
 
       <NumberedItem n={6} title="Security scanning toolchain">

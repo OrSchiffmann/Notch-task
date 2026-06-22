@@ -67,7 +67,7 @@ export default function SummaryTab() {
     <div>
       <SectionHeader eyebrow="TL;DR" title="Everything, on one page" />
       <Callout>
-        Every deliverable answered in brief, with a link to the full detail. Two parallel projects (DevOps + Product), WhatsApp first via a recoverable MVP, the App live by the end-of-Q1-2026 deadline, and a deployment architecture built to be reused by the next regulated customer.
+        Every deliverable answered in brief, with a link to the full detail. Two parallel projects (DevOps + Product), WhatsApp V0 as the pipeline pilot, OTP in V1 so customers are identified from the first full release, the App live by the end-of-Q1-2026 deadline, and a deployment architecture built to be reused by the next regulated customer.
       </Callout>
 
       {/* ===== SIGNS OF SUCCESS ===== */}
@@ -95,20 +95,21 @@ export default function SummaryTab() {
       {/* ===== ROADMAP ===== */}
       <Block title="Project Roadmap" links={<><Link to="roadmap">Roadmap</Link><Link to="resources">Resources</Link></>}>
         <Row q="Phases (per channel)">Seven: DevOps connectivity → Discovery + mocks → Build → Testing funnel → Go-live → Hyper Care → Optimization.</Row>
-        <Row q="Timeline & milestones">1 Nov 2025 kickoff. Committed by end Q1 2026: MVP (Dec) · WhatsApp Full (Jan) · App (Mar). Sequenced into Q2 2026: Voice (Apr) · Web (May), plus each channel's Hyper Care + Optimization tail.</Row>
+        <Row q="Timeline & milestones">1 Nov 2025 kickoff. Committed by end Q1 2026: WhatsApp V0 pilot (Dec) · WhatsApp Full with OTP (Jan) · App (Mar). Sequenced into Q2 2026: Voice (Apr) · Web (May). Hyper Care starts immediately after each go-live. Optimization starts once a channel's Hyper Care is complete.</Row>
         <Row q="Prioritisation logic">WhatsApp first - has a Glassix fallback and is the first live test of the pipeline. App second - Bullet's priority, reuses the proven core. Voice, then Web. Within WhatsApp: Flow A + B + D before C.</Row>
         <Row q="Environment rollout">Dev → Staging → Production, in sequence. Each inherits a proven config from the one before; Production is built from a recipe that already worked twice.</Row>
-        <Row q="Notch resources">IM · DevOps/Infra Engineer · 2 Platform Developers · AI/Prompt Engineer · QA/Test Engineer.</Row>
-        <Row q="Bullet resources">Implementation Engineer (critical) · DevOps/Cloud Engineer · API owners · Security/Compliance lead · Product/CS stakeholder. Services: 3 cloud environments, GPU for the LLM, artifact storage, security scanning, 3rd-party subscriptions.</Row>
+        <Row q="Notch resources">PM (delivery lead) · IM (business/advisory) · DevOps/Infra Engineer · 2 Platform Developers · AI/Prompt Engineer · QA/Test Engineer.</Row>
+        <Row q="Bullet resources">Owner (critical - single coordination point) · DevOps/Cloud Engineer · API owners · Security/Compliance lead · QA. Services: 3 cloud environments, GPU for the LLM, artifact storage, security scanning, BI + observability systems, 3rd-party subscriptions.</Row>
       </Block>
 
       {/* ===== MVP ===== */}
       <Block title="MVP & Definition of Done" links={<Link to="mvp">MVP &amp; DOD</Link>}>
-        <Row q="First channel">WhatsApp - the only first option with a built-in human fallback (Glassix). The MVP ships as V0, the initial flow live.</Row>
-        <Row q="IN scope (MVP)">Flow A (routing + Glassix), Flow B (FAQ on top intents), Flow D (guardrail baseline).</Row>
-        <Row q="OUT of MVP">Flow C (OTP + personal data) → V1. Full KB, hardening, website scraping → V2. App / Voice / Web → own rollouts.</Row>
-        <Row q="Success metrics">Business: containment rate (headline, 70-73% benchmark), handoff quality. Technical: answer accuracy, availability/latency. Safety: guardrail pass rate.</Row>
-        <Row q="DOD (first features)">FAQ: answers validated top-N, out-of-scope → Glassix, tests green, observable. Glassix: clean handoff with context, rate tracked. OTP (V1): in-flow verify, graceful failure, no data pre-verify, audited.</Row>
+        <Row q="First channel">WhatsApp - the only channel with a built-in human fallback (Glassix). Ships in two steps: V0 pilot (one FAQ flow, proves the pipeline), then V1 full (all flows including OTP identity).</Row>
+        <Row q="V0 (pilot)">Flow A (routing + Glassix) + Flow B (one intent only) + Flow D baseline. Narrowest live increment - proves pipeline, gets first containment number.</Row>
+        <Row q="V1 (WhatsApp Full)">V0 + Flow C (OTP + identity) + Flow B expanded + Flow D hardened. First complete experience - customer identified from first interaction.</Row>
+        <Row q="V2">Full KB (all intents, not just top-N), prompt hardening, website scraping. WhatsApp complete.</Row>
+        <Row q="Success metrics">Business: containment rate (headline; based on Notch benchmarks, calibrate with Bullet at kickoff), handoff quality. Technical: answer accuracy / re-contact rate, availability/latency. Compliance: guardrail pass rate.</Row>
+        <Row q="DOD highlights">Flow A: clean handoff with context, BI dashboard live. Flow B: top intents validated, zero hallucinated answers, tests green. Flow C: in-flow OTP verify, graceful failure, no data pre-verify, audited. Flow D: guardrail pass rate meets threshold.</Row>
         <Row q="How we prove it">Staged: internal mocks → Staging real APIs → limited Production behind Glassix → containment measured on real traffic before widening.</Row>
       </Block>
 
@@ -116,7 +117,7 @@ export default function SummaryTab() {
       <Block title="Kickoff Meeting Plan" links={<><Link to="kickoff">Kickoff</Link><Link to="prereqs">Pre-Reqs</Link></>}>
         <Row q="Agenda">Strategy &amp; sequencing → timeline → deployment model → critical decisions → access &amp; discovery → first three weeks.</Row>
         <Row q="Critical decisions">Scope vs end-Q1-2026 deadline · build/buy boundary &amp; vendors · subscription ownership (recommend Bullet) · production access model · access-list sign-off.</Row>
-        <Row q="Week 1-3">W1: submit access + discovery, stand up internal env, WS1 prep, schedule API Q&A. W2: Workshop 1, Flow A on mocks, first Swagger. W3: Workshop 2 prep, API Q&A, first mocks.</Row>
+        <Row q="Weeks 1-4">W1: submit access + discovery, stand up internal env, WS1 prep. W2: Workshop 1 (Hello World), first Swagger, Launch & Beyond meeting with Bullet's Owner + IT/Security. W3: internal gap (Bullet adjustments), API Q&A, first mocks. W4: Workshop 2 (Base Binary), core platform running in Bullet Dev.</Row>
       </Block>
 
       <div style={{ marginBottom: 36, marginTop: -8 }}>
@@ -127,7 +128,7 @@ export default function SummaryTab() {
           'Is all five-channel scope required by end Q1 2026, or is the App the one committed deliverable?',
           'Confirm the LLM is self-hosted - does any customer data leave the environment?',
           'Are the internal APIs documented (Swagger) and reachable from our pipeline?',
-          'Is there a named Bullet Implementation Engineer to own coordination?',
+          'Is there a named Bullet Owner to own coordination and be the single escalation point?',
           'What security scanning toolchain runs on binaries before deployment?',
         ]} />
         <QGroup p="P1" items={[
@@ -161,8 +162,8 @@ export default function SummaryTab() {
             </li>
           ))}
         </ul>
-        <Row q="Critical dependencies">DevOps pipeline access (W1) · Swagger, all internal APIs (W2) · network reachability (W3) · flow/intent inventory (W2) · named Impl. Engineer (kickoff) · security toolchain (W1). Each has a due date; a slip escalates it to a tracked risk.</Row>
-        <Row q="Team coordination">Two internal weekly syncs (DevOps, Product) → IM consolidates → one external weekly sync with Bullet's Impl. Engineer. Shared dependency tracker with owners and dates; escalation path agreed at kickoff.</Row>
+        <Row q="Critical dependencies">DevOps pipeline access (W1) · Swagger, all internal APIs (W2) · network reachability (W3) · flow/intent inventory (W2) · named Bullet Owner (kickoff) · security toolchain (W1). Each has a due date; a slip escalates it to a tracked risk.</Row>
+        <Row q="Team coordination">Two internal weekly syncs (DevOps, Product) → PM consolidates → one external weekly sync with Bullet's Owner (IM joins when scope or business questions are open). Shared dependency tracker with owners and dates; escalation path agreed at kickoff.</Row>
       </Block>
     </div>
   )
