@@ -67,7 +67,7 @@ export default function SummaryTab() {
     <div>
       <SectionHeader eyebrow="TL;DR" title="Everything, on one page" />
       <Callout>
-        Every deliverable answered in brief, with a link to the full detail. Two parallel projects (DevOps + Product), WhatsApp V0 as the pipeline pilot, OTP in V1 so customers are identified from the first full release, the App live by the end-of-Q1-2026 deadline, and a deployment architecture built to be reused by the next regulated customer.
+        Every deliverable answered in brief, with a link to the full detail. Two parallel projects (DevOps + Product), WhatsApp in three steps inside Q1 2026 (V0 pilot → V1 full → V2 complete), the App live by the end-of-Q1-2026 deadline, and a deployment architecture built to be reused by the next regulated customer.
       </Callout>
 
       {/* ===== SIGNS OF SUCCESS ===== */}
@@ -96,7 +96,7 @@ export default function SummaryTab() {
       <Block title="Project Roadmap" links={<><Link to="roadmap">Roadmap</Link><Link to="resources">Resources</Link></>}>
         <Row q="Phases (per channel)">Seven: DevOps connectivity → Discovery + mocks → Build → Testing funnel → Go-live → Hyper Care → Optimization.</Row>
         <Row q="Timeline & milestones">1 Nov 2025 kickoff. Committed by end Q1 2026: WhatsApp V0 (Dec) · WhatsApp V1 (Jan) · WhatsApp V2 (Feb) · App (Mar). Sequenced into Q2 2026: Voice (Apr) · Web (May). Hyper Care starts immediately after each go-live. Optimization for WhatsApp starts only after V2 Hyper Care is complete.</Row>
-        <Row q="Prioritisation logic">WhatsApp first - has a Glassix fallback and is the first live test of the pipeline. App second - Bullet's priority, reuses the proven core. Voice, then Web. Within WhatsApp: Flow A + B + D before C.</Row>
+        <Row q="Prioritisation logic">WhatsApp first - has a Glassix fallback and is the first live test of the pipeline. App second - Bullet's priority, reuses the proven core. Voice, then Web. Within WhatsApp: all four flows present from V0; versioning is about knowledge breadth (Flow B), not which capabilities are live.</Row>
         <Row q="Environment rollout">Dev → Staging → Production, in sequence. Each inherits a proven config from the one before; Production is built from a recipe that already worked twice.</Row>
         <Row q="Notch resources">PM (delivery lead) · IM (business/advisory) · Product · DevOps/Infra Engineer · 2 Platform Developers · AI/Prompt Engineer · QA/Test Engineer.</Row>
         <Row q="Bullet resources">Owner (critical - single coordination point) · DevOps/Cloud Engineer · API owners · Security/Compliance lead · QA. Services: 3 cloud environments, GPU for the LLM, artifact storage, security scanning, BI + observability systems, 3rd-party subscriptions.</Row>
@@ -104,7 +104,7 @@ export default function SummaryTab() {
 
       {/* ===== MVP ===== */}
       <Block title="MVP & Definition of Done" links={<Link to="mvp">MVP &amp; DOD</Link>}>
-        <Row q="First channel">WhatsApp - the only channel with a built-in human fallback (Glassix). Ships in two steps: V0 pilot (one FAQ flow, proves the pipeline), then V1 full (all flows including OTP identity).</Row>
+        <Row q="First channel">WhatsApp - the only channel with a built-in human fallback (Glassix). Ships in three steps: V0 pilot (all four flows live, one FAQ intent), V1 full (Flow B expanded to all intents - the only change), V2 complete (full KB + hardening + scraping).</Row>
         <Row q="V0 (pilot)">All four flows live from day one: Flow A (routing + Glassix) + Flow B (1 intent only) + Flow C (OTP identity) + Flow D (compliance baseline). All capabilities present; knowledge coverage intentionally narrow.</Row>
         <Row q="V1 (WhatsApp Full)">V0 unchanged + Flow B expanded to all remaining top intents. This is the only difference between V0 and V1.</Row>
         <Row q="V2">Full KB (all intents, not just top-N), prompt hardening, website scraping. WhatsApp complete.</Row>
@@ -115,7 +115,7 @@ export default function SummaryTab() {
 
       {/* ===== KICKOFF ===== */}
       <Block title="Kickoff Meeting Plan" links={<><Link to="kickoff">Kickoff</Link><Link to="prereqs">Pre-Reqs</Link></>}>
-        <Row q="Agenda">Strategy &amp; sequencing → timeline → deployment model → critical decisions → access &amp; discovery → first three weeks.</Row>
+        <Row q="Agenda">Strategy &amp; sequencing → timeline → deployment model → critical decisions → access &amp; discovery → first four weeks.</Row>
         <Row q="Critical decisions">Scope vs end-Q1-2026 deadline · build/buy boundary &amp; vendors · subscription ownership (recommend Bullet) · production access model · access-list sign-off.</Row>
         <Row q="Weeks 1-4">W1: submit access + discovery, stand up internal env, WS1 prep. W2: Workshop 1 (Hello World), first Swagger, Launch & Beyond meeting with Bullet's Owner + IT/Security. W3: internal gap (Bullet adjustments), API Q&A, first mocks. W4: Workshop 2 (Base Binary), core platform running in Bullet Dev.</Row>
       </Block>
@@ -139,7 +139,7 @@ export default function SummaryTab() {
           'What are the regulatory constraints on production access?',
         ]} />
         <QGroup p="P2" items={[
-          'What do the policy and claim data structures look like (Flow C / V1)?',
+          'Swagger / API docs for the Policy and Claims endpoints - needed before the Flow C integration phase.',
           'Who commissions the pentest - Notch or Bullet? Existing security vendor?',
           'Is a PVT (friends & family) soft-launch feasible per channel?',
         ]} />

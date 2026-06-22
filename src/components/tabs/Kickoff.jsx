@@ -41,7 +41,7 @@ export default function Kickoff() {
         If they are not reachable externally, mock-first is mandatory and developer access to Bullet's Dev environment becomes the gating dependency for real integration.
       </NumberedItem>
       <NumberedItem n="Q3" title="What API documentation is available for the Policy and Claims endpoints?">
-        Bullet already operates these systems. We need the Swagger / API docs for the personal data endpoints to design the Flow C connector. Flow C (OTP + identity) lands in V1 (WhatsApp Full) - the second WhatsApp release - so this documentation is needed before integration starts.
+        Bullet already operates these systems. We need the Swagger / API docs for the Policy and Claims endpoints to design the Flow C connector. Flow C (OTP + identity) is present from V0 - so this documentation is needed before the integration phase begins.
       </NumberedItem>
       <NumberedItem n="Q4" title="What are the constraints on production access?">
         Especially the regulatory ones. This determines whether our test-user, time-boxed, audited model is acceptable or whether we plan around a refusal from day one.
@@ -93,7 +93,7 @@ export default function Kickoff() {
       />
 
       <Card accent title="How we coordinate from here">
-        <p>One weekly sync between the Notch IM and Bullet's Implementation Engineer, backed by a shared tracker for access and discovery items - every line with an owner and a due date. Asynchronous updates between syncs, and an escalation path for blockers agreed at this kickoff, not improvised later. The operating rhythm in full is in the Process tab.</p>
+        <p>The PM runs one weekly sync with Bullet's Owner, backed by a shared tracker for access and discovery items - every line with an owner and a due date. Asynchronous updates between syncs, and an escalation path for blockers agreed at this kickoff, not improvised later. The operating rhythm in full is in the Process tab.</p>
       </Card>
     </div>
   )

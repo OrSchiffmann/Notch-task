@@ -33,7 +33,7 @@ export default function Development() {
         FAQ and website scraping. The first real customer value, and the lowest-risk content to serve because it touches no personal data. Website content is pulled by a bought tool (e.g. Firecrawl) and fed to the LLM - not something Notch builds.
       </NumberedItem>
       <NumberedItem n="C" title="Identity & Personal Data">
-        OTP authentication and data integration. The complex core: once identity is verified, the agent answers using the customer's own policy and claim data. The longest path and the most components - it follows once B is stable.
+        OTP authentication and data integration. The complex core: once identity is verified, the agent answers using the customer's own policy and claim data. Present from V0 alongside A, B, and D - identity is required from the first interaction, not deferred.
       </NumberedItem>
       <NumberedItem n="D" title="Safety & Compliance">
         Guardrails and prompt-injection defence. Not a standalone flow but a gate every other flow passes through. A baseline is present from the very first version - you cannot serve insurance answers without it.

@@ -72,7 +72,7 @@ export default function LaunchBeyond() {
       </NumberedItem>
 
       <WarnCard title="Recommended action">
-        Send this list to Bullet's Implementation Engineer and their IT/Security lead before the kickoff meeting. Answers to these questions determine whether the MVP go-live target is achievable - and several of them have long lead times if escalation is needed.
+        Send this list to Bullet's Owner and their IT/Security lead before the kickoff meeting. Answers to these questions determine whether the MVP go-live target is achievable - and several of them have long lead times if escalation is needed.
       </WarnCard>
     </div>
   )

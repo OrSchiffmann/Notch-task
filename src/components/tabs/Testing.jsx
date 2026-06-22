@@ -18,7 +18,7 @@ export default function Testing() {
       </Summary>
 
       <H2>The six-phase funnel</H2>
-      <P>Every channel release - WhatsApp MVP, WhatsApp Full, App, Voice, Web - passes through these phases in order. Phase 6 (go-live) is only reached after all prior phases are signed off.</P>
+      <P>Every channel release - WhatsApp V0, V1, V2, App, Voice, Web - passes through these phases in order. Phase 6 (go-live) is only reached after all prior phases are signed off.</P>
 
       <NumberedItem n={1} title="Notch Stage testing">
         <p>Notch's internal QA on the staging environment. Tests run against real Bullet APIs (not mocks) in a non-production environment. Goal: validate the full flow end-to-end before Bullet's team is involved.</p>
@@ -64,8 +64,8 @@ export default function Testing() {
       <Table
         headers={['Channel', 'Stage testing', 'Bullet UAT', 'Pentest + load', 'Prod validation', 'PVT', 'Go-live']}
         rows={[
-          ['WhatsApp MVP',  <Yes />, <Yes />, <Tag>Light</Tag>, <Yes />, <Tag>Recommended</Tag>, <Yes />],
-          ['WhatsApp Full', <Yes />, <Yes />, <Yes />,          <Yes />, <Tag>Recommended</Tag>, <Yes />],
+          ['WhatsApp V0',  <Yes />, <Yes />, <Tag>Light</Tag>, <Yes />, <Tag>Recommended</Tag>, <Yes />],
+          ['WhatsApp V1/V2', <Yes />, <Yes />, <Yes />,       <Yes />, <Tag>Recommended</Tag>, <Yes />],
           ['App',           <Yes />, <Yes />, <Yes />,          <Yes />, <Tag tone="amber">Open question</Tag>, <Yes />],
           ['Voice',         <Yes />, <Yes />, <Yes />,          <Yes />, <Tag tone="amber">Open question</Tag>, <Yes />],
           ['Web',           <Yes />, <Yes />, <Tag>Light</Tag>, <Yes />, <Tag>Optional</Tag>, <Yes />],
@@ -79,9 +79,9 @@ export default function Testing() {
           ['Notch Stage testing', 'Notch QA', 'None - Notch internal'],
           ['Bullet UAT', 'Bullet product / CS lead', 'Executes test plan, signs off'],
           ['Pentest + load', 'TBD - third party or Bullet security', 'Coordinates access, reviews findings'],
-          ['Production validation', 'Notch DevOps + Bullet Impl. Engineer', 'Deployment approval, monitoring setup'],
+          ['Production validation', 'Notch DevOps + Bullet Owner', 'Deployment approval, monitoring setup'],
           ['PVT', 'Bullet (owns the customer relationship)', 'Selects participants, monitors'],
-          ['Go-live', 'Joint - Notch IM + Bullet Impl. Engineer', 'Both on standby first 48h'],
+          ['Go-live', 'Joint - Notch PM + Bullet Owner', 'Both on standby first 48h'],
         ]}
       />
     </div>

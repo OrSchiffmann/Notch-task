@@ -47,7 +47,7 @@ export default function PreRequisites() {
       </NumberedItem>
 
       <NumberedItem n={5} title="Swagger / API documentation for Policy and Claims endpoints">
-        Bullet already operates these systems. Notch needs the API documentation (Swagger or equivalent) for the Policy and Claims endpoints to design the Flow C connector - not to define the data model itself. Flow C (OTP + identity) lands in V1 (WhatsApp Full), so this documentation needs to be in hand before that integration phase begins.
+        Bullet already operates these systems. Notch needs the API documentation (Swagger or equivalent) for the Policy and Claims endpoints to design the Flow C connector - not to define the data model itself. Flow C (OTP + identity) is present from V0, so this documentation needs to be in hand before the integration phase begins.
       </NumberedItem>
 
       <NumberedItem n={6} title="Security scanning toolchain">
@@ -65,7 +65,7 @@ export default function PreRequisites() {
           ['Timeline: is the end-Q1-2026 deadline immovable, and is all five-channel scope required?', 'Affects scope, resourcing, and whether the plan as written is feasible.'],
           ['LLM hosting confirmed: self-hosted inside Bullet\'s cloud?', 'The entire on-prem architecture depends on this. If data can leave the environment, the model changes significantly.'],
           ['Which 3rd-party tools does Bullet already operate? (auth/OTP, monitoring, website search)', 'Determines vendor decisions and integration scope at kickoff. Use what Bullet has before introducing new tools.'],
-          ['Named Implementation Engineer on Bullet\'s side', 'The DevOps workshops need a Bullet counterpart who owns the deployment pipeline. Without a named owner, coordination fails.'],
+          ['Named Owner on Bullet\'s side', 'The DevOps workshops and weekly syncs need a single Bullet counterpart who owns coordination and the deployment pipeline. Without a named owner, access requests and decisions have no home.'],
           ['GPU / infra capacity confirmed for self-hosted LLM?', 'If Bullet does not have the hardware, this becomes a procurement blocker. Surface early.'],
         ]}
       />
