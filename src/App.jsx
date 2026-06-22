@@ -1,4 +1,5 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
+import Search from './components/Search'
 import Cover from './components/tabs/Cover'
 import Overview from './components/tabs/Overview'
 import Roadmap from './components/tabs/Roadmap'
@@ -41,6 +42,7 @@ export default function App() {
     return TABS.find(t => t.id === hash)?.id || 'cover'
   })
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [searchOpen, setSearchOpen] = useState(false)
 
   useEffect(() => {
     const onHash = () => {
@@ -50,6 +52,14 @@ export default function App() {
     }
     window.addEventListener('hashchange', onHash)
     return () => window.removeEventListener('hashchange', onHash)
+  }, [])
+
+  useEffect(() => {
+    const onKey = (e) => {
+      if ((e.metaKey || e.ctrlKey) && e.key === 'k') { e.preventDefault(); setSearchOpen(true) }
+    }
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
   }, [])
 
   const switchTab = (id) => {
@@ -87,6 +97,22 @@ export default function App() {
           <p style={{ fontSize: 12, color: '#9CA3AF', marginTop: 8, letterSpacing: '0.04em' }}>
             Project Kickoff Plan
           </p>
+          <button
+            onClick={() => setSearchOpen(true)}
+            style={{
+              display: 'flex', alignItems: 'center', gap: 8, width: '100%',
+              marginTop: 12, padding: '7px 10px', borderRadius: 8,
+              background: '#F2F3F5', border: '1px solid #ECEEF2',
+              cursor: 'pointer', fontFamily: font, fontSize: 12.5, color: '#9CA3AF',
+              textAlign: 'left',
+            }}>
+            <svg width="13" height="13" viewBox="0 0 18 18" fill="none" style={{ flexShrink: 0 }}>
+              <circle cx="7.5" cy="7.5" r="5.5" stroke="currentColor" strokeWidth="1.8" />
+              <path d="M12 12l3.5 3.5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+            </svg>
+            חיפוש...
+            <kbd style={{ marginLeft: 'auto', fontSize: 10, background: '#E9EAEC', borderRadius: 4, padding: '1px 5px', fontFamily: 'monospace', color: '#9CA3AF' }}>⌘K</kbd>
+          </button>
         </div>
 
         {/* Nav list */}
@@ -233,6 +259,14 @@ export default function App() {
           <ActiveComponent />
         </div>
       </main>
+
+      {/* ===== Search modal ===== */}
+      {searchOpen && (
+        <Search
+          onNavigate={switchTab}
+          onClose={() => setSearchOpen(false)}
+        />
+      )}
     </div>
   )
 }
