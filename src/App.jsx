@@ -16,8 +16,8 @@ import Resources from './components/tabs/Resources'
 import SummaryTab from './components/tabs/Summary'
 
 const TABS = [
-  { id: 'cover',       label: 'Cover',            component: Cover },
   { id: 'summary',     label: 'Summary',           component: SummaryTab },
+  { id: 'cover',       label: 'Purpose',           component: Cover },
   { id: 'overview',    label: 'Overview',          component: Overview },
   { id: 'prereqs',     label: 'Pre-Requisites',   component: PreRequisites },
   { id: 'dual-track',  label: 'Delivery Model',   component: DualTrack },
@@ -139,7 +139,7 @@ export default function App() {
                 onMouseEnter={e => { if (!active) e.currentTarget.style.background = '#F2F3F5' }}
                 onMouseLeave={e => { if (!active) e.currentTarget.style.background = 'transparent' }}>
                 <span style={{ fontSize: 11, fontWeight: 600, color: active ? '#F06A22' : '#BFC4CC', minWidth: 16 }}>
-                  {String(i + 1).padStart(2, '0')}
+                  {String(i).padStart(2, '0')}
                 </span>
                 {tab.label}
               </button>
@@ -218,7 +218,7 @@ export default function App() {
                   border: 'none', cursor: 'pointer',
                 }}>
                 <span style={{ fontSize: 11, fontWeight: 600, color: active ? '#F06A22' : '#BFC4CC', minWidth: 16 }}>
-                  {String(i + 1).padStart(2, '0')}
+                  {String(i).padStart(2, '0')}
                 </span>
                 {tab.label}
               </button>
