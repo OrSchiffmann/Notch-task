@@ -8,8 +8,8 @@ export default function LaunchBeyond() {
         These are the questions we need to resolve before and immediately after go-live - covering support operations, deployment upgrades, and security posture on Bullet's side. Answering them early prevents the most common post-launch surprises.
       </Summary>
 
-      <H2>Support Operations</H2>
-      <P>Once WhatsApp is live, who owns what when something breaks? These questions define the boundary between Notch's responsibility and Bullet's.</P>
+      <H2>Support Operations (Hyper Care)</H2>
+      <P>The first 2-3 weeks after each go-live are a Hyper Care window (see Roadmap): elevated monitoring and a dedicated responder on standby. These questions define who owns what when something breaks, and the boundary between Notch's responsibility and Bullet's.</P>
 
       <NumberedItem n={1} title="Who is the first responder?">
         When an issue is reported by a Bullet customer, who picks it up - Bullet's CS team, their IT, or Notch? Define the escalation path and response SLAs before go-live, not after the first incident.

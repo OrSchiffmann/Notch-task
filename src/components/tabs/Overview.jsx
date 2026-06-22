@@ -57,8 +57,8 @@ export default function Overview() {
       <H2>Working assumptions</H2>
       <P>Stated openly so Bullet can confirm or correct them at kickoff. Each is a decision waiting to be ratified, not a fact we are hiding.</P>
 
-      <WarnCard title="Timeline - aggressive and fixed">
-        Kickoff is <strong style={{ color: 'var(--color-text)' }}>1 November 2025</strong>; the committed deadline is <strong style={{ color: 'var(--color-text)' }}>end of Q1 2026 (31 March)</strong>, with the App - Bullet's priority channel - live within that window. Five months for an on-premise deployment across five channels is only achievable because the two projects run in parallel and later channels reuse a proven core. The compression is real and is the reason the parallel structure is non-negotiable, not a nicety.
+      <WarnCard title="Timeline - what we commit to vs what extends">
+        Kickoff is <strong style={{ color: 'var(--color-text)' }}>1 November 2025</strong>. Fitting all five channels into five months is not realistic for a first on-premise deployment, so we are explicit about what we commit to: the <strong style={{ color: 'var(--color-text)' }}>MVP (WhatsApp first flow) ships in December</strong>, and the <strong style={{ color: 'var(--color-text)' }}>App - Bullet's priority - lands by the end-of-Q1-2026 deadline</strong>. Voice, Web, and every channel's Hyper Care and Optimization deliberately extend into Q2 2026. Protecting the must-haves beats forcing the whole scope into the window and missing the one that matters.
       </WarnCard>
 
       <Table

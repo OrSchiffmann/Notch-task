@@ -93,8 +93,33 @@ export default function App() {
         <nav style={{ flex: 1, overflowY: 'auto', padding: '10px 0' }}>
           {TABS.map((tab, i) => {
             const active = activeTab === tab.id
-            const special = tab.id === 'summary'
-            const lit = active || special
+
+            // Summary gets a distinct solid CTA-card treatment, unlike the flat active highlight
+            if (tab.id === 'summary') {
+              return (
+                <button
+                  key={tab.id}
+                  onClick={() => switchTab(tab.id)}
+                  style={{
+                    display: 'flex', alignItems: 'center', gap: 9,
+                    width: 'calc(100% - 24px)', margin: '6px 12px', textAlign: 'left',
+                    padding: '10px 12px', borderRadius: 9,
+                    fontFamily: font, fontSize: 13.5, fontWeight: 700, color: '#fff',
+                    background: '#F06A22', border: 'none', cursor: 'pointer',
+                    boxShadow: active ? '0 0 0 2px #0E1526' : '0 1px 4px rgba(240,106,34,0.35)',
+                    transition: 'box-shadow 0.12s',
+                  }}>
+                  <svg width="14" height="14" viewBox="0 0 14 14" style={{ flexShrink: 0 }}>
+                    <path d="M7 1 Q7.8 6.2 13 7 Q7.8 7.8 7 13 Q6.2 7.8 1 7 Q6.2 6.2 7 1 Z" fill="#fff" />
+                  </svg>
+                  {tab.label}
+                  <span style={{ marginLeft: 'auto', fontSize: 8.5, fontWeight: 800, color: '#F06A22', background: '#fff', borderRadius: 999, padding: '2px 7px', letterSpacing: '0.06em' }}>
+                    ANSWERS
+                  </span>
+                </button>
+              )
+            }
+
             return (
               <button
                 key={tab.id}
@@ -104,24 +129,19 @@ export default function App() {
                   width: '100%', textAlign: 'left',
                   padding: '8px 22px',
                   fontFamily: font, fontSize: 13.5,
-                  fontWeight: lit ? 700 : 400,
-                  color: lit ? '#F06A22' : '#5B6472',
-                  background: active ? '#FFF4EE' : special ? '#FFF7F2' : 'transparent',
+                  fontWeight: active ? 700 : 400,
+                  color: active ? '#F06A22' : '#5B6472',
+                  background: active ? '#FFF4EE' : 'transparent',
                   border: 'none', cursor: 'pointer',
-                  borderLeft: lit ? '3px solid #F06A22' : '3px solid transparent',
+                  borderLeft: active ? '3px solid #F06A22' : '3px solid transparent',
                   transition: 'color 0.12s, background 0.12s',
                 }}
-                onMouseEnter={e => { if (!active && !special) e.currentTarget.style.background = '#F2F3F5' }}
-                onMouseLeave={e => { if (!active && !special) e.currentTarget.style.background = 'transparent' }}>
-                <span style={{ fontSize: 11, fontWeight: 600, color: lit ? '#F06A22' : '#BFC4CC', minWidth: 16 }}>
+                onMouseEnter={e => { if (!active) e.currentTarget.style.background = '#F2F3F5' }}
+                onMouseLeave={e => { if (!active) e.currentTarget.style.background = 'transparent' }}>
+                <span style={{ fontSize: 11, fontWeight: 600, color: active ? '#F06A22' : '#BFC4CC', minWidth: 16 }}>
                   {String(i + 1).padStart(2, '0')}
                 </span>
                 {tab.label}
-                {special && (
-                  <span style={{ marginLeft: 'auto', fontSize: 8.5, fontWeight: 700, color: '#fff', background: '#F06A22', borderRadius: 999, padding: '2px 7px', letterSpacing: '0.06em' }}>
-                    ANSWERS
-                  </span>
-                )}
               </button>
             )
           })}
@@ -162,29 +182,45 @@ export default function App() {
         }}>
           {TABS.map((tab, i) => {
             const active = activeTab === tab.id
-            const special = tab.id === 'summary'
-            const lit = active || special
+
+            if (tab.id === 'summary') {
+              return (
+                <button key={tab.id} onClick={() => switchTab(tab.id)}
+                  style={{
+                    display: 'flex', alignItems: 'center', gap: 10,
+                    width: 'calc(100% - 32px)', margin: '8px 16px', textAlign: 'left',
+                    padding: '13px 16px', borderRadius: 10,
+                    fontFamily: font, fontSize: 15, fontWeight: 700, color: '#fff',
+                    background: '#F06A22', border: 'none', cursor: 'pointer',
+                    boxShadow: active ? '0 0 0 2px #0E1526' : '0 1px 4px rgba(240,106,34,0.35)',
+                  }}>
+                  <svg width="15" height="15" viewBox="0 0 14 14" style={{ flexShrink: 0 }}>
+                    <path d="M7 1 Q7.8 6.2 13 7 Q7.8 7.8 7 13 Q6.2 7.8 1 7 Q6.2 6.2 7 1 Z" fill="#fff" />
+                  </svg>
+                  {tab.label}
+                  <span style={{ marginLeft: 'auto', fontSize: 9, fontWeight: 800, color: '#F06A22', background: '#fff', borderRadius: 999, padding: '2px 8px', letterSpacing: '0.06em' }}>
+                    ANSWERS
+                  </span>
+                </button>
+              )
+            }
+
             return (
               <button key={tab.id} onClick={() => switchTab(tab.id)}
                 style={{
                   display: 'flex', alignItems: 'center', gap: 11, width: '100%', textAlign: 'left',
                   padding: '13px 24px',
                   fontFamily: font, fontSize: 15,
-                  fontWeight: lit ? 700 : 400,
-                  color: lit ? '#F06A22' : '#374151',
-                  background: active ? '#FFF4EE' : special ? '#FFF7F2' : 'none',
-                  borderLeft: lit ? '3px solid #F06A22' : '3px solid transparent',
+                  fontWeight: active ? 700 : 400,
+                  color: active ? '#F06A22' : '#374151',
+                  background: active ? '#FFF4EE' : 'none',
+                  borderLeft: active ? '3px solid #F06A22' : '3px solid transparent',
                   border: 'none', cursor: 'pointer',
                 }}>
-                <span style={{ fontSize: 11, fontWeight: 600, color: lit ? '#F06A22' : '#BFC4CC', minWidth: 16 }}>
+                <span style={{ fontSize: 11, fontWeight: 600, color: active ? '#F06A22' : '#BFC4CC', minWidth: 16 }}>
                   {String(i + 1).padStart(2, '0')}
                 </span>
                 {tab.label}
-                {special && (
-                  <span style={{ marginLeft: 'auto', fontSize: 9, fontWeight: 700, color: '#fff', background: '#F06A22', borderRadius: 999, padding: '2px 8px', letterSpacing: '0.06em' }}>
-                    ANSWERS
-                  </span>
-                )}
               </button>
             )
           })}

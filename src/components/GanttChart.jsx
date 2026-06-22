@@ -1,6 +1,7 @@
-const MONTHS = ['Nov', 'Dec', 'Jan', 'Feb', 'Mar']
-const TOTAL = MONTHS.length // 5 months: Nov 2025 → Mar 2026
+const MONTHS = ['Nov', 'Dec', 'Jan', 'Feb', 'Mar', 'Apr', 'May']
+const TOTAL = MONTHS.length // Nov 2025 → May 2026
 const LABEL_W = 172
+const DEADLINE = 5 // end of March = end of Q1 2026
 
 const COLORS = {
   devops: '#2563EB',
@@ -9,6 +10,8 @@ const COLORS = {
   app: '#7C3AED',
   voice: '#0891B2',
   web: '#059669',
+  hypercare: '#DC2626',
+  optimization: '#16A34A',
   milestone: '#F06A22',
 }
 
@@ -16,57 +19,70 @@ const pct = x => `${(x / TOTAL) * 100}%`
 
 const channels = [
   {
-    id: 'wa-mvp', label: 'WhatsApp MVP', target: 1.2,
+    id: 'wa-mvp', label: 'WhatsApp MVP', target: 1.2, committed: true,
     bars: [
       { type: 'devops', name: 'Glassix + IVR connectivity', start: 0.1, end: 0.8 },
       { type: 'dev',    name: 'Discovery + mocks', start: 0.1, end: 0.7 },
-      { type: 'dev',    name: 'Build: routing + FAQ + guardrails', start: 0.5, end: 1.1 },
-      { type: 'dev',    name: 'Real API integration', start: 0.9, end: 1.2 },
+      { type: 'dev',    name: 'Build + integration', start: 0.5, end: 1.2 },
       { type: 'testing', name: 'Stage testing + Bullet UAT', start: 1.0, end: 1.4 },
+      { type: 'hypercare', name: 'Hyper Care', start: 1.2, end: 1.6 },
+      { type: 'optimization', name: 'Optimization', start: 1.6, end: 2.6 },
     ],
   },
   {
-    id: 'wa-full', label: 'WhatsApp Full', target: 2.2,
+    id: 'wa-full', label: 'WhatsApp Full', target: 2.4, committed: true,
     bars: [
       { type: 'devops', name: 'Auth provider + data APIs', start: 1.2, end: 1.7 },
-      { type: 'dev',    name: 'OTP + data integration', start: 1.3, end: 2.1 },
-      { type: 'dev',    name: 'Website scraping + hardening', start: 1.7, end: 2.2 },
-      { type: 'testing', name: 'Stage + UAT + pentest & load', start: 1.9, end: 2.4 },
+      { type: 'dev',    name: 'OTP + data + hardening', start: 1.3, end: 2.3 },
+      { type: 'testing', name: 'Stage + UAT + pentest', start: 2.0, end: 2.5 },
+      { type: 'hypercare', name: 'Hyper Care', start: 2.4, end: 2.8 },
+      { type: 'optimization', name: 'Optimization', start: 2.8, end: 3.8 },
     ],
   },
   {
-    id: 'app', label: 'Mobile App', target: 4.0, color: 'app',
+    id: 'app', label: 'Mobile App', target: 4.7, committed: true,
     bars: [
-      { type: 'devops', name: 'Mobile SDK + deeplinks', start: 2.2, end: 2.9 },
-      { type: 'app',    name: 'Adapt core flows for mobile', start: 2.3, end: 3.4 },
-      { type: 'app',    name: 'App deeplinks + mobile UX', start: 3.2, end: 4.0 },
-      { type: 'testing', name: 'Stage + UAT + pentest', start: 3.6, end: 4.2 },
+      { type: 'devops', name: 'Mobile SDK + deeplinks', start: 2.6, end: 3.3 },
+      { type: 'app',    name: 'Adapt core flows + mobile UX', start: 2.7, end: 4.5 },
+      { type: 'testing', name: 'Stage + UAT + pentest', start: 4.0, end: 4.7 },
+      { type: 'hypercare', name: 'Hyper Care', start: 4.7, end: 5.1 },
+      { type: 'optimization', name: 'Optimization', start: 5.1, end: 6.2 },
     ],
   },
   {
-    id: 'voice', label: 'Voice', target: 4.6, color: 'voice',
+    id: 'voice', label: 'Voice (Q2)', target: 5.6,
     bars: [
-      { type: 'devops', name: 'Telephony / IVR connectivity', start: 3.9, end: 4.4 },
-      { type: 'voice',  name: 'Real-time NLU + voice flows', start: 4.0, end: 4.7 },
-      { type: 'testing', name: 'Stage + UAT', start: 4.4, end: 4.9 },
+      { type: 'devops', name: 'Telephony / IVR connectivity', start: 4.6, end: 5.1 },
+      { type: 'voice',  name: 'Real-time NLU + voice flows', start: 4.7, end: 5.6 },
+      { type: 'testing', name: 'Stage + UAT', start: 5.2, end: 5.7 },
+      { type: 'hypercare', name: 'Hyper Care', start: 5.6, end: 6.0 },
+      { type: 'optimization', name: 'Optimization', start: 6.0, end: 6.8 },
     ],
   },
   {
-    id: 'web', label: 'Web', target: 5.0, color: 'web',
+    id: 'web', label: 'Web (Q2)', target: 6.4,
     bars: [
-      { type: 'devops', name: 'Website integration', start: 4.5, end: 4.9 },
-      { type: 'web',    name: 'Web chat widget', start: 4.5, end: 5.0 },
-      { type: 'testing', name: 'Stage + UAT', start: 4.8, end: 5.0 },
+      { type: 'devops', name: 'Website integration', start: 5.5, end: 5.9 },
+      { type: 'web',    name: 'Web chat widget', start: 5.6, end: 6.4 },
+      { type: 'testing', name: 'Stage + UAT', start: 6.0, end: 6.5 },
+      { type: 'hypercare', name: 'Hyper Care', start: 6.4, end: 6.8 },
+      { type: 'optimization', name: 'Optimization', start: 6.8, end: 7.0 },
     ],
   },
 ]
 
 const milestones = [
-  { at: 1.2, label: 'WA MVP' },
-  { at: 2.2, label: 'WA Full' },
-  { at: 4.0, label: 'App' },
-  { at: 4.6, label: 'Voice' },
-  { at: 5.0, label: 'Web' },
+  { at: 1.2, label: 'MVP' },
+  { at: 2.4, label: 'WA Full' },
+  { at: 4.7, label: 'App' },
+  { at: 5.6, label: 'Voice' },
+  { at: 6.4, label: 'Web' },
+]
+
+const QUARTERS = [
+  { label: 'Q4 2025', grow: 2 },
+  { label: 'Q1 2026', grow: 3 },
+  { label: 'Q2 2026', grow: 2 },
 ]
 
 function Track({ children }) {
@@ -76,8 +92,9 @@ function Track({ children }) {
 function Bar({ bar }) {
   const color = COLORS[bar.type] || COLORS.dev
   const muted = bar.type === 'devops' || bar.type === 'testing'
+  const opacity = bar.type === 'optimization' ? 0.5 : muted ? 0.55 : 0.9
   return (
-    <div style={{ display: 'grid', gridTemplateColumns: `${LABEL_W}px 1fr`, alignItems: 'center', height: 26, position: 'relative', zIndex: 1 }}>
+    <div style={{ display: 'grid', gridTemplateColumns: `${LABEL_W}px 1fr`, alignItems: 'center', height: 25, position: 'relative', zIndex: 1 }}>
       <div style={{ fontSize: 12, color: '#6B7280', paddingRight: 10, display: 'flex', alignItems: 'center', gap: 7, overflow: 'hidden' }}>
         <span style={{ width: 6, height: 6, borderRadius: '50%', background: color, flexShrink: 0 }} />
         <span style={{ whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{bar.name}</span>
@@ -85,8 +102,8 @@ function Bar({ bar }) {
       <Track>
         <div style={{
           position: 'absolute', left: pct(bar.start), width: pct(bar.end - bar.start),
-          top: '50%', transform: 'translateY(-50%)', height: 15,
-          background: color, opacity: muted ? 0.55 : 0.92, borderRadius: 8,
+          top: '50%', transform: 'translateY(-50%)', height: 14,
+          background: color, opacity, borderRadius: 8,
         }} />
       </Track>
     </div>
@@ -96,22 +113,41 @@ function Bar({ bar }) {
 export default function GanttChart() {
   return (
     <div style={{ overflowX: 'auto', marginBottom: 32, paddingBottom: 4 }}>
-      <div style={{ minWidth: 640, position: 'relative' }}>
+      <div style={{ minWidth: 780, position: 'relative' }}>
 
-        {/* Vertical month gridlines + quarter divider */}
-        <div style={{ position: 'absolute', top: 44, bottom: 34, left: LABEL_W, right: 0, display: 'flex', pointerEvents: 'none', zIndex: 0 }}>
-          {MONTHS.map((_, i) => (
-            <div key={i} style={{ flex: 1, borderRight: i < MONTHS.length - 1 ? `1px ${i === 1 ? 'solid #D1D5DB' : 'solid #EDEFF2'}` : 'none' }} />
-          ))}
+        {/* Gridlines + Q1-2026 deadline */}
+        <div style={{ position: 'absolute', top: 44, bottom: 34, left: LABEL_W, right: 0, pointerEvents: 'none', zIndex: 0 }}>
+          {[1, 2, 3, 4, 5, 6].map(m => {
+            const deadline = m === DEADLINE
+            const quarter = m === 2
+            return (
+              <div key={m} style={{
+                position: 'absolute', left: `${(m / TOTAL) * 100}%`, top: 0, bottom: 0,
+                borderLeft: deadline ? '1.5px dashed #DC2626' : quarter ? '1px solid #D1D5DB' : '1px solid #EDEFF2',
+              }} />
+            )
+          })}
         </div>
 
-        {/* Sticky axis: quarters + months */}
+        {/* Sticky axis */}
         <div style={{ position: 'sticky', top: 0, background: '#fff', zIndex: 3, paddingTop: 2 }}>
+          {/* deadline label */}
           <div style={{ display: 'grid', gridTemplateColumns: `${LABEL_W}px 1fr` }}>
             <div />
+            <Track>
+              <div style={{ position: 'absolute', left: pct(DEADLINE), transform: 'translateX(-50%)', fontSize: 9, fontWeight: 700, color: '#DC2626', whiteSpace: 'nowrap', letterSpacing: '0.03em' }}>
+                ◆ Q1 2026 deadline
+              </div>
+            </Track>
+          </div>
+          <div style={{ display: 'grid', gridTemplateColumns: `${LABEL_W}px 1fr`, marginTop: 14 }}>
+            <div />
             <div style={{ display: 'flex' }}>
-              <div style={{ flexGrow: 2, flexBasis: 0, textAlign: 'center', fontSize: 10.5, fontWeight: 700, color: '#9CA3AF', letterSpacing: '0.07em', paddingBottom: 5, borderRight: '1px solid #D1D5DB' }}>Q4 2025</div>
-              <div style={{ flexGrow: 3, flexBasis: 0, textAlign: 'center', fontSize: 10.5, fontWeight: 700, color: '#9CA3AF', letterSpacing: '0.07em', paddingBottom: 5 }}>Q1 2026</div>
+              {QUARTERS.map((q, i) => (
+                <div key={q.label} style={{ flexGrow: q.grow, flexBasis: 0, textAlign: 'center', fontSize: 10.5, fontWeight: 700, color: '#9CA3AF', letterSpacing: '0.06em', paddingBottom: 5, borderRight: i < QUARTERS.length - 1 ? '1px solid #D1D5DB' : 'none' }}>
+                  {q.label}
+                </div>
+              ))}
             </div>
           </div>
           <div style={{ display: 'grid', gridTemplateColumns: `${LABEL_W}px 1fr`, borderBottom: '1px solid #E4E7EC', paddingBottom: 5 }}>
@@ -123,20 +159,20 @@ export default function GanttChart() {
         </div>
 
         {/* Legend */}
-        <div style={{ display: 'flex', gap: 18, margin: '14px 0 16px', paddingLeft: 2 }}>
-          {[['DevOps', COLORS.devops], ['Development', COLORS.dev], ['Testing', COLORS.testing]].map(([label, c]) => (
+        <div style={{ display: 'flex', gap: 16, flexWrap: 'wrap', margin: '14px 0 16px', paddingLeft: 2 }}>
+          {[['DevOps', COLORS.devops, 0.55], ['Development', COLORS.dev, 0.9], ['Testing', COLORS.testing, 0.55], ['Hyper Care', COLORS.hypercare, 0.9], ['Optimization', COLORS.optimization, 0.5]].map(([label, c, o]) => (
             <div key={label} style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
-              <span style={{ width: 18, height: 7, background: c, borderRadius: 4, opacity: label === 'Development' ? 0.92 : 0.55 }} />
+              <span style={{ width: 18, height: 7, background: c, borderRadius: 4, opacity: o }} />
               <span style={{ fontSize: 11, color: '#6B7280' }}>{label}</span>
             </div>
           ))}
         </div>
 
-        {/* Channel sections */}
+        {/* Channels */}
         {channels.map((ch, ci) => (
-          <div key={ch.id} style={{ marginBottom: ci < channels.length - 1 ? 18 : 8 }}>
+          <div key={ch.id} style={{ marginBottom: ci < channels.length - 1 ? 16 : 8 }}>
             <div style={{ display: 'grid', gridTemplateColumns: `${LABEL_W}px 1fr`, alignItems: 'center', marginBottom: 4, position: 'relative', zIndex: 1 }}>
-              <div style={{ fontSize: 12.5, fontWeight: 700, color: '#111827' }}>{ch.label}</div>
+              <div style={{ fontSize: 12.5, fontWeight: 700, color: ch.committed ? '#111827' : '#6B7280' }}>{ch.label}</div>
               <Track>
                 <div style={{ position: 'absolute', left: pct(ch.target), transform: 'translateX(-50%)', top: 0 }}>
                   <svg width="11" height="11" viewBox="0 0 11 11"><polygon points="5.5,0 11,5.5 5.5,11 0,5.5" fill={COLORS.milestone} /></svg>

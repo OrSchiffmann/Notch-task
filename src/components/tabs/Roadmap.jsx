@@ -4,10 +4,14 @@ import GanttChart from '../GanttChart'
 export default function Roadmap() {
   return (
     <div>
-      <SectionHeader eyebrow="TIMELINE" title="Five milestones, five months" />
+      <SectionHeader eyebrow="TIMELINE" title="MVP committed, the rest sequenced" />
       <Summary>
-        Five channel go-lives from a 1 November 2025 kickoff to end of Q1 2026, with the App live inside that window. Each milestone follows the same pattern: DevOps connectivity, Development building against mocks then real APIs, and a testing funnel before production. The DevOps foundation runs in the first month and enables everything after; the compressed window is only achievable because the two projects run in parallel and later channels reuse a proven core.
+        From a 1 November 2025 kickoff, the MVP (WhatsApp first flow) is the one hard commitment - live in December, well inside the window. The App, Bullet's priority, is targeted for the end-of-Q1-2026 deadline. Voice, Web, and every channel's post-launch Hyper Care and Optimization deliberately extend into Q2 2026. We protect the must-haves rather than forcing all five channels into five months.
       </Summary>
+
+      <Card accent title="What is committed vs sequenced">
+        <p><strong style={{ color: 'var(--color-text)' }}>Committed by end of Q1 2026:</strong> WhatsApp MVP, WhatsApp Full, and the Mobile App. <strong style={{ color: 'var(--color-text)' }}>Sequenced into Q2 2026:</strong> Voice, Web, and the Hyper Care + Optimization tail of every channel. The red dashed line on the chart is the Q1 2026 deadline - the App lands just inside it; nothing committed sits to the right of it.</p>
+      </Card>
 
       <GanttChart />
 
@@ -34,6 +38,14 @@ export default function Roadmap() {
 
       <Card title="5. Go-live">
         <p>Production launch. Glassix fallback active for the first week regardless of containment rate. Both Notch and Bullet on standby for the first 48 hours.</p>
+      </Card>
+
+      <Card title="6. Hyper Care">
+        <p>An intensive, time-boxed support window (2-3 weeks) immediately after go-live: elevated monitoring, a dedicated responder on standby, and a fast incident loop. The goal is to catch and resolve the surprises that only real traffic reveals, before the channel is treated as steady-state.</p>
+      </Card>
+
+      <Card title="7. Optimization">
+        <p>Once stable, each channel enters ongoing optimization: tuning prompts and guardrails against real conversations, expanding intent coverage, and lifting the containment rate. This phase has no hard end - it runs as the channel matures and deliberately extends past the Q1 2026 window.</p>
       </Card>
     </div>
   )

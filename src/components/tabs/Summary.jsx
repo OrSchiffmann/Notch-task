@@ -94,8 +94,8 @@ export default function SummaryTab() {
 
       {/* ===== ROADMAP ===== */}
       <Block title="Project Roadmap" links={<><Link to="roadmap">Roadmap</Link><Link to="resources">Resources</Link></>}>
-        <Row q="Phases (kickoff → prod)">Six per channel: DevOps connectivity → Discovery + mocks → Build → Real integration → Testing funnel → Go-live.</Row>
-        <Row q="Timeline & milestones">5 months: 1 Nov 2025 kickoff → end Q1 2026. WhatsApp MVP (early Dec) · WhatsApp Full (Jan) · App (end Feb) · Voice (mid Mar) · Web (end Mar).</Row>
+        <Row q="Phases (per channel)">Seven: DevOps connectivity → Discovery + mocks → Build → Testing funnel → Go-live → Hyper Care → Optimization.</Row>
+        <Row q="Timeline & milestones">1 Nov 2025 kickoff. Committed by end Q1 2026: MVP (Dec) · WhatsApp Full (Jan) · App (Mar). Sequenced into Q2 2026: Voice (Apr) · Web (May), plus each channel's Hyper Care + Optimization tail.</Row>
         <Row q="Prioritisation logic">WhatsApp first - has a Glassix fallback and is the first live test of the pipeline. App second - Bullet's priority, reuses the proven core. Voice, then Web. Within WhatsApp: Flow A + B + D before C.</Row>
         <Row q="Environment rollout">Dev → Staging → Production, in sequence. Each inherits a proven config from the one before; Production is built from a recipe that already worked twice.</Row>
         <Row q="Notch resources">IM · DevOps/Infra Engineer · 2 Platform Developers · AI/Prompt Engineer · QA/Test Engineer.</Row>
