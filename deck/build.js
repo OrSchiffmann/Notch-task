@@ -91,7 +91,7 @@ function chip(slide, x, y, text, fg, bg) {
   // right stat card
   card(s, 8.5, 2.35, 4.1, 4.3, NAVY, { line: { type: "none" }, shadow: true });
   s.addText("THE BENCHMARK WE DEFEND", { x: 8.5, y: 2.65, w: 4.1, h: 0.3, align: "center", color: "AEB8C7", bold: true, fontSize: 11, charSpacing: 2, fontFace: F, margin: 0 });
-  const stats = [["70-73%", "average automation"], ["~50%", "CS headcount reduction"], ["200%", "ROI within a year"]];
+  const stats = [["90%", "average automation"], ["~50%", "CS headcount reduction"], ["200%", "ROI within a year"]];
   let sy = 3.2;
   stats.forEach(([n, l]) => {
     s.addText(n, { x: 8.5, y: sy, w: 4.1, h: 0.62, align: "center", color: ORANGE, bold: true, fontSize: 40, fontFace: F, margin: 0 });
@@ -215,7 +215,7 @@ function chip(slide, x, y, text, fg, bg) {
   s.addText("Q4 2025", { x: tx, y: ty - 1.35, w: colW * 2, h: 0.25, align: "center", color: GRAY, bold: true, fontSize: 10.5, charSpacing: 1, fontFace: F, margin: 0 });
   s.addText("Q2 2026", { x: tx + colW * 5, y: ty - 1.35, w: colW * 2, h: 0.25, align: "center", color: GRAY, bold: true, fontSize: 10.5, charSpacing: 1, fontFace: F, margin: 0 });
   // milestones (month index fractional)
-  const ms = [[1.0, "MVP", "Dec", true], [2.3, "WA Full", "Jan", true], [4.5, "App", "Mar", true], [5.6, "Voice", "Apr", false], [6.4, "Web", "May", false]];
+  const ms = [[1.0, "WA V0", "Dec", true], [2.3, "WA V1", "Jan", true], [3.5, "WA V2", "Feb", true], [4.5, "App", "Mar", true], [5.6, "Voice", "Apr", false], [6.4, "Web", "May", false]];
   ms.forEach(([mi, lab, mon, committed]) => {
     const x = tx + mi * colW;
     diamond(s, x, ty, 0.26, committed ? ORANGE : MUTE);
@@ -226,11 +226,12 @@ function chip(slide, x, y, text, fg, bg) {
   card(s, M, 4.55, 5.85, 2.0, "F0FDF7", { line: { color: "BBF7D0", width: 1 } });
   s.addText("COMMITTED · by end Q1 2026", { x: M + 0.3, y: 4.75, w: 5.3, h: 0.3, color: "047857", bold: true, fontSize: 12, charSpacing: 1, fontFace: F, margin: 0 });
   s.addText([
-    { text: "WA V0 pilot", options: { bold: true } }, { text: " (Dec)  ·  ", options: {} },
-    { text: "WA Full + OTP", options: { bold: true } }, { text: " (Jan)  ·  ", options: {} },
+    { text: "WA V0", options: { bold: true } }, { text: " (Dec)  ·  ", options: {} },
+    { text: "WA V1", options: { bold: true } }, { text: " (Jan)  ·  ", options: {} },
+    { text: "WA V2", options: { bold: true } }, { text: " (Feb)  ·  ", options: {} },
     { text: "Mobile App", options: { bold: true } }, { text: " (Mar)", options: {} },
-  ], { x: M + 0.3, y: 5.15, w: 5.3, h: 0.5, color: INK, fontSize: 13, fontFace: F, margin: 0 });
-  s.addText("The App - Bullet's priority - lands just inside the deadline.", { x: M + 0.3, y: 5.75, w: 5.3, h: 0.6, color: BODY, fontSize: 11.5, italic: true, fontFace: F, margin: 0 });
+  ], { x: M + 0.3, y: 5.1, w: 5.3, h: 0.6, color: INK, fontSize: 12.5, fontFace: F, margin: 0 });
+  s.addText("V0-V2: WhatsApp pilot through complete. App - Bullet's priority - lands just inside the deadline.", { x: M + 0.3, y: 5.75, w: 5.3, h: 0.55, color: BODY, fontSize: 11.5, italic: true, fontFace: F, margin: 0 });
   const rx = W - M - 5.85;
   card(s, rx, 4.55, 5.85, 2.0, LIGHT, { line: { color: LINE, width: 1 } });
   s.addText("SEQUENCED · into Q2 2026", { x: rx + 0.3, y: 4.75, w: 5.3, h: 0.3, color: GRAY, bold: true, fontSize: 12, charSpacing: 1, fontFace: F, margin: 0 });

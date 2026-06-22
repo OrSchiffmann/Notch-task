@@ -6,11 +6,11 @@ export default function Roadmap() {
     <div>
       <SectionHeader eyebrow="TIMELINE" title="MVP committed, the rest sequenced" />
       <Summary>
-        From a 1 November 2025 kickoff, the MVP (WhatsApp V0 pilot) is the first live milestone, with WhatsApp Full close behind. The App - Bullet's priority - is targeted for the end-of-Q1-2026 deadline. Voice and Web extend into Q2 2026. Hyper Care starts immediately after each go-live; Optimization follows once a channel is stable. We protect the must-haves rather than forcing all five channels into five months.
+        From a 1 November 2025 kickoff, WhatsApp ships in three steps inside Q1 2026: V0 - Pilot (Dec) → V1 - Full (Jan) → V2 - Complete (Feb). The Mobile App - Bullet's priority - follows in March, just inside the Q1 2026 deadline. Voice and Web extend into Q2 2026. Hyper Care starts immediately after each go-live; WhatsApp Optimization starts only after V2 Hyper Care is complete.
       </Summary>
 
       <Card accent title="What is committed vs sequenced">
-        <p><strong style={{ color: 'var(--color-text)' }}>Committed by end of Q1 2026:</strong> WhatsApp V0 pilot, WhatsApp Full (with OTP), and the Mobile App. <strong style={{ color: 'var(--color-text)' }}>Sequenced into Q2 2026:</strong> Voice and Web. Hyper Care follows immediately after each go-live and may run into Q2 for later channels. Optimization starts once Hyper Care is complete. The red dashed line on the chart is the Q1 2026 deadline.</p>
+        <p><strong style={{ color: 'var(--color-text)' }}>Committed by end of Q1 2026:</strong> WhatsApp V0 (Dec) · V1 (Jan) · V2 (Feb) · Mobile App (Mar). <strong style={{ color: 'var(--color-text)' }}>Sequenced into Q2 2026:</strong> Voice and Web. Hyper Care follows immediately after each go-live. WhatsApp Optimization starts only after V2 Hyper Care is complete. The red dashed line on the chart is the Q1 2026 deadline.</p>
       </Card>
 
       <GanttChart />

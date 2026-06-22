@@ -19,25 +19,33 @@ const pct = x => `${(x / TOTAL) * 100}%`
 
 const channels = [
   {
-    id: 'wa-mvp', label: 'WhatsApp MVP', target: 1.2, committed: true,
+    id: 'wa-v0', label: 'WhatsApp V0 (Pilot)', target: 1.2, committed: true,
     bars: [
       { type: 'devops', name: 'WS1 - Hello World', start: 0.1, end: 0.35 },
       { type: 'devops', name: 'WS2 - Base Binary', start: 0.6, end: 0.85 },
       { type: 'dev',    name: 'Discovery + mocks', start: 0.1, end: 0.7 },
-      { type: 'dev',    name: 'Build + integration', start: 0.5, end: 1.2 },
+      { type: 'dev',    name: 'Build + integration (A+B1+C+D)', start: 0.5, end: 1.2 },
       { type: 'testing', name: 'Stage testing + Bullet UAT', start: 1.0, end: 1.4 },
       { type: 'hypercare', name: 'Hyper Care', start: 1.2, end: 1.6 },
-      { type: 'optimization', name: 'Optimization', start: 1.6, end: 2.6 },
     ],
   },
   {
-    id: 'wa-full', label: 'WhatsApp Full', target: 2.4, committed: true,
+    id: 'wa-v1', label: 'WhatsApp V1 (Full)', target: 2.4, committed: true,
     bars: [
-      { type: 'devops', name: 'Auth provider + data APIs', start: 1.2, end: 1.7 },
-      { type: 'dev',    name: 'OTP + data + hardening', start: 1.3, end: 2.3 },
+      { type: 'devops', name: 'Auth provider + data APIs', start: 1.5, end: 1.9 },
+      { type: 'dev',    name: 'Flow B expansion (all intents)', start: 1.6, end: 2.3 },
       { type: 'testing', name: 'Stage + UAT + pentest', start: 2.0, end: 2.5 },
       { type: 'hypercare', name: 'Hyper Care', start: 2.4, end: 2.8 },
-      { type: 'optimization', name: 'Optimization', start: 2.8, end: 3.8 },
+    ],
+  },
+  {
+    id: 'wa-v2', label: 'WhatsApp V2 (Complete)', target: 3.6, committed: true,
+    bars: [
+      { type: 'devops', name: 'Website + scraping infra', start: 2.5, end: 3.0 },
+      { type: 'dev',    name: 'Full KB + hardening + scraping', start: 2.6, end: 3.5 },
+      { type: 'testing', name: 'Stage + UAT', start: 3.2, end: 3.7 },
+      { type: 'hypercare', name: 'Hyper Care', start: 3.6, end: 4.0 },
+      { type: 'optimization', name: 'Optimization (all WA stages done)', start: 4.0, end: 5.5 },
     ],
   },
   {
@@ -73,8 +81,9 @@ const channels = [
 ]
 
 const milestones = [
-  { at: 1.2, label: 'MVP' },
-  { at: 2.4, label: 'WA Full' },
+  { at: 1.2, label: 'WA V0' },
+  { at: 2.4, label: 'WA V1' },
+  { at: 3.6, label: 'WA V2' },
   { at: 4.7, label: 'App' },
   { at: 5.6, label: 'Voice' },
   { at: 6.4, label: 'Web' },

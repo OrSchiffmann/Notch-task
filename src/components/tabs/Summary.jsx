@@ -77,7 +77,7 @@ export default function SummaryTab() {
         </p>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '8px 24px' }}>
           {[
-            'WhatsApp MVP live and safe - containment at or above the 70-73% benchmark on covered intents.',
+            'WhatsApp MVP live and safe - containment at or above the 90% benchmark on covered intents.',
             'App live by end of Q1 2026 - the priority deadline hit.',
             'Glassix safety net holds - every failure recovers to a human, zero dead ends.',
             'Zero compliance breaches on personal or financial data.',
@@ -95,7 +95,7 @@ export default function SummaryTab() {
       {/* ===== ROADMAP ===== */}
       <Block title="Project Roadmap" links={<><Link to="roadmap">Roadmap</Link><Link to="resources">Resources</Link></>}>
         <Row q="Phases (per channel)">Seven: DevOps connectivity → Discovery + mocks → Build → Testing funnel → Go-live → Hyper Care → Optimization.</Row>
-        <Row q="Timeline & milestones">1 Nov 2025 kickoff. Committed by end Q1 2026: WhatsApp V0 pilot (Dec) · WhatsApp Full with OTP (Jan) · App (Mar). Sequenced into Q2 2026: Voice (Apr) · Web (May). Hyper Care starts immediately after each go-live. Optimization starts once a channel's Hyper Care is complete.</Row>
+        <Row q="Timeline & milestones">1 Nov 2025 kickoff. Committed by end Q1 2026: WhatsApp V0 (Dec) · WhatsApp V1 (Jan) · WhatsApp V2 (Feb) · App (Mar). Sequenced into Q2 2026: Voice (Apr) · Web (May). Hyper Care starts immediately after each go-live. Optimization for WhatsApp starts only after V2 Hyper Care is complete.</Row>
         <Row q="Prioritisation logic">WhatsApp first - has a Glassix fallback and is the first live test of the pipeline. App second - Bullet's priority, reuses the proven core. Voice, then Web. Within WhatsApp: Flow A + B + D before C.</Row>
         <Row q="Environment rollout">Dev → Staging → Production, in sequence. Each inherits a proven config from the one before; Production is built from a recipe that already worked twice.</Row>
         <Row q="Notch resources">PM (delivery lead) · IM (business/advisory) · Product · DevOps/Infra Engineer · 2 Platform Developers · AI/Prompt Engineer · QA/Test Engineer.</Row>

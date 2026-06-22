@@ -118,7 +118,7 @@ export default function MvpDod() {
       <Table
         headers={['Type', 'Metric', 'Target / detail']}
         rows={[
-          ['Business', 'Containment rate', '% of conversations resolved end-to-end without a human. The headline. Based on Notch\'s internal deployment benchmarks (70-73%); the specific target for this engagement should be confirmed at kickoff, calibrated against Bullet\'s intent mix.'],
+          ['Business', 'Containment rate', '% of conversations resolved end-to-end without a human. The headline. Based on Notch\'s internal deployment benchmarks (90%); the specific target for this engagement should be confirmed at kickoff, calibrated against Bullet\'s intent mix.'],
           ['Business', 'Handoff quality', '% of handoffs that arrive with context preserved.'],
           ['Technical', 'Answer accuracy', 'Validated correctness on agreed top intents. Can also be tracked as the re-contact rate: conversations where the customer had to follow up with the same query, indicating the answer did not resolve the issue.'],
           ['Technical', 'Availability / latency', 'Uptime and response time within agreed targets.'],
