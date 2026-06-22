@@ -98,15 +98,15 @@ export default function SummaryTab() {
         <Row q="Timeline & milestones">1 Nov 2025 kickoff. Committed by end Q1 2026: WhatsApp V0 pilot (Dec) · WhatsApp Full with OTP (Jan) · App (Mar). Sequenced into Q2 2026: Voice (Apr) · Web (May). Hyper Care starts immediately after each go-live. Optimization starts once a channel's Hyper Care is complete.</Row>
         <Row q="Prioritisation logic">WhatsApp first - has a Glassix fallback and is the first live test of the pipeline. App second - Bullet's priority, reuses the proven core. Voice, then Web. Within WhatsApp: Flow A + B + D before C.</Row>
         <Row q="Environment rollout">Dev → Staging → Production, in sequence. Each inherits a proven config from the one before; Production is built from a recipe that already worked twice.</Row>
-        <Row q="Notch resources">PM (delivery lead) · IM (business/advisory) · DevOps/Infra Engineer · 2 Platform Developers · AI/Prompt Engineer · QA/Test Engineer.</Row>
+        <Row q="Notch resources">PM (delivery lead) · IM (business/advisory) · Product · DevOps/Infra Engineer · 2 Platform Developers · AI/Prompt Engineer · QA/Test Engineer.</Row>
         <Row q="Bullet resources">Owner (critical - single coordination point) · DevOps/Cloud Engineer · API owners · Security/Compliance lead · QA. Services: 3 cloud environments, GPU for the LLM, artifact storage, security scanning, BI + observability systems, 3rd-party subscriptions.</Row>
       </Block>
 
       {/* ===== MVP ===== */}
       <Block title="MVP & Definition of Done" links={<Link to="mvp">MVP &amp; DOD</Link>}>
         <Row q="First channel">WhatsApp - the only channel with a built-in human fallback (Glassix). Ships in two steps: V0 pilot (one FAQ flow, proves the pipeline), then V1 full (all flows including OTP identity).</Row>
-        <Row q="V0 (pilot)">Flow A (routing + Glassix) + Flow B (one intent only) + Flow D baseline. Narrowest live increment - proves pipeline, gets first containment number.</Row>
-        <Row q="V1 (WhatsApp Full)">V0 + Flow C (OTP + identity) + Flow B expanded + Flow D hardened. First complete experience - customer identified from first interaction.</Row>
+        <Row q="V0 (pilot)">All four flows live from day one: Flow A (routing + Glassix) + Flow B (1 intent only) + Flow C (OTP identity) + Flow D (compliance baseline). All capabilities present; knowledge coverage intentionally narrow.</Row>
+        <Row q="V1 (WhatsApp Full)">V0 unchanged + Flow B expanded to all remaining top intents. This is the only difference between V0 and V1.</Row>
         <Row q="V2">Full KB (all intents, not just top-N), prompt hardening, website scraping. WhatsApp complete.</Row>
         <Row q="Success metrics">Business: containment rate (headline; based on Notch benchmarks, calibrate with Bullet at kickoff), handoff quality. Technical: answer accuracy / re-contact rate, availability/latency. Compliance: guardrail pass rate.</Row>
         <Row q="DOD highlights">Flow A: clean handoff with context, BI dashboard live. Flow B: top intents validated, zero hallucinated answers, tests green. Flow C: in-flow OTP verify, graceful failure, no data pre-verify, audited. Flow D: guardrail pass rate meets threshold.</Row>

@@ -246,26 +246,25 @@ function chip(slide, x, y, text, fg, bg) {
   s.background = { color: WHITE };
   sectionTag(s, "06", "MVP & DOD");
   title(s, "Start small, go live fast");
-  s.addText("V0 = one FAQ flow (pipeline pilot). V1 (WhatsApp Full) = all flows + OTP - because customers must be identified from the first full release.", { x: M, y: 2.15, w: 10, h: 0.4, color: BODY, fontSize: 14, fontFace: F, margin: 0 });
-  // IN column
-  card(s, M, 2.8, 5.6, 2.65, WHITE, { shadow: true });
-  s.addText("V0 - PILOT (WHATSAPP MVP)", { x: M + 0.35, y: 3.05, w: 5, h: 0.3, color: "047857", bold: true, fontSize: 13, charSpacing: 1, fontFace: F, margin: 0 });
-  [["Flow A", "Routing & Handoff - IVR replace + Glassix"], ["Flow B", "ONE intent - proves pipeline, first containment"], ["Flow D", "Guardrail baseline - minimum compliance gate"]].forEach(([a, b], i) => {
-    const yy = 3.5 + i * 0.55;
-    s.addText("✓", { x: M + 0.35, y: yy, w: 0.3, h: 0.35, color: GREEN, bold: true, fontSize: 14, fontFace: F, margin: 0 });
-    s.addText([{ text: a + " ", options: { bold: true, color: INK } }, { text: "- " + b, options: { color: BODY } }], { x: M + 0.7, y: yy, w: 4.7, h: 0.45, valign: "middle", fontSize: 12.5, fontFace: F, margin: 0 });
+  s.addText("All four flows (A, B, C, D) are live in V0. The only change in V1 is Flow B coverage: one intent in V0, all remaining intents in V1.", { x: M, y: 2.15, w: 10, h: 0.4, color: BODY, fontSize: 14, fontFace: F, margin: 0 });
+  // V0 column
+  card(s, M, 2.8, 5.6, 2.8, WHITE, { shadow: true });
+  s.addText("V0 - PILOT · ALL FOUR FLOWS", { x: M + 0.35, y: 3.05, w: 5, h: 0.3, color: "047857", bold: true, fontSize: 12.5, charSpacing: 1, fontFace: F, margin: 0 });
+  [["Flow A", "Routing & Handoff - IVR + Glassix fallback"], ["Flow B", "ONE intent only - proves pipeline, first containment"], ["Flow C", "OTP + identity - customer identified from day one"], ["Flow D", "Safety & Compliance baseline - always on"]].forEach(([a, b], i) => {
+    const yy = 3.45 + i * 0.5;
+    s.addText("✓", { x: M + 0.35, y: yy, w: 0.3, h: 0.35, color: GREEN, bold: true, fontSize: 13, fontFace: F, margin: 0 });
+    s.addText([{ text: a + " ", options: { bold: true, color: INK } }, { text: "- " + b, options: { color: BODY } }], { x: M + 0.7, y: yy, w: 4.7, h: 0.42, valign: "middle", fontSize: 12, fontFace: F, margin: 0 });
   });
-  s.addText("Then V1 (WhatsApp Full): all flows A+B+C+D including OTP identity verification.", { x: M + 0.35, y: 5.1, w: 5.0, h: 0.3, color: "047857", fontSize: 11, italic: true, fontFace: F, margin: 0 });
-  // OUT column
+  // V1/V2 column
   const ox = M + 5.9;
-  card(s, ox, 2.8, 5.6, 2.65, LIGHT, { line: { color: LINE, width: 1 } });
-  s.addText("V2 - WHATSAPP COMPLETE", { x: ox + 0.35, y: 3.05, w: 5, h: 0.3, color: GRAY, bold: true, fontSize: 13, charSpacing: 1, fontFace: F, margin: 0 });
-  [["Full KB", "all intents indexed, not just top-N"], ["Prompt hardening", "adversarial + injection testing"], ["Website scraping", "Bullet's web content auto-indexed"]].forEach(([a, b], i) => {
-    const yy = 3.5 + i * 0.55;
-    s.addText(a + ":", { x: ox + 0.35, y: yy, w: 1.5, h: 0.45, valign: "middle", bold: true, color: INK, fontSize: 12.5, fontFace: F, margin: 0 });
-    s.addText(b, { x: ox + 1.85, y: yy, w: 3.8, h: 0.45, valign: "middle", color: BODY, fontSize: 12.5, fontFace: F, margin: 0 });
+  card(s, ox, 2.8, 5.6, 2.8, LIGHT, { line: { color: LINE, width: 1 } });
+  s.addText("V1 - WHATSAPP FULL", { x: ox + 0.35, y: 3.05, w: 5, h: 0.3, color: GRAY, bold: true, fontSize: 12.5, charSpacing: 1, fontFace: F, margin: 0 });
+  s.addText("= V0 unchanged + Flow B expanded (all remaining top intents). This is the only difference.", { x: ox + 0.35, y: 3.4, w: 5.0, h: 0.5, color: BODY, fontSize: 12, fontFace: F, margin: 0 });
+  s.addText("V2 - WHATSAPP COMPLETE", { x: ox + 0.35, y: 4.05, w: 5, h: 0.3, color: GRAY, bold: true, fontSize: 12.5, charSpacing: 1, fontFace: F, margin: 0 });
+  [["Full KB:", "all intents, not just top-N"], ["Hardening:", "adversarial + prompt injection"], ["Scraping:", "Bullet's web content auto-indexed"]].forEach(([a, b], i) => {
+    const yy = 4.4 + i * 0.43;
+    s.addText([{ text: a + " ", options: { bold: true, color: INK } }, { text: b, options: { color: BODY } }], { x: ox + 0.35, y: yy, w: 5.0, h: 0.38, valign: "middle", fontSize: 12, fontFace: F, margin: 0 });
   });
-  s.addText("App / Voice / Web: own rollouts after WhatsApp is complete.", { x: ox + 0.35, y: 5.1, w: 5.0, h: 0.3, color: GRAY, fontSize: 11, italic: true, fontFace: F, margin: 0 });
   // success metrics strip
   s.addText("SUCCESS METRICS", { x: M, y: 5.7, w: 4, h: 0.3, color: GRAY, bold: true, fontSize: 11.5, charSpacing: 2, fontFace: F, margin: 0 });
   const metrics = [["Containment", "% resolved E2E (calibrate target at kickoff)", ORANGE], ["Handoff quality", "% handed off with context", BLUE], ["Compliance", "guardrail pass rate - zero PII tolerance", GREEN]];
@@ -317,23 +316,23 @@ function chip(slide, x, y, text, fg, bg) {
   title(s, "Who we need on both sides");
   const colW = 5.7;
   // Notch
-  card(s, M, 2.35, colW, 4.55, WHITE, { shadow: true });
+  card(s, M, 2.35, colW, 4.65, WHITE, { shadow: true });
   s.addShape(S.RECTANGLE, { x: M, y: 2.35, w: colW, h: 0.6, fill: { color: ORANGE }, line: { type: "none" } });
   s.addText("NOTCH TEAM", { x: M + 0.35, y: 2.35, w: colW - 0.7, h: 0.6, valign: "middle", color: WHITE, bold: true, fontSize: 15, charSpacing: 1, fontFace: F, margin: 0 });
-  [["Project Manager", "delivery lead, dependency tracker, external sync"], ["Implementation Manager", "business relationship, scope decisions (advisory)"], ["DevOps / Infra Engineer", "owns the on-prem foundation"], ["2 × Platform Developers", "the core build capacity"], ["AI / Prompt Engineer", "agents, guardrails, tuning"], ["QA / Test Engineer", "owns the testing funnel"]].forEach(([a, b], i) => {
-    const yy = 3.1 + i * 0.6;
-    diamond(s, M + 0.45, yy + 0.14, 0.16, ORANGE);
-    s.addText([{ text: a, options: { bold: true, color: INK } }, { text: "   " + b, options: { color: GRAY, fontSize: 11 } }], { x: M + 0.7, y: yy, w: colW - 1.0, h: 0.42, valign: "middle", fontSize: 13, fontFace: F, margin: 0 });
+  [["Project Manager", "delivery lead, dependency tracker, external sync"], ["Implementation Manager", "business relationship, scope decisions (advisory)"], ["Product", "requirements, backlog, acceptance criteria"], ["DevOps / Infra Engineer", "owns the on-prem foundation"], ["2 × Platform Developers", "the core build capacity"], ["AI / Prompt Engineer", "agents, guardrails, tuning"], ["QA / Test Engineer", "owns the testing funnel"]].forEach(([a, b], i) => {
+    const yy = 3.05 + i * 0.52;
+    diamond(s, M + 0.45, yy + 0.13, 0.15, ORANGE);
+    s.addText([{ text: a, options: { bold: true, color: INK } }, { text: "   " + b, options: { color: GRAY, fontSize: 10.5 } }], { x: M + 0.7, y: yy, w: colW - 1.0, h: 0.4, valign: "middle", fontSize: 12.5, fontFace: F, margin: 0 });
   });
   // Bullet
   const bx = W - M - colW;
-  card(s, bx, 2.35, colW, 4.55, WHITE, { shadow: true });
+  card(s, bx, 2.35, colW, 4.65, WHITE, { shadow: true });
   s.addShape(S.RECTANGLE, { x: bx, y: 2.35, w: colW, h: 0.6, fill: { color: NAVY }, line: { type: "none" } });
   s.addText("BULLET TEAM  ·  the critical path", { x: bx + 0.35, y: 2.35, w: colW - 0.7, h: 0.6, valign: "middle", color: WHITE, bold: true, fontSize: 15, charSpacing: 1, fontFace: F, margin: 0 });
   [["Owner", "single coordination point - the must-have"], ["DevOps / Cloud Engineer", "provisions envs, access, GPU"], ["API / Backend owners", "Swagger + comprehension Q&A"], ["Security / Compliance lead", "scanning, pentest, prod access"], ["QA", "top intents, UAT, AI response correctness"]].forEach(([a, b], i) => {
-    const yy = 3.1 + i * 0.6;
-    diamond(s, bx + 0.45, yy + 0.14, 0.16, NAVY);
-    s.addText([{ text: a, options: { bold: true, color: INK } }, { text: "   " + b, options: { color: GRAY, fontSize: 11 } }], { x: bx + 0.7, y: yy, w: colW - 1.0, h: 0.42, valign: "middle", fontSize: 13, fontFace: F, margin: 0 });
+    const yy = 3.05 + i * 0.52;
+    diamond(s, bx + 0.45, yy + 0.13, 0.15, NAVY);
+    s.addText([{ text: a, options: { bold: true, color: INK } }, { text: "   " + b, options: { color: GRAY, fontSize: 10.5 } }], { x: bx + 0.7, y: yy, w: colW - 1.0, h: 0.4, valign: "middle", fontSize: 12.5, fontFace: F, margin: 0 });
   });
   footer(s, 9);
 })();

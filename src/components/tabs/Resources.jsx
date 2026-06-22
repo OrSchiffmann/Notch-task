@@ -34,6 +34,7 @@ export default function Resources() {
         rows={[
           ['Project Manager', <Proj p="Both" />, 'Single point of accountability for delivery. Owns the dependency tracker, runs the weekly external sync with Bullet, escalates blockers, manages scope.', 'Full'],
           ['Implementation Manager', <Proj p="Both" />, 'Manages the business relationship with Bullet. Translates business requirements into project scope, ensures Bullet\'s business stakeholders are aligned with the plan, and owns scope change decisions.', 'Part-time / advisory'],
+          ['Product', <Proj p="Product" />, 'Defines product requirements and feature scope. Owns the backlog, translates Bullet\'s business needs into buildable stories, and interfaces with Bullet\'s QA on acceptance criteria and go-live readiness.', 'Full'],
           ['DevOps / Infrastructure Engineer', <Proj p="DevOps" />, 'Owns the on-prem foundation: workshops, binary pipeline, environment rollout, artifact storage, LLM deployment spec, access coordination.', 'Full'],
           ['Platform Developers (2)', <Proj p="Product" />, 'Build the flows on Notch\'s platform. Mock-first, then real integration. The core build capacity.', 'Full'],
           ['AI / Prompt Engineer', <Proj p="Product" />, 'Agent behaviour, guardrails, LLM integration, response tuning against Bullet\'s knowledge base and compliance rules.', 'Full → tapering'],
